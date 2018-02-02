@@ -20,8 +20,6 @@ Requirements
 * Python 2.7
 * Django CMS 3.4+
 
-.. _django-cms: https://github.com/divio/django-cms
-
 Installation
 ----------------------------
 
@@ -39,3 +37,5 @@ Installation
 
     $ python manage.py migrate
 
+Running Locally
+----------------------------
