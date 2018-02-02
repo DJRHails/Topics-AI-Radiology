@@ -1,3 +1,0 @@
-# Requirements for many PaaS (as Heroku)
-
--r requirements/production.txt

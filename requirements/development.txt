@@ -1,5 +1,0 @@
-# Development requirements
-
--r base.txt
-
-django-debug-toolbar==1.6
