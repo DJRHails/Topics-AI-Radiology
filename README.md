@@ -1,13 +1,4 @@
-===============================
 website
-===============================
-
-.. image:: https://badge.fury.io/py/Topics-AI-Radiology.png
-    :target: http://badge.fury.io/py/Topics-AI-Radiology
-
-.. image:: https://pypip.in/d/Topics-AI-Radiology/badge.png
-    :target: https://crate.io/packages/Topics-AI-Radiology?version=latest
-
 
 Topics website for Imperial 1st Year
 
