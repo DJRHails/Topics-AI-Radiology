@@ -1,0 +1,32 @@
+Thanks, Tiger. That sounds very good, and is a very suitable topic.
+ 
+Just a note, that currently CNNs are mostly used to detect, localise and segment brain tumours for quantitative analysis, rather than making the actual diagnosis. But you can explore this as part of your research.
+ 
+Best, Ben
+
+--
+
+Hi Ben,
+ 
+We have had a group meeting today and discussed that we would like to make our website and presentation on the sub-topic of Technology in AI and radiology, looking at the sub-sub-topic: Diagnosis of brain tumors using MRI imagery.
+ 
+we intend to look at several techniques in which neural nets are used to diagnose brain tumors, comparing them to traditional methods that doctors use.
+ 
+Is this suitable and is the topic still free?
+ 
+Many thanks
+ 
+Tiger
+
+--
+
+Dear all,
+ 
+I understand you are the group leaders of the four groups assigned to the topic Medical Image Computing.
+ 
+Could we please meet tomorrow, Friday Jan 26th, at 16:00 in my office 377? This is to discuss your first steps for your projects. It should be fine if only the group leaders attend, but if you want you can bring one additional member of your group (for more there is no space in my office, I'm afraid).
+ 
+Let me know in case you cannot make the meeting tomorrow.
+ 
+Best wishes
+Ben
