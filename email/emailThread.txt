@@ -1,3 +1,17 @@
+Hi Ben,
+
+The Topics slides specify that we should contact you in the 5th week to organise an optional Progress meeting where we discuss how the group is getting on with regards to the research quantity and quality. 
+
+My group has communicated to me most of their research in our latest meeting so I'll relay this to you to ensure that we're on the right track. 
+
+When would be convenient for you?
+
+Regards
+
+Tiger
+
+--
+
 Thanks, Tiger. That sounds very good, and is a very suitable topic.
  
 Just a note, that currently CNNs are mostly used to detect, localise and segment brain tumours for quantitative analysis, rather than making the actual diagnosis. But you can explore this as part of your research.
