@@ -16,6 +16,8 @@ build
 tmp/*
 *.swp
 *~
+datasets/*
+python/Labels/
 *.log.*
 *.log
 *.db
