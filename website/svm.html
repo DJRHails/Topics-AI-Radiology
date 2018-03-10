@@ -23,19 +23,24 @@
           </div>
         </section>
 
-      <!-- Two -->
-        <section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in">
-          <div class="content">
-            <h2>What are SVMs?</h2> <!-- Home page content from git wiki-->
-            <p>“Support Vector Machine” (SVM) refers to a supervised machine learning algorithm which can be used for both classification or regression challenges.<sup>1</sup></p>
-            <p>Consider an n-dimensional space. Support vectors refer to the individual co-ordinates in the space, and are data points collected by individual observation. 'n' refers to the number of features which each data point would have. The support vector machine is the hyper-plane that divides the space and separates the data points into classes.<sup>1</sup></p>
+				<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="first">
+					<div class="content">
+						<h2>What are SVMs?</h2>
+						<p>“Support Vector Machine” (SVM) refers to a supervised machine learning algorithm which can be used for both classification or regression challenges.<sup>1</sup>
+							<br>
+							<br>
+							Consider an n-dimensional space.
+							Support vectors refer to the individual co-ordinates in the space, and are the data points collected by individual observation.
+							'n' refers to the number of features which each data point would have.
+							The support vector machine is the hyper-plane that divides the space and separates the data points into classes.<sup>1</sup>
+						</p>
           </div>
-          <div class="image">
-            <img src="images/spotlight01.jpg" alt="" />
-          </div>
-        </section>
+					<div class="image">
+						<img src="images/spotlight01.jpg" alt="" />
+					</div>
+				</section>
 
-      <!-- Three -->
+
         <section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
           <div class="content">
             <h2>What are the goals of SVM?</h2> <!-- Cancer Summary content from git wiki-->
@@ -53,21 +58,46 @@
 
         <section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" >
           <div class="content">
-            <h2>How do they work?</h2>
-            <p></p>
-          </div>
+            <h2>How do they work on linearly separable classes?</h2>
+            <p>If the classes are linearly separable, then there must exist a linear hyper-plane that divides the classes accurately.
+							The task therefore its to find this linear optimal separating hyper-plane.
+							<br>
+							The linear hyper-plane will have the form:
+							<br>
+							<br>
+							<math>
+								f(x) = w<sup>T</sup>x + b
+							</math>
+							<ul> Where:
+								 <li><math>x</math> is the input vector (the features)</li>
+								 <li><math>w</math> is the weight vector (that applies weight to each feature)</li>
+								 <li><math>b</math> is the bias (translates the hyper-plane)</li>
+						  </ul>
+							Training the SVM can be done using the Perceptron algorithm which cycles through the training data points, and if the data point isn't classified correctly, then the weights in w are updated in order to accomodate the new data point. This occurs until a cycle occurs with no changes.<sup>3</sup>
+						</p>
+					</div>
           <div class="image">
-            <img src="images/spotlight01.jpg" alt="" />
+            <img src="images/svmlinearexample.png" alt="" />
           </div>
         </section>
 
         <section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
           <div class="content">
-            <h2>Image Segmentation</h2> <!-- Cancer Summary content from git wiki-->
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id ante sed ex pharetra lacinia sit amet vel massa. Donec facilisis laoreet nulla eu bibendum. Donec ut ex risus. Fusce lorem lectus, pharetra pretium massa et, hendrerit vestibulum odio lorem ipsum dolor sit amet.</p>
-            <ul class="actions vertical">
-              <li><a href="#" class="button">Learn More</a></li>
-            </ul>
+            <h2>How do they work on non-linearly separable classes?</h2>
+            <p>
+							When the classes are non-linearly separable, a kernel is used.
+							A kernel is a mathematical function that transforms a low-dimensional input space into a high-dimensional space, allowing classes to become linearly separable.
+							Once the input data has been transformed, the SVM can be trained in the same way as linearly-separable classes.<sup>1</sup>
+							<br>
+							Kernels often used for MRI brain tumour classification include <sup>2</sub>:
+							<ul>
+								<li>Linear: <math>K(X,X') = X<sup>T</sup>X' </math></li>
+								<li>Quadratic: <math>K(X,X') = (1 + X<sup>T</sup>X')<sup>2</sup></math></li>
+								<li>Polynomial: <math></math>K(X,X') = (1 + X<sup>T</sup>X')<sup>d</sup></li>
+								<li>Radial Basic Function: <math>K(X, X') = exp(-||X-X'||<sup>2</sup>/2a<sup>2</sup>)</math> where a is a free parameter</li>
+							</ul>
+							The choice of kernel is not obvious, and so determining the optimal hyper-plane involves testing with different kernels.
+						 </p>
           </div>
           <div class="image">
             <img src="images/spotlight02.jpg" alt="" />
@@ -77,14 +107,11 @@
       <!-- Four -->
         <section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in">
           <div class="content">
-            <h2>Support Vector Machines</h2>
-            <p>SVMs are a type of supervised machine learning method, useful in classification problems. Therefore they have been proposed extensively for classifying brain tumours as malignant or benign from MRI images, showing great accuracy.</p>
+            <h2>What features do we extract from MRI images?</h2>
+            <p></p>
             <ul class="actions vertical">
               <li><a href="svm.html" class="button">Learn More</a></li>
             </ul>
-          </div>
-          <div class="image">
-            <img src="images/SVM.png" alt="" />
           </div>
         </section>
 
