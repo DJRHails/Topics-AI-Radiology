@@ -16,7 +16,7 @@
     <div id="wrapper" class="divided">
       <section class="banner onload-content-fade-right style2 fullscreen orient-center content-align-center image-position-center invert">
         <div class="content">
-          <h1>MRI scan results can take up to 10&#37; of the average survival time.</h1>
+          <h1>The period from referral to test result can take up to 10&#37; of the average survival time.</h1>
           <p><b>4753</b> people where waiting longer than 6 weeks for MRI scan results <a id="foot-2-ref" href="#foot-2"><sup>[2]</sup></a> and Glioblastoma, the most common high grade brain tumor, has an <b>average</b> survival time 12-18 months <a id="foot-4-ref" href="#foot-4"><sup>[4]</sup></a></p>
           <ul class="actions vertical">
             <li>
@@ -48,14 +48,15 @@
               </header>
               <div class="content">
                 The majority of primary brain tumors originate from glial cells (hence called Glioma) and are classified using the World Health Organisation (WHO) system <a id="foot-1-ref" href="#foot-1" class="smooth-scroll"><sup>[1]</sup></a> into low-grade glioma (LGG) (grades I and II) and high-grade glioma (grade II anaplastic glioma and grade IV glioblastoma).
-
                 <ul>
                   <li><b>Grade I:</b> The tissue is benign. The cells look nearly like normal brain cells and cell growth is slow.</li>
                   <li><b>Grade II:</b> The tissue is malignant. The cells look less like normal cells than in grade I.</li>
                   <li><b>Grade III:</b> Abnormal cells are actively growing.</li>
                   <li><b>Grade IV:</b> Malignant tissue is most abnormal and very aggressive.</li>
                 </ul>
-
+                <span class="image fit">
+                 <img src="images/sample/glioma.jpg"/>
+               </span>
                 <h3>High Grade</h3>
                 <p>
                   <b>Cases each year (US)<sup>1</sup>:</b> 12,000 <br>
@@ -74,6 +75,7 @@
           <p>
             As the most common diagnostic tool for brain tumors due to it's non-invasive nature and ability to image diverse tissue types and physiologogical processes.<br>
             There is a need for accurate and fully automated methods as manual segmentation (ADD LINK) around tumour margins on a slice-by-slice basis can take 12 minutes or more per tumor per sequence, with semi-automatic methods (ADD LINK) taking 3-5 mins <a id="foot-5-ref" href="#foot-5" class="smooth-scroll"><sup>[5]</sup></a> and automated segmentation that is not vulnerable to operator subjectivity may be beneficial <a id="foot-6-ref" href="#foot-6" class="smooth-scroll"><sup>[6]</sup></a>.<br>
+            <hr>
             All images come from the custom python scripts (ADD LINK?) using data from the BRATS <a id="foot-7-ref" href="#foot-7" class="smooth-scroll"><sup>[7]</sup></a> dataset.
           </p>
           <div class="index align-left">
@@ -83,7 +85,9 @@
                 <h2>Slices</h2>
               </header>
               <div class="content">
-              IMG SLICES <br>
+               <span class="image fit">
+                <img src="images/sample/slices.jpg"/>
+              </span>
               MRI uses a magnetic gradient and radio frequency pulses to take repetitive axial slices of the brain and reconstruct a 3-dimentional representation. Each brain scans 155 slices, with each pixel representing a 1mm<sup>3</sup> voxel.
               </div>
             </section>
@@ -94,25 +98,23 @@
               </header>
               <div class="content">
 
-          <div class="gallery style2 medium lightbox onscroll-fade-in"><div class="modal" tabindex="-1"><div class="inner"><img src=""></div></div><div class="forward"></div><div class="backward"></div><div class="inner" style="overflow: hidden;">
+          <div class="gallery style1 big onscroll-fade-in">
   								<article>
-  									<a href="images/sample/sequences/T1.jpg" class="image">
-  										<img src="images/sample/sequences/thumbs/T1.jpg" alt="">
+  									<a class="image">
+  										<img src="images/sample/sequences/T1.jpg" alt="">
   									</a>
   									<div class="caption">
   										<h3>T1</h3>
                       <ul>
-                        <li>Water, such as CSF, as well as dense bone ad air appear dark.</li>
+                        <li>Water, such as CSF, as well as dense bone ad air appear dark.<a id="foot-8-ref" href="#foot-8" class="smooth-scroll"><sup>[8]</sup></a></li>
                         <li>Fat, such as lipids in the white matter, appear bright</li>
-                        <li>Contrast between neocortex and white matter is best</li>
-                        <li>Some contrast between gray matter and white matter</li>
                         <li>Pathological processes often increase water content that decreases signal on T1</li>
-                      </ul><a id="foot-8-ref" href="#foot-8" class="smooth-scroll"><sup>[8]</sup></a></p>
+                      </ul></p>
   									</div>
   								</article>
   								<article>
-  									<a href="images/sample/sequences/T1Gd.jpg" class="image">
-  										<img src="images/sample/sequences/thumbs/T1Gd.jpg" alt="">
+  									<a class="image">
+  										<img src="images/sample/sequences/T1Gd.jpg" alt="">
   									</a>
   									<div class="caption">
   										<h3>Post-Gadolinium T1</h3>
@@ -122,8 +124,8 @@
   									</div>
   								</article>
   								<article>
-  									<a href="images/sample/sequences/T2.jpg" class="image">
-  										<img src="images/sample/sequences/thumbs/T2.jpg" alt="">
+  									<a class="image">
+  										<img src="images/sample/sequences/T2.jpg" alt="">
   									</a>
   									<div class="caption">
   										<h3>T2</h3>
@@ -137,20 +139,32 @@
   									</div>
   								</article>
   								<article>
-  									<a href="images/sample/sequences/FLAIR.jpg" class="image">
-  										<img src="images/sample/sequences/thumbs/FLAIR.jpg" alt="">
+  									<a class="image">
+  										<img src="images/sample/sequences/FLAIR.jpg" alt="">
   									</a>
   									<div class="caption">
   										<h3>FLAIR</h3>
   										<p>Flair images have a signal from free fluid - such as cerebrospinal fluid in the ventricles - is supressed (compare T2 and FLAIR). High signal seen on these images indicates a pathological process such as infection, tumor or areas of demyelination.</p>
   									</div>
-  								</article>  							</div></div>
-              Gliomas typically originate within white matter and thus exhibit growth along white matter fibres, as a result they have irregular boundaries that are indistinct on conventional magnetic resonance.<br>
+  								</article>
+                </div>
+            <p>  Gliomas typically originate within white matter and thus exhibit growth along white matter fibres, as a result they have irregular boundaries that are indistinct on conventional magnetic resonance.<br>
               BraTS dataset incoporates the use of T1, post-contrast T1-weighted (T1Gd) and T2-weighted (T2) and T2 Fluid Attenuated Inversion Recovery (FLAIR) <a id="foot-9-ref" href="#foot-9" class="smooth-scroll"><sup>[9]</sup></a> which are unique radio frequency pulse sequences that exploits the distinct chemical and physiological characteristics of various tissue types to increase contrast. <br>
               These are necessary to determine volume and growth-rate of tumors and hence determine their grade.
+            </p>
               </div>
             </section>
           </div>
+        </div>
+      </section>
+      <section id="continue" class="wrapper style1 align-center">
+        <div class="inner">
+          <ul class="actions vertical">
+            <li>
+              <a href="image_preprocessing.html" class="button big wide smooth-scroll">What's next?</a>
+              <a href="index.html" class="button big wide smooth-scroll">Back to home</a>
+            </li>
+          </ul>
         </div>
       </section>
       <section id="footnotes" class="wrapper style1 align-center">
