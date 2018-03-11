@@ -70,16 +70,84 @@
       </section>
       <section class="wrapper style1 align-center">
         <div class="inner">
-          <h1 id="mri-summary">On MRIs</h1>
-          <p>xxx</p>
+          <h1 id="mri-summary">The use of Magnetic Resonance Imaging (MRI) scans</h1>
+          <p>
+            As the most common diagnostic tool for brain tumors due to it's non-invasive nature and ability to image diverse tissue types and physiologogical processes.<br>
+            There is a need for accurate and fully automated methods as manual segmentation (ADD LINK) around tumour margins on a slice-by-slice basis can take 12 minutes or more per tumor per sequence, with semi-automatic methods (ADD LINK) taking 3-5 mins <a id="foot-5-ref" href="#foot-5" class="smooth-scroll"><sup>[5]</sup></a> and automated segmentation that is not vulnerable to operator subjectivity may be beneficial <a id="foot-6-ref" href="#foot-6" class="smooth-scroll"><sup>[6]</sup></a>.<br>
+            All images come from the custom python scripts (ADD LINK?) using data from the BRATS <a id="foot-7-ref" href="#foot-7" class="smooth-scroll"><sup>[7]</sup></a> dataset.
+          </p>
           <div class="index align-left">
-            <!-- Section -->
+            <!-- Slices -->
             <section>
               <header>
-                <h2>Section</h2>
+                <h2>Slices</h2>
               </header>
               <div class="content">
-              xxx
+              IMG SLICES <br>
+              MRI uses a magnetic gradient and radio frequency pulses to take repetitive axial slices of the brain and reconstruct a 3-dimentional representation. Each brain scans 155 slices, with each pixel representing a 1mm<sup>3</sup> voxel.
+              </div>
+            </section>
+            <!-- Slices -->
+            <section>
+              <header>
+                <h2>Pulse Sequences</h2>
+              </header>
+              <div class="content">
+
+          <div class="gallery style2 medium lightbox onscroll-fade-in"><div class="modal" tabindex="-1"><div class="inner"><img src=""></div></div><div class="forward"></div><div class="backward"></div><div class="inner" style="overflow: hidden;">
+  								<article>
+  									<a href="images/sample/sequences/T1.jpg" class="image">
+  										<img src="images/sample/sequences/thumbs/T1.jpg" alt="">
+  									</a>
+  									<div class="caption">
+  										<h3>T1</h3>
+                      <ul>
+                        <li>Water, such as CSF, as well as dense bone ad air appear dark.</li>
+                        <li>Fat, such as lipids in the white matter, appear bright</li>
+                        <li>Contrast between neocortex and white matter is best</li>
+                        <li>Some contrast between gray matter and white matter</li>
+                        <li>Pathological processes often increase water content that decreases signal on T1</li>
+                      </ul><a id="foot-8-ref" href="#foot-8" class="smooth-scroll"><sup>[8]</sup></a></p>
+  									</div>
+  								</article>
+  								<article>
+  									<a href="images/sample/sequences/T1Gd.jpg" class="image">
+  										<img src="images/sample/sequences/thumbs/T1Gd.jpg" alt="">
+  									</a>
+  									<div class="caption">
+  										<h3>Post-Gadolinium T1</h3>
+  										<p>
+                        Same as T1 but with higher signal on contrast-agent which is taken up by pathological processes.
+                      </p>
+  									</div>
+  								</article>
+  								<article>
+  									<a href="images/sample/sequences/T2.jpg" class="image">
+  										<img src="images/sample/sequences/thumbs/T2.jpg" alt="">
+  									</a>
+  									<div class="caption">
+  										<h3>T2</h3>
+  										<p>
+                        <ul>
+                          <li>Water appears bright, while air is dark</li>
+                          <li>Fat such a lipids appears dark</li>
+                          <li>Pathological processes increase water content which increases signal.</li>
+                        </ul>
+                      </p>
+  									</div>
+  								</article>
+  								<article>
+  									<a href="images/sample/sequences/FLAIR.jpg" class="image">
+  										<img src="images/sample/sequences/thumbs/FLAIR.jpg" alt="">
+  									</a>
+  									<div class="caption">
+  										<h3>FLAIR</h3>
+  										<p>Flair images have a signal from free fluid - such as cerebrospinal fluid in the ventricles - is supressed (compare T2 and FLAIR). High signal seen on these images indicates a pathological process such as infection, tumor or areas of demyelination.</p>
+  									</div>
+  								</article>  							</div></div>
+              Gliomas typically originate within white matter and thus exhibit growth along white matter fibres, as a result they have irregular boundaries that are indistinct on conventional magnetic resonance.<br>
+              BraTS dataset incoporates the use of T1, post-contrast T1-weighted (T1Gd) and T2-weighted (T2) and T2 Fluid Attenuated Inversion Recovery (FLAIR) <a id="foot-9-ref" href="#foot-9" class="smooth-scroll"><sup>[9]</sup></a> which are unique radio frequency pulse sequences that exploits the distinct chemical and physiological characteristics of various tissue types to increase contrast. <br>
+              These are necessary to determine volume and growth-rate of tumors and hence determine their grade.
               </div>
             </section>
           </div>
@@ -99,6 +167,11 @@ L Dougherty and S Lister (Editors)
 
 Royal Marsden Manual Series, Wiley-Blackwell, 2015</li>
 <li id="foot-4"><a href="#foot-4-ref" title="return">[4]</a>https://assets.thebraintumourcharity.org/live/media/filer_public/b3/56/b356a660-9860-409d-9199-ee5419f743c4/glioblastoma-v1-adult-factsheet.pdf</li>
+<li id="foot-5"><a href="#foot-5-ref" title="return">[5]</a>Odland A, Server A, Saxhaug C, Breivik B, Groote R, Vardal J, Larsson C, Bjørnerud A. Volumetric glioma quantification: comparison of manual and semi-automatic tumor segmentation for the quantification of tumor growth. Acta Radiol. 2015;56:1396–1403. doi: 10.1177/0284185114554822. [PubMed] [Cross Ref]]</li>
+<li id="foot-6"><a href="#foot-6-ref" title="return">[6]</a>Aslian H, Sadeghi M, Mahdavi SR, Babapour Mofrad F, Astarakee M, Khaledi N, Fadavi P. Magnetic resonance imaging-based target volume delineation in radiation therapy treatment planning for brain tumors using localized region-based active contour. Int J Radiat Oncol Biol Phys. 2013;87:195–201. doi: 10.1016/j.ijrobp.2013.04.049. </li>
+<li id="foot-7"><a href="#foot-7-ref" title="return">[7]</a>BRATS dataset</li>
+<li id="foot-8"><a href="#foot-8-ref" title="return">[8]</a>Radiology Masterclass https://www.radiologymasterclass.co.uk/tutorials/mri/mri_sequences</li>
+<li id="foot-9"><a href="#foot-9-ref" title="return">[9]</a> http://ieeexplore.ieee.org/document/6975210/</li>
           </ul>
         </div>
       </section>
