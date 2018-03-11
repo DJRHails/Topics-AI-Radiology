@@ -26,8 +26,8 @@
 				<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="first">
 					<div class="content">
 						<h2>What are SVMs?</h2>
-						<p>“Support Vector Machine” (SVM) refers to a supervised machine learning algorithm which can be used for both classification or regression challenges.<sup>1</sup>
-							<br>
+						<p>
+							“Support Vector Machine” (SVM) refers to a supervised machine learning algorithm which can be used for both classification or regression challenges.<sup>1</sup>
 							<br>
 							Consider an n-dimensional space.
 							Support vectors refer to the individual co-ordinates in the space, and are the data points collected by individual observation.
@@ -35,9 +35,6 @@
 							The support vector machine is the hyper-plane that divides the space and separates the data points into classes.<sup>1</sup>
 						</p>
           </div>
-					<div class="image">
-						<img src="images/spotlight01.jpg" alt="" />
-					</div>
 				</section>
 
 
@@ -59,7 +56,8 @@
         <section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" >
           <div class="content">
             <h2>How do they work on linearly separable classes?</h2>
-            <p>If the classes are linearly separable, then there must exist a linear hyper-plane that divides the classes accurately.
+            <p>
+							If the classes are linearly separable, then there must exist a linear hyper-plane that divides the classes accurately.
 							The task therefore its to find this linear optimal separating hyper-plane.
 							<br>
 							The linear hyper-plane will have the form:
@@ -90,195 +88,227 @@
 							Once the input data has been transformed, the SVM can be trained in the same way as linearly-separable classes.<sup>1</sup>
 							<br>
 							Kernels often used for MRI brain tumour classification include <sup>2</sub>:
-							<ul>
-								<li>Linear: <math>K(X,X') = X<sup>T</sup>X' </math></li>
-								<li>Quadratic: <math>K(X,X') = (1 + X<sup>T</sup>X')<sup>2</sup></math></li>
-								<li>Polynomial: <math></math>K(X,X') = (1 + X<sup>T</sup>X')<sup>d</sup></li>
-								<li>Radial Basic Function: <math>K(X, X') = exp(-||X-X'||<sup>2</sup>/2a<sup>2</sup>)</math> where a is a free parameter</li>
-							</ul>
-							The choice of kernel is not obvious, and so determining the optimal hyper-plane involves testing with different kernels.
-						 </p>
-          </div>
-          <div class="image">
-            <img src="images/spotlight02.jpg" alt="" />
-          </div>
-        </section>
+								<ul>
+									<li>Linear: <math>K(X,X') = X<sup>T</sup>X' </math></li>
+									<li>Quadratic: <math>K(X,X') = (1 + X<sup>T</sup>X')<sup>2</sup></math></li>
+									<li>Polynomial: <math></math>K(X,X') = (1 + X<sup>T</sup>X')<sup>d</sup></li>
+									<li>Radial Basic Function: <math>K(X, X') = exp(-||X-X'||<sup>2</sup>/2a<sup>2</sup>)</math> where a is a free parameter</li>
+								</ul>
+								The choice of kernel is not obvious, and so determining the optimal hyper-plane involves testing with different kernels.
+							 </p>
+	          </div>
+	          <div class="image">
+	            <img src="images/spotlight02.jpg" alt="" />
+	          </div>
+	        </section>
 
-      <!-- Four -->
-        <section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in">
-          <div class="content">
-            <h2>What features do we extract from MRI images?</h2>
-            <p></p>
-            <ul class="actions vertical">
-              <li><a href="svm.html" class="button">Learn More</a></li>
-            </ul>
-          </div>
-        </section>
+	      <!-- Four -->
+	        <section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in">
+	          <div class="content">
+	            <h2>What features do we extract from MRI images?</h2>
+	            <p>
+								One images have been pre-processed, the next step is to extract numerical features.
+								The choice of numerical features are important as they will determine the success of any machine learning model.
+						    <ul> Features can be grouped into:
+									<li>Grey-scale features: these include mean, variance, standard deviation, skewness and kurtosis</li>
+									<li>Texture-features: these include entropy, dissimilarity, inverse, energy, contrast and IDM </li>
+									<li>Symmetric feature: the exterior symmetry </li>
+								</ul>
+								Once features are obtained, PCA (Principle Component Analysis) can reduce the number of features needed.
+							  This is useful because excessive features increases memory use and computation time.<sup>4</sup>
+							</p>
+	          </div>
+	        </section>
 
-      <!-- Four -->
-        <section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
-          <div class="content">
-            <h2>CNNs</h2>
-            <p>SVMs are a type of supervised machine learning method, useful in classification problems. Therefore they have been proposed extensively for classifying brain tumours as malignant or benign from MRI images, showing great accuracy.</p>
-          </div>
-          <div class="image">
-            <img src="images/SVM.png" alt="" />
-          </div>
-        </section>
-      <!-- Four -->
-        <section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in">
-          <div class="content">
-            <h2>PNNs</h2>
-            <p>SVMs are a type of supervised machine learning method, useful in classification problems. Therefore they have been proposed extensively for classifying brain tumours as malignant or benign from MRI images, showing great accuracy.</p>
-          </div>
-          <div class="image">
-            <img src="images/SVM.png" alt="" />
-          </div>
-        </section>
-      <!-- Five -->
-        <section class="wrapper style1 align-center">
-          <div class="inner">
-            <h2>CNNs</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id ante sed ex pharetra lacinia sit amet vel massa. Donec facilisis laoreet nulla eu bibendum. Donec ut ex risus. Fusce lorem lectus, pharetra pretium massa et, hendrerit vestibulum odio lorem ipsum.</p>
-          </div>
+	      <!-- Four -->
+	        <section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
+	          <div class="content">
+	            <h2>How can we extract these features?</h2>
+	            <p>
+								GLCM is a widely used texture feature extraction technique.<sup>6</sup>
+								GLCM stands for Gray-Level Occurence Matrix, and it is a statistical method of examining texture that considers the spatial relationship of pixels.
+								The GLCM function generates a matrix by finding pairs of pixels with specific values and in specified spatial relationships.
+								Statistical values are then calculated using the matrix.<sup>5</sup>
+								<br>
+								Generated features include contrast, homogeneity, correlation, energy and difference entropy.<sup>6</sup>
+							</p>
+	          </div>
+	          <div class="image">
+	            <img src="images/SVM.png" alt="" />
+	          </div>
+	        </section>
+	      <!-- Four -->
+	        <section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in">
+	          <div class="content">
+	            <h2>How do we use extracted features to train an SVM?</h2>
+	            <p>
+								After features have been extracted for each MRI image in the training data, data points need to be constructed (where a data point corresponds to an image).
+								Each data point will contain all the values for each feature, and the classification of the image (malignant or benign) as a -1 and 1.
+								<br>
+								The SVM's hyper-plane is initialised with small random values. Then it is trained using the data points.
+							</p>
+	          </div>
+	          <div class="image">
+	            <img src="images/svm.png" alt="" />
+	          </div>
+	        </section>
+					<section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
+						<div class="content">
+							<h2>How do we test and measure performance of an SVM?</h2>
+							<p>
+								Given a trained SVM, testing includes
+							</p>
+						</div>
+						<div class="image">
+							<img src="images/svm.png" alt="" />
+						</div>
+					</section>
 
-          <!-- Gallery -->
-            <div class="gallery style2 medium lightbox onscroll-fade-in">
-              <article>
-                <a href="images/gallery/fulls/01.jpg" class="image">
-                  <img src="images/gallery/thumbs/01.jpg" alt="" />
-                </a>
-                <div class="caption">
-                  <h3>Ipsum Dolor</h3>
-                  <p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
-                </div>
-              </article>
-              <article>
-                <a href="images/gallery/fulls/02.jpg" class="image">
-                  <img src="images/gallery/thumbs/02.jpg" alt="" />
-                </a>
-                <div class="caption">
-                  <h3>Feugiat Lorem</h3>
-                  <p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
-                </div>
-              </article>
-              <article>
-                <a href="images/gallery/fulls/03.jpg" class="image">
-                  <img src="images/gallery/thumbs/03.jpg" alt="" />
-                </a>
-                <div class="caption">
-                  <h3>Magna Amet</h3>
-                  <p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
-                </div>
-              </article>
-              <article>
-                <a href="images/gallery/fulls/04.jpg" class="image">
-                  <img src="images/gallery/thumbs/04.jpg" alt="" />
-                </a>
-                <div class="caption">
-                  <h3>Sed Tempus</h3>
-                  <p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
-                </div>
-              </article>
-              <article>
-                <a href="images/gallery/fulls/05.jpg" class="image">
-                  <img src="images/gallery/thumbs/05.jpg" alt="" />
-                </a>
-                <div class="caption">
-                  <h3>Ultrices Magna</h3>
-                  <p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
-                </div>
-              </article>
-              <article>
-                <a href="images/gallery/fulls/06.jpg" class="image">
-                  <img src="images/gallery/thumbs/06.jpg" alt="" />
-                </a>
-                <div class="caption">
-                  <h3>Sed Tempus</h3>
-                  <p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
-                </div>
-              </article>
-              <article>
-                <a href="images/gallery/fulls/07.jpg" class="image">
-                  <img src="images/gallery/thumbs/07.jpg" alt="" />
-                </a>
-                <div class="caption">
-                  <h3>Ipsum Lorem</h3>
-                  <p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
-                </div>
-              </article>
-              <article>
-                <a href="images/gallery/fulls/08.jpg" class="image">
-                  <img src="images/gallery/thumbs/08.jpg" alt="" />
-                </a>
-                <div class="caption">
-                  <h3>Magna Risus</h3>
-                  <p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
-                </div>
-              </article>
-              <article>
-                <a href="images/gallery/fulls/09.jpg" class="image">
-                  <img src="images/gallery/thumbs/09.jpg" alt="" />
-                </a>
-                <div class="caption">
-                  <h3>Tempus Dolor</h3>
-                  <p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
-                </div>
-              </article>
-              <article>
-                <a href="images/gallery/fulls/10.jpg" class="image">
-                  <img src="images/gallery/thumbs/10.jpg" alt="" />
-                </a>
-                <div class="caption">
-                  <h3>Sed Etiam</h3>
-                  <p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
-                </div>
-              </article>
-              <article>
-                <a href="images/gallery/fulls/11.jpg" class="image">
-                  <img src="images/gallery/thumbs/11.jpg" alt="" />
-                </a>
-                <div class="caption">
-                  <h3>Magna Lorem</h3>
-                  <p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
-                </div>
-              </article>
-              <article>
-                <a href="images/gallery/fulls/12.jpg" class="image">
-                  <img src="images/gallery/thumbs/12.jpg" alt="" />
-                </a>
-                <div class="caption">
-                  <h3>Ipsum Dolor</h3>
-                  <p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
-                </div>
-              </article>
-            </div>
 
-        </section>
+	      <!-- Five -->
+	        <section class="wrapper style1 align-center">
+	          <div class="inner">
+	            <h2>CNNs</h2>
+	            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id ante sed ex pharetra lacinia sit amet vel massa. Donec facilisis laoreet nulla eu bibendum. Donec ut ex risus. Fusce lorem lectus, pharetra pretium massa et, hendrerit vestibulum odio lorem ipsum.</p>
+	          </div>
 
-      <!-- Footer -->
-        <footer class="wrapper style1 align-center">
-          <div class="inner">
-            <ul class="icons">
-              <li><a href="#" class="icon style2 fa-twitter"><span class="label">Twitter</span></a></li>
-              <li><a href="#" class="icon style2 fa-facebook"><span class="label">Facebook</span></a></li>
-              <li><a href="#" class="icon style2 fa-instagram"><span class="label">Instagram</span></a></li>
-              <li><a href="#" class="icon style2 fa-linkedin"><span class="label">LinkedIn</span></a></li>
-              <li><a href="#" class="icon style2 fa-envelope"><span class="label">Email</span></a></li>
-            </ul>
-            <p>&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>. Contributors: <a href="https://mhoare.co.uk">Matthew Hoare</a>, <a href="#">Tiger Cross</a>, <a href="#">Daniel Hails</a>, and <a href="#">Will Burr</a></p>
-          </div>
-        </footer>
+	          <!-- Gallery -->
+	            <div class="gallery style2 medium lightbox onscroll-fade-in">
+	              <article>
+	                <a href="images/gallery/fulls/01.jpg" class="image">
+	                  <img src="images/gallery/thumbs/01.jpg" alt="" />
+	                </a>
+	                <div class="caption">
+	                  <h3>Ipsum Dolor</h3>
+	                  <p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
+	                </div>
+	              </article>
+	              <article>
+	                <a href="images/gallery/fulls/02.jpg" class="image">
+	                  <img src="images/gallery/thumbs/02.jpg" alt="" />
+	                </a>
+	                <div class="caption">
+	                  <h3>Feugiat Lorem</h3>
+	                  <p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
+	                </div>
+	              </article>
+	              <article>
+	                <a href="images/gallery/fulls/03.jpg" class="image">
+	                  <img src="images/gallery/thumbs/03.jpg" alt="" />
+	                </a>
+	                <div class="caption">
+	                  <h3>Magna Amet</h3>
+	                  <p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
+	                </div>
+	              </article>
+	              <article>
+	                <a href="images/gallery/fulls/04.jpg" class="image">
+	                  <img src="images/gallery/thumbs/04.jpg" alt="" />
+	                </a>
+	                <div class="caption">
+	                  <h3>Sed Tempus</h3>
+	                  <p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
+	                </div>
+	              </article>
+	              <article>
+	                <a href="images/gallery/fulls/05.jpg" class="image">
+	                  <img src="images/gallery/thumbs/05.jpg" alt="" />
+	                </a>
+	                <div class="caption">
+	                  <h3>Ultrices Magna</h3>
+	                  <p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
+	                </div>
+	              </article>
+	              <article>
+	                <a href="images/gallery/fulls/06.jpg" class="image">
+	                  <img src="images/gallery/thumbs/06.jpg" alt="" />
+	                </a>
+	                <div class="caption">
+	                  <h3>Sed Tempus</h3>
+	                  <p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
+	                </div>
+	              </article>
+	              <article>
+	                <a href="images/gallery/fulls/07.jpg" class="image">
+	                  <img src="images/gallery/thumbs/07.jpg" alt="" />
+	                </a>
+	                <div class="caption">
+	                  <h3>Ipsum Lorem</h3>
+	                  <p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
+	                </div>
+	              </article>
+	              <article>
+	                <a href="images/gallery/fulls/08.jpg" class="image">
+	                  <img src="images/gallery/thumbs/08.jpg" alt="" />
+	                </a>
+	                <div class="caption">
+	                  <h3>Magna Risus</h3>
+	                  <p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
+	                </div>
+	              </article>
+	              <article>
+	                <a href="images/gallery/fulls/09.jpg" class="image">
+	                  <img src="images/gallery/thumbs/09.jpg" alt="" />
+	                </a>
+	                <div class="caption">
+	                  <h3>Tempus Dolor</h3>
+	                  <p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
+	                </div>
+	              </article>
+	              <article>
+	                <a href="images/gallery/fulls/10.jpg" class="image">
+	                  <img src="images/gallery/thumbs/10.jpg" alt="" />
+	                </a>
+	                <div class="caption">
+	                  <h3>Sed Etiam</h3>
+	                  <p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
+	                </div>
+	              </article>
+	              <article>
+	                <a href="images/gallery/fulls/11.jpg" class="image">
+	                  <img src="images/gallery/thumbs/11.jpg" alt="" />
+	                </a>
+	                <div class="caption">
+	                  <h3>Magna Lorem</h3>
+	                  <p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
+	                </div>
+	              </article>
+	              <article>
+	                <a href="images/gallery/fulls/12.jpg" class="image">
+	                  <img src="images/gallery/thumbs/12.jpg" alt="" />
+	                </a>
+	                <div class="caption">
+	                  <h3>Ipsum Dolor</h3>
+	                  <p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
+	                </div>
+	              </article>
+	            </div>
 
-    </div>
+	        </section>
 
-  <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.scrollex.min.js"></script>
-    <script src="assets/js/jquery.scrolly.min.js"></script>
-    <script src="assets/js/skel.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
+	      <!-- Footer -->
+	        <footer class="wrapper style1 align-center">
+	          <div class="inner">
+	            <ul class="icons">
+	              <li><a href="#" class="icon style2 fa-twitter"><span class="label">Twitter</span></a></li>
+	              <li><a href="#" class="icon style2 fa-facebook"><span class="label">Facebook</span></a></li>
+	              <li><a href="#" class="icon style2 fa-instagram"><span class="label">Instagram</span></a></li>
+	              <li><a href="#" class="icon style2 fa-linkedin"><span class="label">LinkedIn</span></a></li>
+	              <li><a href="#" class="icon style2 fa-envelope"><span class="label">Email</span></a></li>
+	            </ul>
+	            <p>&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>. Contributors: <a href="https://mhoare.co.uk">Matthew Hoare</a>, <a href="#">Tiger Cross</a>, <a href="#">Daniel Hails</a>, and <a href="#">Will Burr</a></p>
+	          </div>
+	        </footer>
 
-</body>
+	    </div>
+
+	  <!-- Scripts -->
+	    <script src="assets/js/jquery.min.js"></script>
+	    <script src="assets/js/jquery.scrollex.min.js"></script>
+	    <script src="assets/js/jquery.scrolly.min.js"></script>
+	    <script src="assets/js/skel.min.js"></script>
+	    <script src="assets/js/util.js"></script>
+	    <script src="assets/js/main.js"></script>
+
+	</body>
 </html>
