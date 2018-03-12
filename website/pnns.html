@@ -47,7 +47,7 @@
 			<section class="wrapper style1 align-center">
         <div class="inner">
           <h1 id="cancer-summary">Implementation of PNNs</h1>
-          <p>Intro to implementation</p>
+          <p>Intro to implementation TODO:</p>
           <div class="index align-left">
             <!-- Main layers of PNN -->
             <section>
@@ -55,21 +55,50 @@
                 <h2>Hidden/Radial Basis Layer</h2>
               </header>
               <div class="content">
-                PNNs work by using the Radial Basis layer to calculate distance from the input vectors to the training vectors. This is done using a Radial Basis Function (RBF) which is a type of kernel REFNEEDED1. The RBF has several different implementations in the papers referenced, one of which is shown below REFNEEDED8:
 
-								
+                PNNs work by using the Radial Basis layer to calculate distance from the input vectors to the training vectors. This is done using a Radial Basis Function (RBF) which is a type of kernel REFNEEDED1. The RBF has several different implementations in the papers referenced, one of which is shown below REFNEEDED8: <br />
 
-								TODO: MORE MATHS SHIZ
+								The output vector of the Radial Basis layer, a, is given as: <br />
+<!-- MATHS HERE -->
+a<sub>i</sub> = radbas(||<strong>W<sub>i</sub> − p</strong>|| .∗ <strong>b</strong><sub>i</sub> ) <br />
+
+Where <strong>W</strong> is the weight vector, <strong>p</strong> is the input vector (so ||<strong>W<sub>i</sub> − p</strong>|| is the distance vector between the input and weight.) and <strong>b</strong> is a bias vector. This paper represents the distance criterion with respect to a center as: <br />
+<!-- MATHS HERE -->
+radbas(_n_) = _e_<sup>-n<sup>2</sup></sup>
+
               </div>
-            </section
+            </section>
             <section>
               <header>
-                <h2>Summation Layer</h2>
+                <h2>Summation Layer</h2> <!-- ENTIRE  -->
               </header>
               <div class="content">
-                The network then passes data from the RB layer to the summation layer which calculates the closest distance between the training images and the input image and classifies the image based on the closeness of the data. This is usually done using Bayesian Theory REFNEEDED4. Some of the sources show the summation layer performing the following calculations REFNEEDED 7 9 10:
+                <p>The network then passes data from the RB layer to the summation layer which calculates the closest distance between the training images and the input image and classifies the image based on the closeness of the data. This is usually done using Bayesian Theory REFNEEDED4. Some of the sources show the summation layer performing the following calculations REFNEEDED 7 9 10:</p>
 
-								TODO: MORE MATHS SHIZ
+								<p>The PNN separates the input vectors into classes. An input vector is classified into a class A by the equation:</p>
+
+<!-- COMBO OF MATHS AND TEXT HERE -->
+<pre>
+P<sub>A</sub>C<sub>A</sub>F(x)<sub>A</sub>  >  P<sub>B</sub>C<sub>B</sub>F(x)<sub>B</sub></pre>  <br />
+
+Where <br />
+
+P<sub>A</sub> - Priori probability of occurrence of patterns in class <br />
+
+C<sub>A</sub> - Cost associated with classifying vectors <br />
+
+F(x)<sub>A</sub> - Probability density function of class A
+given by the equation F(x)<sub>A</sub> = 1/(2π)<sup>n/2</sup> σ<sup>n</sup> m <sub>n</sub>
+with  Σ<sup>m</sup><sub>i = 1</sub> exp(-2(x - x<sub>A</sub>)<sup>r</sup> (x - x<sub>Ai</sub>)/σ<sup>2</sup> <br />
+
+Where <br />
+
+x<sub>Ai</sub> - i<sub>th</sub> training pattern from class A <br />
+
+n - Dimension of the input vectors <br />
+
+σ - Smoothing parameter (corresponds to standard deviation of gaussian distribution)
+
                 <span class="image fit">
                  <img src="images/pnn-implementation.png"/>
                </span
@@ -83,7 +112,7 @@
 				<div class="content">
 					<h2>Role of PNNs in Medical Imaging</h2>
 					<p>
-					shiz about medical application of pnns
+					In the medical context, the PNN carries out the MRI classification in the automated procedure of detecting and analysing brain tumours. They determine can between many type of tumour, for example, benign, metastatic and malignant as well as normal, non-tumor containing images. Their implementation determines the different classes of tumour they can distinguish between as does the training data supplied. The PNN is used in the final stage of the classification steps (see diagram).
 					</p>
 				</div>
 				<div class="image">
@@ -107,7 +136,6 @@
         <div class="inner">
           <ul class="actions vertical">
             <li>
-              <a href="preprocessing.html" class="button big wide smooth-scroll">What's next?</a>
               <a href="index.html" class="button big wide smooth-scroll">Back to home</a>
             </li>
           </ul>
