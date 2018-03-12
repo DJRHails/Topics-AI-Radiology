@@ -9,26 +9,23 @@
 
     <div id="wrapper" class="divided">
 
-      <!-- One -->
-        <section class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
-          <div class="content">
-            <h1>Support Vector Machines for MRI Brain Image Classification</h1>
-            <p class="major">
-							SVMs are a type of supervised machine learning method, useful in classification problems.
-							They have been proposed for classifying MRI brain images as normal and abnormal, and for classifying brain tumours as benign and malignant.
-						</p>
-            <ul class="actions vertical">
-              <li><a href="index.html" class="button big wide smooth-scroll-middle">Home</a></li>
-            </ul>
-          </div>
-          <div class="image">
-            <img src="images/SVM1.png" alt="" />
-          </div>
-        </section>
+			<section class="banner onload-content-fade-right style2 fullscreen orient-center content-align-center image-position-center invert">
+        <div class="content">
+          <h1>Support Vector Machines for MRI Brain Image Classification</h1>
+          <p>
+						SVMs are a type of supervised machine learning method, useful in classification problems.
+					</p>
+          <ul class="actions vertical">
+            <li>
+              <a href="#svm-summary" class="button big wide smooth-scroll">Woah cool, tell me more!</a>
+            </li>
+          </ul>
+        </div>
+      </section>
 
 				<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="first">
 					<div class="content">
-						<h2>What are SVMs?</h2>
+						<h2 id="svm-summary">What are SVMs?</h2>
 						<p>
 							“Support Vector Machine” (SVM) refers to a supervised machine learning algorithm which can be used for both classification or regression challenges.<sup>1</sup>
 							<br>
@@ -101,7 +98,7 @@
 							 </p>
 	          </div>
 	          <div class="image">
-	            <img src="images/spotlight02.jpg" alt="" />
+	            <img src="images/svm1.png" alt="" />
 	          </div>
 	        </section>
 
@@ -187,7 +184,12 @@
 	          <div class="inner">
 	            <h2>How do SVMs perform at classifying MRI brain images from MRI images?</h2>
 	            <p>
-								Research
+								<ul>Across papers referenced, SVMs have been used in classifiying:
+									<li>Normal vs Abnormal MRI brain images</li>
+									<li>Benign vs Malignant MRI brain tumour images</li>
+									<li>Low grade glioma vs High grade glioma MRI brain tumour images</li>
+								</ul>
+								All of which involve similar feature extraction and training/testing procedures. The results of training SVMs for these purposes are shown below:
 							</p>
 	          </div>
 
@@ -301,19 +303,36 @@
 
 	        </section>
 
-	      <!-- Footer -->
-	        <footer class="wrapper style1 align-center">
-	          <div class="inner">
-	            <ul class="icons">
-	              <li><a href="#" class="icon style2 fa-twitter"><span class="label">Twitter</span></a></li>
-	              <li><a href="#" class="icon style2 fa-facebook"><span class="label">Facebook</span></a></li>
-	              <li><a href="#" class="icon style2 fa-instagram"><span class="label">Instagram</span></a></li>
-	              <li><a href="#" class="icon style2 fa-linkedin"><span class="label">LinkedIn</span></a></li>
-	              <li><a href="#" class="icon style2 fa-envelope"><span class="label">Email</span></a></li>
-	            </ul>
-	            <p>&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>. Contributors: <a href="https://mhoare.co.uk">Matthew Hoare</a>, <a href="#">Tiger Cross</a>, <a href="#">Daniel Hails</a>, and <a href="#">Will Burr</a></p>
-	          </div>
-	        </footer>
+					<section id="continue" class="wrapper style1 align-center">
+		        <div class="inner">
+		          <ul class="actions vertical">
+		            <li>
+		              <a href="index.html" class="button big wide smooth-scroll">Back to home</a>
+		            </li>
+		          </ul>
+		        </div>
+		      </section>
+
+					<section id="footnotes" class="wrapper style1 align-center">
+						<div class="inner">
+							<h1>Footnotes</h1>
+							<ul class="alt align-left">
+								<li id="foot-1"><a href="#foot-1-ref" title="return">[1]</a> WHO Glioma grades</li>
+								<li id="foot-2"><a href="#foot-2-ref" title="return">[2]</a>https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2016/06/DWTA-Report-April-2016.pdf</li>
+								<li id="foot-3"><a href="#foot-3-ref" title="return">[3]</a>The Royal Marsden Manual of Clinical Nursing Procedures, 9th, Professional Edition
+
+		L Dougherty and S Lister (Editors)
+
+		Royal Marsden Manual Series, Wiley-Blackwell, 2015</li>
+		<li id="foot-4"><a href="#foot-4-ref" title="return">[4]</a>https://assets.thebraintumourcharity.org/live/media/filer_public/b3/56/b356a660-9860-409d-9199-ee5419f743c4/glioblastoma-v1-adult-factsheet.pdf</li>
+		<li id="foot-5"><a href="#foot-5-ref" title="return">[5]</a>Odland A, Server A, Saxhaug C, Breivik B, Groote R, Vardal J, Larsson C, Bjørnerud A. Volumetric glioma quantification: comparison of manual and semi-automatic tumor segmentation for the quantification of tumor growth. Acta Radiol. 2015;56:1396–1403. doi: 10.1177/0284185114554822. [PubMed] [Cross Ref]]</li>
+		<li id="foot-6"><a href="#foot-6-ref" title="return">[6]</a>Aslian H, Sadeghi M, Mahdavi SR, Babapour Mofrad F, Astarakee M, Khaledi N, Fadavi P. Magnetic resonance imaging-based target volume delineation in radiation therapy treatment planning for brain tumors using localized region-based active contour. Int J Radiat Oncol Biol Phys. 2013;87:195–201. doi: 10.1016/j.ijrobp.2013.04.049. </li>
+		<li id="foot-7"><a href="#foot-7-ref" title="return">[7]</a>BRATS dataset</li>
+		<li id="foot-8"><a href="#foot-8-ref" title="return">[8]</a>Radiology Masterclass https://www.radiologymasterclass.co.uk/tutorials/mri/mri_sequences</li>
+		<li id="foot-9"><a href="#foot-9-ref" title="return">[9]</a> http://ieeexplore.ieee.org/document/6975210/</li>
+							</ul>
+						</div>
+					</section>
 
 	    </div>
 
