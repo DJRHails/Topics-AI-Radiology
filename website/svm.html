@@ -13,19 +13,19 @@
         <div class="content">
           <h1>Support Vector Machines for MRI Brain Image Classification</h1>
           <p>
-						SVMs are a type of supervised machine learning method, useful in classification problems.
+						SVMs are a type of supervised machine learning method, useful in classification problems. Hence, they have potential for use in identifying and classifying brain tumours in MRI images.
 					</p>
           <ul class="actions vertical">
             <li>
-              <a href="#svm-summary" class="button big wide smooth-scroll">Woah cool, tell me more!</a>
+              <a href="#first" class="button big wide smooth-scroll">What are SVMS?</a>
             </li>
           </ul>
         </div>
       </section>
 
-				<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="first">
+				<section class="spotlight style1 orient-left content-align-left image-position-center" id="first">
 					<div class="content">
-						<h2 id="svm-summary">What are SVMs?</h2>
+						<h2>What are SVMs?</h2>
 						<p>
 							“Support Vector Machine” (SVM) refers to a supervised machine learning algorithm which can be used for both classification or regression challenges.<sup>1</sup>
 							<br>
@@ -35,12 +35,15 @@
 							The support vector machine is the hyper-plane that divides the space and separates the data points into classes.<sup>1</sup>
 						</p>
           </div>
+					<div class="image">
+            <img src="images/svm.png" alt="" />
+          </div>
 				</section>
 
 
-        <section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
+        <section class="spotlight style1 orient-left content-align-left image-position-center">
           <div class="content">
-            <h2>What are the goals of SVM?</h2> <!-- Cancer Summary content from git wiki-->
+            <h2>What are the goals of SVM?</h2>
             <ul>The goal of support vector machines is to find the hyper-plane (or function) that:
               <li>separates the two classes (benign tumours and malignant tumours)<sup>1</sup></li>
               <li>maximises the distances between nearest data points (from either class) and itself<sup>1</sup></li>
@@ -48,12 +51,9 @@
             </ul>
             This hyper-plane is named the optimal separating hyperplane.<sup>2</sup>
           </div>
-          <div class="image">
-            <img src="images/spotlight02.jpg" alt="" />
-          </div>
         </section>
 
-        <section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" >
+        <section class="spotlight style1 orient-right content-align-left image-position-center" >
           <div class="content">
             <h2>How do they work on linearly separable classes?</h2>
             <p>
@@ -71,15 +71,15 @@
 								 <li><math>w</math> is the weight vector (that applies weight to each feature)</li>
 								 <li><math>b</math> is the bias (translates the hyper-plane)</li>
 						  </ul>
-							Training the SVM can be done using the Perceptron algorithm which cycles through the training data points, and if the data point isn't classified correctly, then the weights in w are updated in order to accomodate the new data point. This occurs until a cycle occurs with no changes.<sup>3</sup>
+							Training the SVM can be done using the Perceptron algorithm which cycles through the training data points, and if the data point isn't classified correctly, then the weights in w are updated in order to accomodate the new data point. This repeats until a cycle occurs with no changes.<sup>3</sup>
 						</p>
 					</div>
           <div class="image">
-            <img src="images/svmlinearexample.png" alt="" />
+            <img src="images/svm2.png" alt="" />
           </div>
         </section>
 
-        <section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
+        <section class="spotlight style1 orient-left content-align-left image-position-center">
           <div class="content">
             <h2>How do they work on non-linearly separable classes?</h2>
             <p>
@@ -103,7 +103,7 @@
 	        </section>
 
 	      <!-- Four -->
-	        <section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in">
+	        <section class="spotlight style1 orient-right content-align-left image-position-center">
 	          <div class="content">
 	            <h2>What features do we extract from MRI images?</h2>
 	            <p>
@@ -121,7 +121,7 @@
 	        </section>
 
 	      <!-- Four -->
-	        <section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
+	        <section class="spotlight style1 orient-left content-align-left image-position-center">
 	          <div class="content">
 	            <h2>How can we extract these features?</h2>
 	            <p>
@@ -138,7 +138,7 @@
 	          </div>
 	        </section>
 	      <!-- Four -->
-	        <section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in">
+	        <section class="spotlight style1 orient-right content-align-left image-position-center ">
 	          <div class="content">
 	            <h2>How do we use extracted features to train an SVM?</h2>
 	            <p>
@@ -172,9 +172,6 @@
 								Sensitivity can be thought of as the proportion of malignant brain tumours correctly identified, and specificity as the proportion of benign brain tumours correctly identified.
 								One can argue that sensitivity is more important than specificity, since it is time critical to identify malignant tumours.
 							</p>
-						</div>
-						<div class="image">
-							<img src="images/svm.png" alt="" />
 						</div>
 					</section>
 
