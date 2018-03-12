@@ -16,6 +16,8 @@ build
 tmp/*
 *.swp
 *~
+datasets/BRATS2015_Training
+python/Labels/
 *.log.*
 *.log
 *.db
