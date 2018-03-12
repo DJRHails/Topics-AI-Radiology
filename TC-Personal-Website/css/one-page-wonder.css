@@ -12,6 +12,24 @@ h6 {
   font-weight: 800 !important;
 }
 
+[class^="ic-"], [class*=" ic-"] {
+  display: inline-block;
+  line-height: 1;
+  background-size: 32px 32px;
+  width: 32px;
+  height: 32px;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.ic-github {
+  background-image: url("../img/ic-github.svg");
+}
+
+.ic-linkedin {
+  background-image: url("../img/ic-linkedin.svg");
+}
+
 .btn-xl {
   text-transform: uppercase;
   padding: 1.5rem 3rem;
