@@ -6,94 +6,139 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 	</head>
 	<body>
-
+    <!-- Wrapper -->
     <div id="wrapper" class="divided">
+      <section class="banner onload-content-fade-right style2 fullscreen orient-center content-align-center image-position-center invert">
+        <div class="content">
+          <h1>Probabilistic Neural Networks in Automated Classification of MRI images</h1>
+          <p>Stuff about possibility of AI being able to do what a radiologist does</p>
+          <ul class="actions vertical">
+            <li>
+              <a href="#pnns-intro" class="button big wide smooth-scroll">Find Out More</a>
+            </li>
+          </ul>
+        </div>
+      </section>
 
-      <!-- One -->
-        <section class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
-          <div class="content">
-            <h1>Probabilistic Neural Networks in Automated Classification of MRI images</h1>
-            <p class="major"> intro content </p>
-            <ul class="actions vertical">
-              <li><a href="index.html" class="button big wide smooth-scroll-middle">Home</a></li>
-            </ul>
-          </div>
-          <div class="image">
-            <img src="images/pnn-structure1.png" alt="" />
-          </div>
-        </section>
+			<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="first">
+				<div class="content">
+					<h2 id="pnns-intro">What is a PNN?</h2>
+					<p>A Probabilistic Neural Network (PNN) is a type of feedforward neural network and also a Radial Basis function network, which has the majority of uses in pattern recognition and image classification REFNEEDED1. PNNs usually consist of four layers, an input layer, hidden layer/ radial basis layer, summation layer and output layer with each formerly mentioned layer feeding it's output to the next. From the papers referenced, they all use slightly different implementations of the layers, for example, some have multiple nodes in the output layer but others only have one.
+					</p>
+				</div>
+				<div class="image">
+					<img src="images/pnn-structure1.png" alt="" />
+				</div>
+			</section>
 
-				<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="first">
-					<div class="content">
-						<h2>Structure of PNNs</h2>
-						<p> more content
-						</p>
+
+			<section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
+				<div class="content">
+					<h2>Advantages of PNNs</h2>
+					<ul>Pnns have a number of advantages that make them more favourable to use when classifying Tumours REFNEEDED6:
+						<li>They are very quick to train.</li>
+						<li>They have a permanent parallel structure.</li>
+						<li>They are guaranteed to classify an Image and this classification will be optimal as the data set grows.</li>
+						<li>Training samples can easily be added or removed without considerable retraining.</li>
+					</ul>
+				</div>
+			</section>
+
+			<section class="wrapper style1 align-center">
+        <div class="inner">
+          <h1 id="cancer-summary">Implementation of PNNs</h1>
+          <p>Intro to implementation</p>
+          <div class="index align-left">
+            <!-- Main layers of PNN -->
+            <section>
+              <header>
+                <h2>Hidden/Radial Basis Layer</h2>
+              </header>
+              <div class="content">
+                PNNs work by using the Radial Basis layer to calculate distance from the input vectors to the training vectors. This is done using a Radial Basis Function (RBF) which is a type of kernel REFNEEDED1. The RBF has several different implementations in the papers referenced, one of which is REFNEEDED8:
+
+								TODO: MORE MATHS SHIZ
+              </div>
+            </section
+            <section>
+              <header>
+                <h2>Summation Layer</h2>
+              </header>
+              <div class="content">
+                The network then passes data from the RB layer to the summation layer which calculates the closest distance between the training images and the input image and classifies the image based on the closeness of the data. This is usually done using Bayesian Theory REFNEEDED4. Some of the sources show the summation layer performing the following calculations REFNEEDED 7 9 10:
+
+								TODO: MORE MATHS SHIZ
+                <ul>
+                  <li><b>Math shiz</b></li>
+                </ul>
+                <span class="image fit">
+                 <img src="images/pnn-implementation.png"/>
+               </span
+              </div>
+            </section>
           </div>
+        </div>
+      </section>
+
+			<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" >
+				<div class="content">
+					<h2>Role of PNNs in Medical Imaging</h2>
+					<p>
+					shiz about medical application of pnns
+					</p>
+				</div>
+				<div class="image">
+					<img src="images/pnn-medical-imaging-flow-chart.png" alt="" />
+				</div>
+			</section>
+
+			<section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
+				<div class="content">
+					<h2>Testing PNNs with BRATS benchmark</h2>
+					<p>
+						stuff about testing and testing image table
+						 </p>
+					</div>
 					<div class="image">
-						<img src="images/spotlight01.jpg" alt="" />
+						<img src="images/pic01.png" alt="" />
 					</div>
 				</section>
 
-
-        <section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
-          <div class="content">
-            <h2>Advantages of Using PNNs</h2>
-            <ul>
-              <li> advantage 1</li>
-              <li>advantage 2</li>
-              <li>advantage 3</li>
-						</ul>
-          </div>
-          <div class="image">
-            <img src="images/spotlight02.jpg" alt="" />
-          </div>
-        </section>
-
-        <section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" >
-          <div class="content">
-						<h2>Implementation of PNNs</h2>
-            <p> some math shiz about implementation
-						</p>
-					</div>
-          <div class="image">
-            <img src="images/pnn-implementation.png" alt="" />
-          </div>
-        </section>
-
-        <section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
-          <div class="content">
-            <h2>Role of PNNs in Medical Imaging</h2>
-            <p>
-						 </p>
-          </div>
-          <div class="image">
-            <img src="images/pnn-medical-flow-chart.png" alt="" />
-          </div>
-        </section>
-
-      <!-- Footer -->
-        <footer class="wrapper style1 align-center">
-          <div class="inner">
-            <ul class="icons">
-              <li><a href="#" class="icon style2 fa-twitter"><span class="label">Twitter</span></a></li>
-              <li><a href="#" class="icon style2 fa-facebook"><span class="label">Facebook</span></a></li>
-              <li><a href="#" class="icon style2 fa-instagram"><span class="label">Instagram</span></a></li>
-              <li><a href="#" class="icon style2 fa-linkedin"><span class="label">LinkedIn</span></a></li>
-              <li><a href="#" class="icon style2 fa-envelope"><span class="label">Email</span></a></li>
-            </ul>
-            <p>&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>. Contributors: <a href="https://mhoare.co.uk">Matthew Hoare</a>, <a href="#">Tiger Cross</a>, <a href="#">Daniel Hails</a>, and <a href="#">Will Burr</a></p>
-          </div>
-        </footer>
-
+      <section id="continue" class="wrapper style1 align-center">
+        <div class="inner">
+          <ul class="actions vertical">
+            <li>
+              <a href="preprocessing.html" class="button big wide smooth-scroll">What's next?</a>
+              <a href="index.html" class="button big wide smooth-scroll">Back to home</a>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section id="footnotes" class="wrapper style1 align-center">
+        <div class="inner">
+          <h1>Footnotes</h1>
+          <ul class="alt align-left">
+            <li id="foot-1"><a href="#foot-1-ref" title="return">[1]</a> WHO Glioma grades</li>
+            <li id="foot-2"><a href="#foot-2-ref" title="return">[2]</a>https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2016/06/DWTA-Report-April-2016.pdf</li>
+            <li id="foot-3"><a href="#foot-3-ref" title="return">[3]</a>The Royal Marsden Manual of Clinical Nursing Procedures, 9th, Professional Edition L Dougherty and S Lister (Editors) Royal Marsden Manual Series, Wiley-Blackwell, 2015</li>
+<li id="foot-4"><a href="#foot-4-ref" title="return">[4]</a>https://assets.thebraintumourcharity.org/live/media/filer_public/b3/56/b356a660-9860-409d-9199-ee5419f743c4/glioblastoma-v1-adult-factsheet.pdf</li>
+<li id="foot-5"><a href="#foot-5-ref" title="return">[5]</a>Odland A, Server A, Saxhaug C, Breivik B, Groote R, Vardal J, Larsson C, Bjørnerud A. Volumetric glioma quantification: comparison of manual and semi-automatic tumor segmentation for the quantification of tumor growth. Acta Radiol. 2015;56:1396–1403. doi: 10.1177/0284185114554822. [PubMed] [Cross Ref]]</li>
+<li id="foot-6"><a href="#foot-6-ref" title="return">[6]</a>Aslian H, Sadeghi M, Mahdavi SR, Babapour Mofrad F, Astarakee M, Khaledi N, Fadavi P. Magnetic resonance imaging-based target volume delineation in radiation therapy treatment planning for brain tumors using localized region-based active contour. Int J Radiat Oncol Biol Phys. 2013;87:195–201. doi: 10.1016/j.ijrobp.2013.04.049. </li>
+<li id="foot-7"><a href="#foot-7-ref" title="return">[7]</a>BRATS dataset</li>
+<li id="foot-8"><a href="#foot-8-ref" title="return">[8]</a>Radiology Masterclass https://www.radiologymasterclass.co.uk/tutorials/mri/mri_sequences</li>
+<li id="foot-9"><a href="#foot-9-ref" title="return">[9]</a> http://ieeexplore.ieee.org/document/6975210/</li>
+          </ul>
+        </div>
+      </section>
     </div>
+    <!-- End Wrapper -->
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
 
-  <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.scrollex.min.js"></script>
-    <script src="assets/js/jquery.scrolly.min.js"></script>
-    <script src="assets/js/skel.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
-
-</body>
+	</body>
 </html>
