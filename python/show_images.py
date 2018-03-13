@@ -9,7 +9,7 @@ import scipy.ndimage as ndi
 import scipy.signal as sig
 from scipy.ndimage import zoom
 from scipy.ndimage.interpolation import rotate as rotate_scipy
-from videofig import videofig
+import imageio
 
 def groundtruth_(gt):
     """Takes a discrete label volume with zero-indexed labels and applies one_hot encoding."""
@@ -204,9 +204,50 @@ def vis_col_im(im, gt):
     plt.show()
     plt.close()
 
+def out_col_im(im, gt, brain_no, brain_slice, identifier="brain"):
+    plt.imsave("website/images/slices/"+identifier+"{0}_{1}.png".format(brain_no, brain_slice), col_im(im, gt), vmin=np.amin(im), vmax=np.amax(im), format="png")
+
+def out_gt_im(im, gt, brain_no, brain_slice, identifier="brain"):
+    plt.imsave("website/images/gt/"+identifier+"{0}_{1}.png".format(brain_no, brain_slice), gt_im(im, gt), vmin=np.amin(im), vmax=np.amax(im), format="png")
+
+
+def gt_im(im, gt):
+    im = np.asarray(im, dtype='float32')
+
+    if(im.max()!=0):
+        im = im*1.0/im.max()
+    rgb_image = color.gray2rgb(im)
+    im = rgb_image.copy()
+
+    if gt is None:
+        return im
+
+    indices_0 = np.where(gt == 0) # nothing
+    indices_1 = np.where(gt == 1) # necrosis
+    indices_2 = np.where(gt == 2) # edema
+    indices_3 = np.where(gt == 3) # non-enhancing tumor
+    indices_4 = np.where(gt == 4) # enhancing tumor
+
+    m0 = [0., 0., 0.]
+    m1 = [1., 0., 0.] # red: necrosis
+    m2 = [0.2, 1., 0.2] # green: edema
+    m3 = [1., 1., 0.2] # yellow: non-enhancing tumor
+    m4 = [1., 0.6, 0.2] # orange: enhancing tumor
+
+    im[indices_0[0], indices_0[1], :] *= m0
+    im[indices_1[0], indices_1[1], :] *= m1
+    im[indices_2[0], indices_2[1], :] *= m2
+    im[indices_3[0], indices_3[1], :] *= m3
+    im[indices_4[0], indices_4[1], :] *= m4
+
+    return im
+
+
 def col_im(im, gt):
     im = np.asarray(im, dtype='float32')
-    im = im*1./im.max()
+
+    if(im.max()!=0):
+        im = im*1.0/im.max()
     rgb_image = color.gray2rgb(im)
     im = rgb_image.copy()
 
@@ -286,20 +327,49 @@ def vis_diff_modalities(*ims):
 
     plt.show()
 
-def show_brains():
-
-    for im in gen_images(n=1):
-        t_im = im['T1c']
+def save_brains(maxBrains=1):
+    brain_no = 0
+    for im in gen_images(n=maxBrains, randomize=True):
         gt = im['gt']
+        # plt.imsave("website/images/slices/brain{0}_{1}.png".format(brain_no, brain_slice), col_im(im, gt), cmap='gray', vmin=np.amin(im), vmax=np.amax(im), format="png")
+        t2_gt = []
+        t1c_gt = []
+        t1_gt = []
+        flair_gt = []
+        flair = []
+        t2 = []
 
-        for brain_slice in range(0, t_im.shape[0], int(t_im.shape[0]/15)):
-            im_slice = t_im[brain_slice]
+        for brain_slice in range(0, im['Flair'].shape[0], 1):
+            flair_slice = im['Flair'][brain_slice]
+            t1_slice = im['T1'][brain_slice]
+            t1c_slice = im['T1c'][brain_slice]
+            t2_slice = im['T2'][brain_slice]
             gt_slice = gt[brain_slice]
-            im = col_im(im_slice, gt_slice)
+            t2_gt.append(col_im(t2_slice, gt_slice))
+            t1c_gt.append(col_im(t1c_slice, gt_slice))
+            t1_gt.append(col_im(t1_slice, gt_slice))
+            flair_gt.append(col_im(flair_slice, gt_slice))
+            flair.append(col_im(flair_slice, None))
+            t2.append(col_im(flair_slice, None))
 
-            vis_col_im(im=im_slice, gt=gt_slice)
+            out_col_im(t2_slice, gt_slice, brain_no, brain_slice, "brain_t2_gt")
+            out_col_im(t1c_slice, gt_slice, brain_no, brain_slice, "brain_t1c_gt")
+            out_col_im(t1_slice, gt_slice, brain_no, brain_slice, "brain_t1_gt")
+            out_col_im(flair_slice, gt_slice, brain_no, brain_slice, "brain_flair_gt")
+            out_col_im(t2_slice, None, brain_no, brain_slice, "brain_t2")
+            out_col_im(t1c_slice, None, brain_no, brain_slice, "brain_t1c")
+            out_col_im(t1_slice, None, brain_no, brain_slice, "brain_t1")
+            out_col_im(flair_slice, None, brain_no, brain_slice, "brain_flair")
+            out_gt_im(flair_slice, gt_slice, brain_no, brain_slice, "brain_gt")
 
+        imageio.mimsave("website/images/brains/brain_t2_gt{0}.gif".format(brain_no), t2_gt)
+        imageio.mimsave("website/images/brains/brain_t1c_gt{0}.gif".format(brain_no), t1c_gt)
+        imageio.mimsave("website/images/brains/brain_t1_gt{0}.gif".format(brain_no), t1_gt)
+        imageio.mimsave("website/images/brains/brain_flair_gt{0}.gif".format(brain_no), flair_gt)
 
+        imageio.mimsave("website/images/brains/brain_t2{0}.gif".format(brain_no), t2)
+        imageio.mimsave("website/images/brains/brain_flair{0}.gif".format(brain_no), flair)
+        brain_no+=1
 
 def show_modalities():
     for im in gen_images(n=1, crop=True):
@@ -363,11 +433,11 @@ def show_hemisphere():
         t_im = im['T1c']
         gt = im['gt']
 
-        left = t_im[:,:,:t_im.shape[-1]/2]
-        gt_left = gt[:,:,:gt.shape[-1]/2]
+        left = t_im[:,:,:int(t_im.shape[-1]/2)]
+        gt_left = gt[:,:,:int(gt.shape[-1]/2)]
 
-        right = t_im[:,:,t_im.shape[-1]/2:]
-        gt_right = gt[:,:,gt.shape[-1]/2:]
+        right = t_im[:,:,int(t_im.shape[-1]/2):]
+        gt_right = gt[:,:,int(gt.shape[-1]/2):]
 
         for _slice in np.arange(0, t_im.shape[0], t_im.shape[0]/20).astype(int):
             l_slice = left[_slice]
@@ -392,7 +462,7 @@ def show_rotation():
             vis_col_im(im=im_slice, gt=gt_slice)
 
 def show_transform():
-    for im in gen_images(n=1, crop=True):
+    for im in gen_images(n=1, crop=True, randomize=True):
         t_im = im['T1c']
         gt = im['gt']
         #t_im_trans, trans_gt = rotate_transform(t_im, gt)
@@ -416,10 +486,10 @@ def show_transform():
             vis_ims(im0=im_slice, gt0=gt_slice, im1=im_slice_trans, gt1=trans_gt_slice)
 
 if __name__ == '__main__':
-    show_brains()
-    show_modalities()
-    show_downsize()
-    show_crops()
-    show_hemisphere()
-    show_rotation()
-    show_transform()
+    save_brains()
+    # show_modalities()
+    # show_downsize()
+    # show_crops()
+    # show_hemisphere()
+    # show_rotation()
+    # show_transform()
