@@ -1,9 +1,12 @@
 <html>
 	<head>
-		<title>Support Vector Machines for MRI Brain Image Classification</title>
+		<title>Convolutional Neural Networks for MRI Brain Image Classification</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<script type="text/javascript"
+	  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+		</script>
 	</head>
 	<body>
 
@@ -25,12 +28,45 @@
 					<h2>What is a CNN?</h2>
 					<p>
 					“Support Vector Machine” (SVM) refers to a supervised machine learning algorithm which can be used for both classification or regression challenges.<sup>1</sup>
-					<br>
-					Consider an n-dimensional space.
-					Support vectors refer to the individual co-ordinates in the space, and are the data points collected by individual observation.
-					'n' refers to the number of features which each data point would have.
-					The support vector machine is the hyper-plane that divides the space and separates the data points into classes.<sup>1</sup>
 					</p>
+					<h4>Convolutions</h4>
+					<blockquote>
+						A convolution is a mathematical operation on two functions to produce a third function which is seen as a modification of one of the first functions, giving the integral of the pointwise multiplication of the two functions as a function of the amount that one of the original functions is translated.
+						<sup><a href="#foot-2">2</a></sup></blockquote>
+					<p>
+					Convolution is defined as:
+					$$ (f * g )(t) = \int_{0}^{t} f(\tau)\, g(t - \tau)\, d\tau\ \mathrm{for} \ \ f, g : [0, \infty) \to \mathbb{R} $$
+					where \( (f * g )(t) \) represents the convolution of \(f\) on \(g\). For discrete functions this is analogous to:
+					$$ (f * g)[n]\ \stackrel{\mathrm{def}}{=}\ \sum_{m=-\infty}^\infty f[m]\, g[n - m] $$
+
+					</p>
+
+
+				</div>
+			</section>
+			<section class="spotlight style1 orient-left content-align-left" id="first">
+				<div class="content style2">
+					<h2>What is a CNN?</h2>
+					<article>
+						<p>
+						“Support Vector Machine” (SVM) refers to a supervised machine learning algorithm which can be used for both classification or regression challenges.<sup>1</sup>
+						<br>
+						Consider an n-dimensional space.
+						Support vectors refer to the individual co-ordinates in the space, and are the data points collected by individual observation.
+						'n' refers to the number of features which each data point would have.
+						The support vector machine is the hyper-plane that divides the space and separates the data points into classes.<sup>1</sup>
+						</p>
+					</article>
+					<article>
+						<p>
+						“Support Vector Machine” (SVM) refers to a supervised machine learning algorithm which can be used for both classification or regression challenges.<sup>1</sup>
+						<br>
+						Consider an n-dimensional space.
+						Support vectors refer to the individual co-ordinates in the space, and are the data points collected by individual observation.
+						'n' refers to the number of features which each data point would have.
+						The support vector machine is the hyper-plane that divides the space and separates the data points into classes.<sup>1</sup>
+						</p>
+					</article>
 				</div>
 			</section>
 
@@ -56,9 +92,6 @@
 					The linear hyper-plane will have the form:
 					<br>
 					<br>
-					<math>
-						f(x) = w<sup>T</sup>x + b
-					</math>
 					<ul> Where:
 						<li><math>x</math> is the input vector (the features)</li>
 						<li><math>w</math> is the weight vector (that applies weight to each feature)</li>
@@ -82,10 +115,6 @@
 					<br>
 					Kernels often used for MRI brain tumour classification include <sup>2</sub>:
 					<ul>
-						<li>Linear: <math>K(X,X') = X<sup>T</sup>X' </math></li>
-						<li>Quadratic: <math>K(X,X') = (1 + X<sup>T</sup>X')<sup>2</sup></math></li>
-						<li>Polynomial: <math></math>K(X,X') = (1 + X<sup>T</sup>X')<sup>d</sup></li>
-						<li>Radial Basic Function: <math>K(X, X') = exp(-||X-X'||<sup>2</sup>/2a<sup>2</sup>)</math> where a is a free parameter</li>
 					</ul>
 					The choice of kernel is not obvious, and so determining the optimal hyper-plane involves testing with different kernels.
 					</p>
@@ -253,7 +282,7 @@
 					<h1>Footnotes</h1>
 					<ul class="alt align-left">
 						<li id="foot-1"><a href="#foot-1-ref" title="return">[1]</a> WHO Glioma grades</li>
-						<li id="foot-2"><a href="#foot-2-ref" title="return">[2]</a>https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2016/06/DWTA-Report-April-2016.pdf</li>
+						<li id="foot-2"><a href="#foot-2-ref" title="return">[2]</a>https://en.wikipedia.org/wiki/Convolution</li>
 						<li id="foot-3"><a href="#foot-3-ref" title="return">[3]</a>The Royal Marsden Manual of Clinical Nursing Procedures, 9th, Professional Edition
 
 							L Dougherty and S Lister (Editors)
