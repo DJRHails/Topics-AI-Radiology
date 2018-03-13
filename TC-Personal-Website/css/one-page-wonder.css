@@ -30,6 +30,10 @@ h6 {
   background-image: url("../img/ic-linkedin.svg");
 }
 
+.ic-mail {
+  background-image: url("../img/ic-mail.svg");
+}
+
 .btn-xl {
   text-transform: uppercase;
   padding: 1.5rem 3rem;
@@ -64,6 +68,14 @@ h6 {
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.1rem;
+}
+
+.nav-item {
+  padding-right: 1em;
+}
+
+.nav-item > i > a {
+  color: #fff;
 }
 
 header.masthead {
