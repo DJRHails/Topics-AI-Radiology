@@ -56,6 +56,30 @@
 		box-sizing: border-box;
 	}
 
+	.image-caption {
+            width:100%;
+            background:rgba(0, 0, 0, 0.5);
+            position:absolute;
+            opacity:0;
+						bottom: 0;
+            transition:all 300ms ease-in-out;
+           -webkit-transition:all 300ms ease-in-out;
+           -moz-transition:all 300ms ease-in-out;
+           -o-transition:all 300ms ease-in-out;
+           -ms-transition:all 300ms ease-in-out;
+}
+
+.image-caption p{
+            text-align:left;
+						margin-left: 5;
+						margin-right: 5;
+						color:#fff;
+}
+
+.image-with-caption:hover .image-caption{
+            opacity:1;
+}
+
 /* Grid */
 
 	.row {
@@ -1728,7 +1752,7 @@
 		}
 
 	h1 {
-		font-size: 3.5rem;
+		font-size: 2.5rem;
 		line-height: 1.2;
 	}
 
@@ -3376,7 +3400,9 @@
 		}
 
 		.banner.style1.fullscreen {
+			overflow: hidden;
 			min-height: 100vh;
+			height: 100vh;
 		}
 
 			@media screen and (orientation: portrait) {

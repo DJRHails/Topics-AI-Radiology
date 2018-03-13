@@ -4,6 +4,9 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<script type="text/javascript"
+	  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+		</script>
 	</head>
 	<body>
 
@@ -35,8 +38,11 @@
 							The support vector machine is the hyper-plane that divides the space and separates the data points into classes.<a id="foot-1-ref" href="#foot-1"><sup>[1]</sup></a>
 						</p>
           </div>
-					<div class="image">
+					<div class = "image image-with-caption">
             <img src="images/svm.png" alt="" />
+						<div class="image-caption">
+							<p>https://www.analyticsvidhya.com/blog/2017/09/understaing-support-vector-machine-example-code/</p>
+						</div>
           </div>
 				</section>
 
@@ -63,20 +69,23 @@
 							The linear hyper-plane will have the form:
 							<br>
 							<br>
-							<math>
-								f(x) = w<sup>T</sup>x + b
-							</math>
+							$$
+								f(x) = w^Tx + b
+							$$
 							<ul> Where:
-								 <li><math>x</math> is the input vector (the features)</li>
-								 <li><math>w</math> is the weight vector (that applies weight to each feature)</li>
-								 <li><math>b</math> is the bias (translates the hyper-plane)</li>
+								 <li>x is the input vector (the features)</li>
+								 <li>w is the weight vector (that applies weight to each feature)</li>
+								 <li>b is the bias (translates the hyper-plane)</li>
 						  </ul>
 							Training the SVM can be done using the Perceptron algorithm which cycles through the training data points, and if the data point isn't classified correctly, then the weights in w are updated in order to accomodate the new data point.
 							This repeats until a cycle occurs with no changes.<a id="foot-3-ref" href="#foot-3"><sup>[3]</sup></a>
 						</p>
 					</div>
-          <div class="image">
+          <div class="image image-with-caption">
             <img src="images/svm2.png" alt="" />
+						<div class="image-caption">
+							<p>https://eight2late.wordpress.com/2017/02/07/a-gentle-introduction-to-support-vector-machines-using-r/</p>
+						</div>
           </div>
         </section>
 
@@ -89,16 +98,19 @@
 							Once the input data has been transformed, the SVM can be trained in the same way as linearly-separable classes.<a id="foot-1-ref" href="#foot-1"><sup>[1]</sup></a>
 							<br>
 								<ul>Kernels often used for MRI brain tumour classification include <a id="foot-2-ref" href="#foot-2"><sup>[2]</sub></a>:
-									<li>Linear: <math>K(X,X') = X<sup>T</sup>X' </math></li>
-									<li>Quadratic: <math>K(X,X') = (1 + X<sup>T</sup>X')<sup>2</sup></math></li>
-									<li>Polynomial: <math></math>K(X,X') = (1 + X<sup>T</sup>X')<sup>d</sup></li>
-									<li>Radial Basic Function: <math>K(X, X') = exp(-||X-X'||<sup>2</sup>/2a<sup>2</sup>)</math> where a is a free parameter</li>
+									<li>Linear: $$K(X,X') = X^TX'$$</li>
+									<li>Quadratic: $$K(X,X') = (1 + X^TX')^2$$</li>
+									<li>Polynomial: $$K(X,X') = (1 + X^TX')^d$$</li>
+									<li>Radial Basis Function: $$K(X,X') = exp(-\frac{||X-X'||^2}{2\gamma^2})$$</li>
 								</ul>
 								The choice of kernel is not obvious, and so determining the optimal hyper-plane involves testing with different kernels.
 							 </p>
 	          </div>
-	          <div class="image">
+	          <div class="image-with-caption">
 	            <img src="images/svm1.png" alt="" />
+							<div class="image-caption">
+								<p>https://www.quora.com/What-are-the-advantages-of-support-vector-machines-SVM-compared-with-linear-regression-or-logistic-regression</p>
+							</div>
 	          </div>
 	        </section>
 
@@ -286,10 +298,9 @@
 		                <h3>Choice of kernel values</h3>
 		              </header>
 		              <div class="content">
-										When choosing the RBF as the kernel, there is the choice of C and gamma for the kernel.
-										The gamma parameter determines how much a single training example influences the SVM.
-										The C parameter trades off misclassification of training examples against simplicity of the decision surface.
-									  A low C makes the decision surface smooth, while a high C aims at classifying all training examples correctly.<a id="foot-9-ref" href="#foot-9"><sup>9</sup></h3></a>
+										When choosing the RBF as the kernel, there is the choice of gamma to be made.
+										The gamma parameter determines how much a single training example influences the SVM. A lower value means that the influence is greater.
+									  <a id="foot-9-ref" href="#foot-9"><sup>9</sup></h3></a>
 										<br>
 										Similarly, when choosing a polynomial kernel, there is the choice of d. Choosing d = 2 is quite common (and is a quadratic kernel), but choosing a high value of d will cause K(X, X') to tend to a value of 0 or infinity, thus not proving as effective.<a id="foot-10-ref" href="#foot-10"><sup>[10]</sup></a>
 
@@ -306,11 +317,11 @@
 		          </div>
 		        </div>
 		      </section>
-
 					<section id="continue" class="wrapper style1 align-center">
 		        <div class="inner">
 		          <ul class="actions vertical">
 		            <li>
+									<a href="cnns.html" class="button big wide smooth-scroll">What's next?</a>
 		              <a href="index.html" class="button big wide smooth-scroll">Back to home</a>
 		            </li>
 		          </ul>
