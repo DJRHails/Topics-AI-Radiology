@@ -56,7 +56,7 @@
               </header>
               <div class="content">
 
-                PNNs work by using the Radial Basis layer to calculate distance from the input vectors to the training vectors. This is done using a Radial Basis Function (RBF) which is a type of kernel REFNEEDED1. The RBF has several different implementations in the papers referenced, one of which is shown below REFNEEDED8: <br />
+                PNNs work by using the Radial Basis layer to calculate distance from the input vectors to the training vectors. This is done using a Radial Basis Function (RBF) which is a type of kernel REFNEEDED1. The RBF has several different implementations in the papers referenced, one of which is shown below REFNEEDED5: <br />
 
 								The output vector of the Radial Basis layer, a, is given as: <br />
 <!-- MATHS HERE -->
@@ -70,7 +70,7 @@ radbas(_n_) = _e_<sup>-n<sup>2</sup></sup>
             </section>
             <section>
               <header>
-                <h2>Summation Layer</h2> 
+                <h2>Summation Layer</h2>
               </header>
               <div class="content">
                 <p>The network then passes data from the RB layer to the summation layer which calculates the closest distance between the training images and the input image and classifies the image based on the closeness of the data. This is usually done using Bayesian Theory REFNEEDED4. Some of the sources show the summation layer performing the following calculations REFNEEDED 7 9 10:</p>
@@ -124,6 +124,7 @@ n - Dimension of the input vectors <br />
 				<div class="content">
 					<h2>Testing PNNs with BRATS benchmark</h2>
 					<p>
+						REFNEEDED8
 						stuff about testing and testing image table
 						 </p>
 					</div>
@@ -145,15 +146,16 @@ n - Dimension of the input vectors <br />
         <div class="inner">
           <h1>Footnotes</h1>
           <ul class="alt align-left">
-            <li id="foot-1"><a href="#foot-1-ref" title="return">[1]</a> WHO Glioma grades</li>
-            <li id="foot-2"><a href="#foot-2-ref" title="return">[2]</a>https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2016/06/DWTA-Report-April-2016.pdf</li>
-            <li id="foot-3"><a href="#foot-3-ref" title="return">[3]</a>The Royal Marsden Manual of Clinical Nursing Procedures, 9th, Professional Edition L Dougherty and S Lister (Editors) Royal Marsden Manual Series, Wiley-Blackwell, 2015</li>
-<li id="foot-4"><a href="#foot-4-ref" title="return">[4]</a>https://assets.thebraintumourcharity.org/live/media/filer_public/b3/56/b356a660-9860-409d-9199-ee5419f743c4/glioblastoma-v1-adult-factsheet.pdf</li>
-<li id="foot-5"><a href="#foot-5-ref" title="return">[5]</a>Odland A, Server A, Saxhaug C, Breivik B, Groote R, Vardal J, Larsson C, Bjørnerud A. Volumetric glioma quantification: comparison of manual and semi-automatic tumor segmentation for the quantification of tumor growth. Acta Radiol. 2015;56:1396–1403. doi: 10.1177/0284185114554822. [PubMed] [Cross Ref]]</li>
-<li id="foot-6"><a href="#foot-6-ref" title="return">[6]</a>Aslian H, Sadeghi M, Mahdavi SR, Babapour Mofrad F, Astarakee M, Khaledi N, Fadavi P. Magnetic resonance imaging-based target volume delineation in radiation therapy treatment planning for brain tumors using localized region-based active contour. Int J Radiat Oncol Biol Phys. 2013;87:195–201. doi: 10.1016/j.ijrobp.2013.04.049. </li>
-<li id="foot-7"><a href="#foot-7-ref" title="return">[7]</a>BRATS dataset</li>
-<li id="foot-8"><a href="#foot-8-ref" title="return">[8]</a>Radiology Masterclass https://www.radiologymasterclass.co.uk/tutorials/mri/mri_sequences</li>
-<li id="foot-9"><a href="#foot-9-ref" title="return">[9]</a> http://ieeexplore.ieee.org/document/6975210/</li>
+            <li id="foot-1"><a href="#foot-1-ref" title="return">[1]</a><a href="https://en.wikipedia.org/wiki/Probabilistic_neural_network"> https://en.wikipedia.org/wiki/Probabilistic_neural_network</a></li>
+            <li id="foot-2"><a href="#foot-2-ref" title="return">[2]</a><a href="https://pdfs.semanticscholar.org/fc27/27118e1ebf541de0a46d7cc10e2a9bf1158d.pdf"> https://pdfs.semanticscholar.org/fc27/27118e1ebf541de0a46d7cc10e2a9bf1158d.pdf</a></li>
+            <li id="foot-3"><a href="#foot-3-ref" title="return">[3]</a><a href="http://onlinelibrary.wiley.com/doi/10.1002/mrm.22147/full">http://onlinelibrary.wiley.com/doi/10.1002/mrm.22147/full</a></li>
+						<li id="foot-4"><a href="#foot-4-ref" title="return">[4]</a><a href="https://en.wikipedia.org/wiki/Bayesian_probability">https://en.wikipedia.org/wiki/Bayesian_probability</a></li>
+						<li id="foot-5"><a href="#foot-5-ref" title="return">[5]</a>Mohd Fauzi Othman, Mohd Ariffanan Mohd Basri Probabilistic Neural Network For Brain Tumor Classification, 2011</li>
+						<li id="foot-6"><a href="#foot-6-ref" title="return">[6]</a>Smita.A.Nagtode, Bhakti B. Potdukhe, Pradnya Morey, Two dimensional Discrete Wavelet Transform and Probabilistic Neural Network used for Brain Tumor Detection and Classification, 2016</li>
+						<li id="foot-7"><a href="#foot-7-ref" title="return">[7]</a>D. Sridhar, Murali Krishna, Brain Tumor Classification U sing Discrete Cosine Transform and Probabilistic Neural Network, 2013</li>
+						<li id="foot-8"><a href="#foot-8-ref" title="return">[8]</a>R.Lavanyadevi, M.Machakowsalya, J.Nivethitha, A.Niranjil Kumar, Brain Tumor Classification and Segmentation in MRI Images using PNN, 2017</li>
+						<li id="foot-9"><a href="#foot-9-ref" title="return">[9]</a>K.S.Thara, K.Jasmine, Brain Tumour Detection in MRI Imagesusing PNN and GRNN, 2016</li>
+						<li id="foot-10"><a href="#foot-10-ref" title="return">[10]</a>Papers sourced from link: <a href="http://ieeexplore.ieee.org/Xplore/home.jsp">http://ieeexplore.ieee.org/Xplore/home.jsp</a></li>
           </ul>
         </div>
       </section>
