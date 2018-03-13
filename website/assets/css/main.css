@@ -3400,6 +3400,7 @@
 		}
 
 		.banner.style1.fullscreen {
+			overflow: hidden;
 			min-height: 100vh;
 			height: 100vh;
 		}
