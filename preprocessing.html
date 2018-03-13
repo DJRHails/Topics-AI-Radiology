@@ -1,0 +1,198 @@
+<html>
+	<head>
+		<title>PNNs</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body>
+    <!-- Wrapper -->
+    <div id="wrapper" class="divided">
+      <section class="banner onload-content-fade-right style2 fullscreen orient-center content-align-center image-position-center invert">
+        <div class="content">
+          <h1>Probabilistic Neural Networks in Automated Classification of MRI images</h1>
+          <p>Artificial Intelligence is a rapidly advancing field. Could it bee possible that humans will soon be able to create software that can determine whether an MRI scan contains an image of a certain grade brain tumour much like a Radiologist could?</p>
+          <ul class="actions vertical">
+            <li>
+              <a href="#pnns-intro" class="button big wide smooth-scroll">Find Out More</a>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+			<section class="spotlight style1 orient-right content-align-left image-position-center" id="first">
+				<div class="content">
+					<h2 id="pnns-intro">What is a PNN?</h2>
+					<p>A Probabilistic Neural Network (PNN) is a type of feedforward neural network and also a Radial Basis function network, which has the majority of uses in pattern recognition and image classification <a id="foot-1-ref" href="#foot-1"><sup>[1]</sup></a>. PNNs usually consist of four layers, an input layer, hidden layer/ radial basis layer, summation layer and output layer with each formerly mentioned layer feeding it's output to the next. From the papers referenced, they all use slightly different implementations of the layers, for example, some have multiple nodes in the output layer but others only have one.
+					</p>
+				</div>
+				<div class="image">
+					<img src="images/pnn-structure1.png" alt="" />
+				</div>
+			</section>
+
+
+			<section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
+				<div class="content">
+					<h2>What are the Advantages of PNNs?</h2>
+					<ul>Pnns have a number of advantages that make them more favourable to use when classifying Tumours <a id="foot-6-ref" href="#foot-6"><sup>[6]</sup></a>:
+						<li>They are very quick to train.</li>
+						<li>They have a permanent parallel structure.</li>
+						<li>They are guaranteed to classify an Image and this classification will be optimal as the data set grows.</li>
+						<li>Training samples can easily be added or removed without considerable retraining.</li>
+					</ul>
+				</div>
+			</section>
+
+			<section class="wrapper style1 align-center">
+        <div class="inner">
+					<h1 id="cancer-summary">How are PNNs Implemented?</h1>
+          <p> As is formerly mentioned, PNNs contain an input layer and an output layer. in this sense they are similar to other neural networks as the number of input nodes corresponds to the number of pixels recieved, and the activation of an input node depends on the brightness of the pixel for that node. The number of output nodes is determined by the number of classes the network has to determine between.</p>
+          <div class="index align-left">
+            <!-- Main layers of PNN -->
+            <section>
+              <header>
+                <h2>Hidden Layer/Radial Basis Layer</h2>
+              </header>
+              <div class="content">
+
+                PNNs work by using the Radial Basis layer to calculate distance from the input vectors to the training vectors. This is done using a Radial Basis Function (RBF)<a id="foot-1-ref" href="#foot-1"><sup>[1]</sup></a>. The RBF has several different implementations in the papers referenced, one of which is shown below <a id="foot-5-ref" href="#foot-5"><sup>[5]</sup></a>: <br />
+
+								The output vector of the Radial Basis layer, <math>a</math>, is given as: <br />
+<!-- MATHS HERE -->
+<math>a<sub>i</sub> = radbas(||<strong>W<sub>i</sub> − p</strong>|| .∗ <strong>b</strong><sub>i</sub> )</math> <br />
+<!-- NOT SURE WHERE TO INCLUDE MATH TAGS HERE -->
+Where <strong>W</strong> is the weight vector, <strong>p</strong> is the input vector (so <math>||<strong>W<sub>i</sub> − p</strong></math>|| is the distance vector between the input and weight.) and <strong>b</strong> is a bias vector. This paper represents the distance criterion with respect to a center as: <br />
+<!-- MATHS HERE -->
+<math>radbas(_n_) = _e_<sup>-n<sup>2</sup></sup></math>
+
+              </div>
+            </section>
+            <section>
+              <header>
+                <h2>Summation Layer</h2>
+              </header>
+              <div class="content">
+                <p>The network then passes data from the RB layer to the summation layer which calculates the closest distance between the training images and the input image and classifies the image based on the closeness of the data. This is usually done using Bayesian Theory <a id="foot-4-ref" href="#foot-4"><sup>[4]</sup></a>. Some of the sources show the summation layer performing the following calculations <a id="foot-7-ref" href="#foot-7"><sup>[7]</sup></a> <a id="foot-9-ref" href="#foot-9"><sup>[9]</sup></a> <a id="foot-10-ref" href="#foot-10"><sup>[10]</sup></a></p>
+
+								<p>The PNN separates the input vectors into classes. An input vector is classified into a class A by the equation:</p>
+
+<!-- COMBO OF MATHS AND TEXT HERE -->
+
+<math>P<sub>A</sub>C<sub>A</sub>F(x)<sub>A</sub>  >  P<sub>B</sub>C<sub>B</sub>F(x)<sub>B</sub></math>  <br />
+
+Where <br />
+
+<!-- NOT SURE WHERE TO INCLUDE MATH TAGS HERE -->
+P<sub>A</sub> - Priori probability of occurrence of patterns in class <br />
+
+C<sub>A</sub> - Cost associated with classifying vectors <br />
+
+F(x)<sub>A</sub> - Probability density function of class A
+given by the equation F(x)<sub>A</sub> = 1/(2π)<sup>n/2</sup> σ<sup>n</sup> m <sub>n</sub>
+with  Σ<sup>m</sup><sub>i = 1</sub> exp(-2(x - x<sub>A</sub>)<sup>r</sup> (x - x<sub>Ai</sub>)/σ<sup>2</sup> <br />
+
+Where <br />
+
+x<sub>Ai</sub> - i<sub>th</sub> training pattern from class A <br />
+
+n - Dimension of the input vectors <br />
+
+σ - Smoothing parameter (corresponds to standard deviation of gaussian distribution)
+
+                <span class="image fit">
+                 <img src="images/pnn-implementation.png"/>
+               </span
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
+
+			<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" >
+				<div class="content">
+					<h2>What Role do PNNs Play in Medical Imaging?</h2>
+					<p>
+					In the medical context, the PNN carries out the MRI classification in the automated procedure of detecting and analysing brain tumours. They determine can between many type of tumour, for example, benign, metastatic and malignant as well as normal, non-tumor containing images. Their implementation determines the different classes of tumour they can distinguish between as does the training data supplied. The PNN is used in the final stage of the classification steps (see diagram).
+					</p>
+				</div>
+				<div class="image">
+					<img src="images/pnn-medical-imaging-flow-chart.png" alt="" />
+				</div>
+			</section>
+
+			<section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
+				<div class="content">
+					<h2>Testing PNNs with BRATS benchmark</h2>
+					<p>
+						A paper about PNNs and classification<a id="foot-8-ref" href="#foot-8"><sup>[8]</sup></a>  provides some results of a tested PNN implementation on a BRATS dataset. We also gained some classification data from the dataset REFNFORDATASET. This is shown in the table below in a similar format to the one in the paper.
+						 </p>
+						 <h4>Our Classification Results</h4>
+											<div class="table-wrapper">
+												<table class="alt">
+													<thead>
+														<tr>
+															<th>Input Image</th>
+															<th>Segmented Image</th>
+															<th>Type of Tumour</th>
+															<th>Tumour Affected Area (mm<sup>2</sup>)</th>
+															<th>No. Defect Cells</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td>Dataset Image 1</td>
+															<td>Segmented Image 1</td>
+															<td>Normal</td>
+															<td>Area 1</td>
+															<td>Number 1</td>
+														</tr>
+														<tr>
+															<td>Dataset Image 2</td>
+															<td>Segmented Image 2</td>
+															<td>Benign</td>
+															<td>Area 2</td>
+															<td>Number 2</td>
+														</tr>
+														<tr>
+															<td>Dataset Image 3</td>
+															<td>Segmented Image 3</td>
+															<td>Malignant</td>
+															<td>Area 3</td>
+															<td>Number 3</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+											<p> This tells us that we may be on the way to writing computer programs that could do what a radiologist does and eventually, write software that saves doctors a great deal of time and as well as save many lives.</p>
+					</div>
+				</section>
+
+      <section id="continue" class="wrapper style1 align-center">
+        <div class="inner">
+          <ul class="actions vertical">
+            <li>
+              <a href="index.html" class="button big wide smooth-scroll">Back to home</a>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section id="footnotes" class="wrapper style1 align-center">
+        <div class="inner">
+          <h1>Footnotes</h1>
+          <ul class="alt align-left">
+          </ul>
+        </div>
+      </section>
+    </div>
+    <!-- End Wrapper -->
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
