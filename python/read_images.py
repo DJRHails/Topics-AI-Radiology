@@ -12,6 +12,8 @@ import copy
 import matplotlib.pyplot as plt
 import pickle
 
+DIR = "datasets/BRATS2015_Training/"
+
 def vis_col_im(im, gt):
 	indices_0 = np.where(gt == 0) # nothing
 	indices_1 = np.where(gt == 1) # necrosis
@@ -197,7 +199,7 @@ def check(coords, shape):
 
 	return (z_s, y_s, x_s)
 
-def create_folds(dir_name='../datasets/BRATS2015_Training'):
+def create_folds(dir_name=DIR):
     pats = get_pats(dir_name)
     shuffle(pats)
 
@@ -311,7 +313,7 @@ def get_image_slice(image):
 	return im, (z_s, x_s, y_s)
 
 
-def gen_images(dir_name='../datasets/BRATS2015_Training/', n=1, specific=False, interval=None, crop=False, randomize=False, custom_pats=None):
+def gen_images(dir_name=DIR, n=1, specific=False, interval=None, crop=False, randomize=False, custom_pats=None):
 	pats = get_pats(dir_name) if custom_pats is None else custom_pats
 	print('%i images in total.' % len(pats))
 	if randomize:
@@ -446,8 +448,8 @@ def test_shapes():
 	print('Finished with %i errors.' % errors)
 
 if __name__ == '__main__':
-    make_data_set()
-    #test_shapes()
-    #test_folds()
+    # make_data_set()
+    test_shapes()
+    test_folds()
     #create_folds()
     # build_hdf5_from_fold()

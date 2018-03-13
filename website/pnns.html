@@ -20,10 +20,10 @@
         </div>
       </section>
 
-			<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="first">
+			<section class="spotlight style1 orient-right content-align-left image-position-center" id="first">
 				<div class="content">
 					<h2 id="pnns-intro">What is a PNN?</h2>
-					<p>A Probabilistic Neural Network (PNN) is a type of feedforward neural network and also a Radial Basis function network, which has the majority of uses in pattern recognition and image classification REFNEEDED1. PNNs usually consist of four layers, an input layer, hidden layer/ radial basis layer, summation layer and output layer with each formerly mentioned layer feeding it's output to the next. From the papers referenced, they all use slightly different implementations of the layers, for example, some have multiple nodes in the output layer but others only have one.
+					<p>A Probabilistic Neural Network (PNN) is a type of feedforward neural network and also a Radial Basis function network, which has the majority of uses in pattern recognition and image classification <a id="foot-1-ref" href="#foot-1"><sup>[1]</sup></a>. PNNs usually consist of four layers, an input layer, hidden layer/ radial basis layer, summation layer and output layer with each formerly mentioned layer feeding it's output to the next. From the papers referenced, they all use slightly different implementations of the layers, for example, some have multiple nodes in the output layer but others only have one.
 					</p>
 				</div>
 				<div class="image">
@@ -34,8 +34,8 @@
 
 			<section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
 				<div class="content">
-					<h2>Advantages of PNNs</h2>
-					<ul>Pnns have a number of advantages that make them more favourable to use when classifying Tumours REFNEEDED6:
+					<h2>What are the Advantages of PNNs?</h2>
+					<ul>Pnns have a number of advantages that make them more favourable to use when classifying Tumours <a id="foot-6-ref" href="#foot-6"><sup>[6]</sup></a>:
 						<li>They are very quick to train.</li>
 						<li>They have a permanent parallel structure.</li>
 						<li>They are guaranteed to classify an Image and this classification will be optimal as the data set grows.</li>
@@ -46,43 +46,44 @@
 
 			<section class="wrapper style1 align-center">
         <div class="inner">
-          <h1 id="cancer-summary">Implementation of PNNs</h1>
-          <p>Intro to implementation TODO:</p>
+					<h1 id="cancer-summary">How are PNNs Implemented?</h1>
+          <p> As is formerly mentioned, PNNs contain an input layer and an output layer. in this sense they are similar to other neural networks as the number of input nodes corresponds to the number of pixels recieved, and the activation of an input node depends on the brightness of the pixel for that node. The number of output nodes is determined by the number of classes the network has to determine between.</p>
           <div class="index align-left">
             <!-- Main layers of PNN -->
             <section>
               <header>
-                <h2>Hidden/Radial Basis Layer</h2>
+                <h2>Hidden Layer/Radial Basis Layer</h2>
               </header>
               <div class="content">
 
-                PNNs work by using the Radial Basis layer to calculate distance from the input vectors to the training vectors. This is done using a Radial Basis Function (RBF) which is a type of kernel REFNEEDED1. The RBF has several different implementations in the papers referenced, one of which is shown below REFNEEDED8: <br />
+                PNNs work by using the Radial Basis layer to calculate distance from the input vectors to the training vectors. This is done using a Radial Basis Function (RBF)<a id="foot-1-ref" href="#foot-1"><sup>[1]</sup></a>. The RBF has several different implementations in the papers referenced, one of which is shown below <a id="foot-5-ref" href="#foot-5"><sup>[5]</sup></a>: <br />
 
-								The output vector of the Radial Basis layer, a, is given as: <br />
+								The output vector of the Radial Basis layer, <math>a</math>, is given as: <br />
 <!-- MATHS HERE -->
-a<sub>i</sub> = radbas(||<strong>W<sub>i</sub> − p</strong>|| .∗ <strong>b</strong><sub>i</sub> ) <br />
-
-Where <strong>W</strong> is the weight vector, <strong>p</strong> is the input vector (so ||<strong>W<sub>i</sub> − p</strong>|| is the distance vector between the input and weight.) and <strong>b</strong> is a bias vector. This paper represents the distance criterion with respect to a center as: <br />
+<math>a<sub>i</sub> = radbas(||<strong>W<sub>i</sub> − p</strong>|| .∗ <strong>b</strong><sub>i</sub> )</math> <br />
+<!-- NOT SURE WHERE TO INCLUDE MATH TAGS HERE -->
+Where <strong>W</strong> is the weight vector, <strong>p</strong> is the input vector (so <math>||<strong>W<sub>i</sub> − p</strong></math>|| is the distance vector between the input and weight.) and <strong>b</strong> is a bias vector. This paper represents the distance criterion with respect to a center as: <br />
 <!-- MATHS HERE -->
-radbas(_n_) = _e_<sup>-n<sup>2</sup></sup>
+<math>radbas(_n_) = _e_<sup>-n<sup>2</sup></sup></math>
 
               </div>
             </section>
             <section>
               <header>
-                <h2>Summation Layer</h2> 
+                <h2>Summation Layer</h2>
               </header>
               <div class="content">
-                <p>The network then passes data from the RB layer to the summation layer which calculates the closest distance between the training images and the input image and classifies the image based on the closeness of the data. This is usually done using Bayesian Theory REFNEEDED4. Some of the sources show the summation layer performing the following calculations REFNEEDED 7 9 10:</p>
+                <p>The network then passes data from the RB layer to the summation layer which calculates the closest distance between the training images and the input image and classifies the image based on the closeness of the data. This is usually done using Bayesian Theory <a id="foot-4-ref" href="#foot-4"><sup>[4]</sup></a>. Some of the sources show the summation layer performing the following calculations <a id="foot-7-ref" href="#foot-7"><sup>[7]</sup></a> <a id="foot-9-ref" href="#foot-9"><sup>[9]</sup></a> <a id="foot-10-ref" href="#foot-10"><sup>[10]</sup></a></p>
 
 								<p>The PNN separates the input vectors into classes. An input vector is classified into a class A by the equation:</p>
 
 <!-- COMBO OF MATHS AND TEXT HERE -->
-<pre>
-P<sub>A</sub>C<sub>A</sub>F(x)<sub>A</sub>  >  P<sub>B</sub>C<sub>B</sub>F(x)<sub>B</sub></pre>  <br />
+
+<math>P<sub>A</sub>C<sub>A</sub>F(x)<sub>A</sub>  >  P<sub>B</sub>C<sub>B</sub>F(x)<sub>B</sub></math>  <br />
 
 Where <br />
 
+<!-- NOT SURE WHERE TO INCLUDE MATH TAGS HERE -->
 P<sub>A</sub> - Priori probability of occurrence of patterns in class <br />
 
 C<sub>A</sub> - Cost associated with classifying vectors <br />
@@ -110,7 +111,7 @@ n - Dimension of the input vectors <br />
 
 			<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" >
 				<div class="content">
-					<h2>Role of PNNs in Medical Imaging</h2>
+					<h2>What Role do PNNs Play in Medical Imaging?</h2>
 					<p>
 					In the medical context, the PNN carries out the MRI classification in the automated procedure of detecting and analysing brain tumours. They determine can between many type of tumour, for example, benign, metastatic and malignant as well as normal, non-tumor containing images. Their implementation determines the different classes of tumour they can distinguish between as does the training data supplied. The PNN is used in the final stage of the classification steps (see diagram).
 					</p>
@@ -124,11 +125,46 @@ n - Dimension of the input vectors <br />
 				<div class="content">
 					<h2>Testing PNNs with BRATS benchmark</h2>
 					<p>
-						stuff about testing and testing image table
+						A paper about PNNs and classification<a id="foot-8-ref" href="#foot-8"><sup>[8]</sup></a>  provides some results of a tested PNN implementation on a BRATS dataset. We also gained some classification data from the dataset REFNFORDATASET. This is shown in the table below in a similar format to the one in the paper.
 						 </p>
-					</div>
-					<div class="image">
-						<img src="images/pic01.png" alt="" />
+						 <h4>Our Classification Results</h4>
+											<div class="table-wrapper">
+												<table class="alt">
+													<thead>
+														<tr>
+															<th>Input Image</th>
+															<th>Segmented Image</th>
+															<th>Type of Tumour</th>
+															<th>Tumour Affected Area (mm<sup>2</sup>)</th>
+															<th>No. Defect Cells</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td>Dataset Image 1</td>
+															<td>Segmented Image 1</td>
+															<td>Normal</td>
+															<td>Area 1</td>
+															<td>Number 1</td>
+														</tr>
+														<tr>
+															<td>Dataset Image 2</td>
+															<td>Segmented Image 2</td>
+															<td>Benign</td>
+															<td>Area 2</td>
+															<td>Number 2</td>
+														</tr>
+														<tr>
+															<td>Dataset Image 3</td>
+															<td>Segmented Image 3</td>
+															<td>Malignant</td>
+															<td>Area 3</td>
+															<td>Number 3</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+											<p> This tells us that we may be on the way to writing computer programs that could do what a radiologist does and eventually, write software that saves doctors a great deal of time and as well as save many lives.</p>
 					</div>
 				</section>
 
@@ -145,15 +181,16 @@ n - Dimension of the input vectors <br />
         <div class="inner">
           <h1>Footnotes</h1>
           <ul class="alt align-left">
-            <li id="foot-1"><a href="#foot-1-ref" title="return">[1]</a> WHO Glioma grades</li>
-            <li id="foot-2"><a href="#foot-2-ref" title="return">[2]</a>https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2016/06/DWTA-Report-April-2016.pdf</li>
-            <li id="foot-3"><a href="#foot-3-ref" title="return">[3]</a>The Royal Marsden Manual of Clinical Nursing Procedures, 9th, Professional Edition L Dougherty and S Lister (Editors) Royal Marsden Manual Series, Wiley-Blackwell, 2015</li>
-<li id="foot-4"><a href="#foot-4-ref" title="return">[4]</a>https://assets.thebraintumourcharity.org/live/media/filer_public/b3/56/b356a660-9860-409d-9199-ee5419f743c4/glioblastoma-v1-adult-factsheet.pdf</li>
-<li id="foot-5"><a href="#foot-5-ref" title="return">[5]</a>Odland A, Server A, Saxhaug C, Breivik B, Groote R, Vardal J, Larsson C, Bjørnerud A. Volumetric glioma quantification: comparison of manual and semi-automatic tumor segmentation for the quantification of tumor growth. Acta Radiol. 2015;56:1396–1403. doi: 10.1177/0284185114554822. [PubMed] [Cross Ref]]</li>
-<li id="foot-6"><a href="#foot-6-ref" title="return">[6]</a>Aslian H, Sadeghi M, Mahdavi SR, Babapour Mofrad F, Astarakee M, Khaledi N, Fadavi P. Magnetic resonance imaging-based target volume delineation in radiation therapy treatment planning for brain tumors using localized region-based active contour. Int J Radiat Oncol Biol Phys. 2013;87:195–201. doi: 10.1016/j.ijrobp.2013.04.049. </li>
-<li id="foot-7"><a href="#foot-7-ref" title="return">[7]</a>BRATS dataset</li>
-<li id="foot-8"><a href="#foot-8-ref" title="return">[8]</a>Radiology Masterclass https://www.radiologymasterclass.co.uk/tutorials/mri/mri_sequences</li>
-<li id="foot-9"><a href="#foot-9-ref" title="return">[9]</a> http://ieeexplore.ieee.org/document/6975210/</li>
+            <li id="foot-1"><a href="#foot-1-ref" title="return">[1]</a><a href="https://en.wikipedia.org/wiki/Probabilistic_neural_network"> https://en.wikipedia.org/wiki/Probabilistic_neural_network</a></li>
+            <li id="foot-2"><a href="#foot-2-ref" title="return">[2]</a><a href="https://pdfs.semanticscholar.org/fc27/27118e1ebf541de0a46d7cc10e2a9bf1158d.pdf"> https://pdfs.semanticscholar.org/fc27/27118e1ebf541de0a46d7cc10e2a9bf1158d.pdf</a></li>
+            <li id="foot-3"><a href="#foot-3-ref" title="return">[3]</a><a href="http://onlinelibrary.wiley.com/doi/10.1002/mrm.22147/full">http://onlinelibrary.wiley.com/doi/10.1002/mrm.22147/full</a></li>
+						<li id="foot-4"><a href="#foot-4-ref" title="return">[4]</a><a href="https://en.wikipedia.org/wiki/Bayesian_probability">https://en.wikipedia.org/wiki/Bayesian_probability</a></li>
+						<li id="foot-5"><a href="#foot-5-ref" title="return">[5]</a>Mohd Fauzi Othman, Mohd Ariffanan Mohd Basri Probabilistic Neural Network For Brain Tumor Classification, 2011</li>
+						<li id="foot-6"><a href="#foot-6-ref" title="return">[6]</a>Smita.A.Nagtode, Bhakti B. Potdukhe, Pradnya Morey, Two dimensional Discrete Wavelet Transform and Probabilistic Neural Network used for Brain Tumor Detection and Classification, 2016</li>
+						<li id="foot-7"><a href="#foot-7-ref" title="return">[7]</a>D. Sridhar, Murali Krishna, Brain Tumor Classification U sing Discrete Cosine Transform and Probabilistic Neural Network, 2013</li>
+						<li id="foot-8"><a href="#foot-8-ref" title="return">[8]</a>R.Lavanyadevi, M.Machakowsalya, J.Nivethitha, A.Niranjil Kumar, Brain Tumor Classification and Segmentation in MRI Images using PNN, 2017</li>
+						<li id="foot-9"><a href="#foot-9-ref" title="return">[9]</a>K.S.Thara, K.Jasmine, Brain Tumour Detection in MRI Imagesusing PNN and GRNN, 2016</li>
+						<li id="foot-10"><a href="#foot-10-ref" title="return">[10]</a>Papers sourced from link: <a href="http://ieeexplore.ieee.org/Xplore/home.jsp">http://ieeexplore.ieee.org/Xplore/home.jsp</a></li>
           </ul>
         </div>
       </section>
