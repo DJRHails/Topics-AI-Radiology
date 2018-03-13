@@ -39,9 +39,9 @@
 						</p>
           </div>
 					<div class = "image image-with-caption">
-            <img src="images/svm.png" alt="" />
+            <img src="images/svm/svmexample.png" alt="" />
 						<div class="image-caption">
-							<p>https://www.analyticsvidhya.com/blog/2017/09/understaing-support-vector-machine-example-code/</p>
+							<p>Example of a very simple SVM<a id="foot-13-ref" href="#foot-13"><sup>[13]</sup></a></p>
 						</div>
           </div>
 				</section>
@@ -82,9 +82,9 @@
 						</p>
 					</div>
           <div class="image image-with-caption">
-            <img src="images/svm2.png" alt="" />
+            <img src="images/svm/svmlinear.png" alt="" />
 						<div class="image-caption">
-							<p>https://eight2late.wordpress.com/2017/02/07/a-gentle-introduction-to-support-vector-machines-using-r/</p>
+							<p>Example of an SVM trained to classify linearly-separable classes.<a id="foot-11-ref" href="#foot-11"><sup>[11]</sup></a></p>
 						</div>
           </div>
         </section>
@@ -96,23 +96,59 @@
 							When the classes are non-linearly separable, a kernel is used.
 							A kernel is a mathematical function that transforms a low-dimensional input space into a high-dimensional space, allowing classes to become linearly separable.
 							Once the input data has been transformed, the SVM can be trained in the same way as linearly-separable classes.<a id="foot-1-ref" href="#foot-1"><sup>[1]</sup></a>
-							<br>
-								<ul>Kernels often used for MRI brain tumour classification include <a id="foot-2-ref" href="#foot-2"><sup>[2]</sub></a>:
-									<li>Linear: $$K(X,X') = X^TX'$$</li>
-									<li>Quadratic: $$K(X,X') = (1 + X^TX')^2$$</li>
-									<li>Polynomial: $$K(X,X') = (1 + X^TX')^d$$</li>
-									<li>Radial Basis Function: $$K(X,X') = exp(-\frac{||X-X'||^2}{2\gamma^2})$$</li>
-								</ul>
-								The choice of kernel is not obvious, and so determining the optimal hyper-plane involves testing with different kernels.
+							The choice of kernel is not obvious, and so determining the optimal hyper-plane involves testing with different kernels.
 							 </p>
 	          </div>
 	          <div class="image-with-caption">
-	            <img src="images/svm1.png" alt="" />
+	            <img src="images/svm/svmnonlinear.png" alt="" />
 							<div class="image-caption">
-								<p>https://www.quora.com/What-are-the-advantages-of-support-vector-machines-SVM-compared-with-linear-regression-or-logistic-regression</p>
+								<p>Example of an SVM with non-linearly-separable classes.<a id="foot-12-ref" href="#foot-12"><sup>[12]</sup></a></p>
 							</div>
 	          </div>
 	        </section>
+
+					<section class="wrapper style1 align-left">
+		        <div class="inner">
+		          <h1>What are common kernels?</h1>
+		          <p>Kernels often used for MRI brain tumour classification include <a id="foot-2-ref" href="#foot-2"><sup>[2]</sub></p></a>
+		          <div class="index align-left">
+
+		            <section>
+		              <header>
+		                <h3>Linear</h3>
+		              </header>
+		              <div class="content">
+										$$K(X,X') = X^TX'$$
+		              </div>
+		            </section>
+		            <!--  -->
+		            <section>
+		              <header>
+		                <h3>Quadratic</h3>
+		              </header>
+		              <div class="content">
+										$$K(X,X') = (1 + X^TX')^2$$
+		              </div>
+		            </section>
+								<section>
+								 <header>
+									 <h3>Polynomial</h3>
+								 </header>
+								 <div class="content">
+									 $$K(X,X') = (1 + X^TX')^d$$
+								 </div>
+							 </section>
+							 <section>
+								<header>
+									<h3>Radial Basis Function</h3>
+								</header>
+								<div class="content">
+									$$K(X,X') = exp(-\frac{||X-X'||^2}{2\gamma^2})$$
+								</div>
+							</section>
+		          </div>
+		        </div>
+		      </section>
 
 	      <!-- Four -->
 	        <section class="spotlight style1 orient-right content-align-left image-position-center">
@@ -182,6 +218,7 @@
 		          </div>
 		        </div>
 		      </section>
+
 	      <!-- Four -->
 	        <section class="spotlight style1 orient-right content-align-left image-position-center ">
 	          <div class="content">
@@ -217,7 +254,6 @@
 						</div>
 					</section>
 
-
 	      <!-- Five -->
 	        <section class="wrapper style1">
 	          <div class="inner">
@@ -235,40 +271,40 @@
 	          <!-- Gallery -->
 	            <div class="gallery style2 big">
 	              <article>
-	                <a href="images/svmclassification1.png" class="image">
-	                  <img src="images/svmclassification1.png" alt="" />
+	                <a href="images/svm/svmclassification1.png" class="image">
+	                  <img src="images/svm/svmclassification1.png" alt="" />
 	                </a>
 	                <div class="caption">
 	                  <h3>Results for SVM's trained to classify normal and abnormal MRI brain images.<a id="foot-4-ref" href="#foot-4"><sup>[4]</sup></h3></a>
 	                </div>
 	              </article>
 	              <article>
-	                <a href="images/svmclassification2graph.png" class="image">
-	                  <img src="images/svmclassification2graph.png" alt="" />
+	                <a href="images/svm/svmclassification2graph.png" class="image">
+	                  <img src="images/svm/svmclassification2graph.png" alt="" />
 	                </a>
 	                <div class="caption">
 	                  <h3>Results for SVM's trained to classify malignant and benign MRI brain tumour images.<a id="foot-6-ref" href="#foot-6"><sup>[6]</sup></a></h3>
 	                </div>
 	              </article>
 	              <article>
-	                <a href="images/svmclassification3graph.png" class="image">
-	                  <img src="images/svmclassification3graph.png" alt="" />
+	                <a href="images/svm/svmclassification3graph.png" class="image">
+	                  <img src="images/svm/svmclassification3graph.png" alt="" />
 	                </a>
 	                <div class="caption">
 	                  <h3>Results for SVM's trained to classify malignant and benign MRI brain tumour images.<a id="foot-6-ref" href="#foot-6"><sup>[6]</sup></a></h3>
 	                </div>
 	              </article>
 								<article>
-	                <a href="images/svmclassification4.png" class="image">
-	                  <img src="images/svmclassification4.png" alt="" />
+	                <a href="images/svm/svmclassification4.png" class="image">
+	                  <img src="images/svm/svmclassification4.png" alt="" />
 	                </a>
 	                <div class="caption">
 	                  <h3>Results for SVM's trained to classify normal and abnormal MRI brain images.<a id="foot-8-ref" href="#foot-8"><sup>[8]</sup></a></h3>
 	                </div>
 	              </article>
 								<article>
-	                <a href="images/svmknnclassification.png" class="image">
-	                  <img src="images/svmknnclassification.png" alt="" />
+	                <a href="images/svm/svmknnclassification.png" class="image">
+	                  <img src="images/svm/svmknnclassification.png" alt="" />
 	                </a>
 	                <div class="caption">
 	                  <h3>Results for a SVM-KNN hybrid trained to classify normal and abnormal MRI brain images.<a id="foot-8-ref" href="#foot-8"><sup>[8]</sup></a></h3>
@@ -303,7 +339,6 @@
 									  <a id="foot-9-ref" href="#foot-9"><sup>9</sup></h3></a>
 										<br>
 										Similarly, when choosing a polynomial kernel, there is the choice of d. Choosing d = 2 is quite common (and is a quadratic kernel), but choosing a high value of d will cause K(X, X') to tend to a value of 0 or infinity, thus not proving as effective.<a id="foot-10-ref" href="#foot-10"><sup>[10]</sup></a>
-
 		              </div>
 		            </section>
 		            <section>
@@ -342,6 +377,9 @@
 		<li id="foot-8"><a href="#foot-8-ref" title="return">[8]</a>Ketan Machhale, Hari Babu Nandpuru, Vivek Kapur, MRI brain cancer classification using hybrid classifier (SVM-KNN) (2015)</li>
 		<li id="foot-9"><a href="#foot-9-ref" title="return">[9]</a>http://scikit-learn.org/stable/auto_examples/svm/plot_rbf_parameters.html</li>
 		<li id="foot-10"><a href="#foot-10-ref" title="return">[10]<a/>https://en.wikipedia.org/wiki/Polynomial_kernel</li>
+		<li id="foot-11"><a href="#foot-11-ref" title="return">[11]<a/>https://eight2late.wordpress.com/2017/02/07/a-gentle-introduction-to-support-vector-machines-using-r/</li>
+		<li id="foot-12"><a href="#foot-12-ref" title="return">[12]<a/>https://www.quora.com/What-are-the-advantages-of-support-vector-machines-SVM-compared-with-linear-regression-or-logistic-regression</li>
+		<li id="foot-13"><a href="#foot-13-ref" title="return">[13]<a/>https://www.analyticsvidhya.com/blog/2017/09/understaing-support-vector-machine-example-code/</li>
 							</ul>
 						</div>
 					</section>
