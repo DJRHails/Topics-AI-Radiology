@@ -336,8 +336,11 @@ def save_brains(maxBrains=1):
         t1c_gt = []
         t1_gt = []
         flair_gt = []
-        flair = []
+
         t2 = []
+        t1c = []
+        t1 = []
+        flair = []
 
         for brain_slice in range(0, im['Flair'].shape[0], 1):
             flair_slice = im['Flair'][brain_slice]
@@ -349,8 +352,11 @@ def save_brains(maxBrains=1):
             t1c_gt.append(col_im(t1c_slice, gt_slice))
             t1_gt.append(col_im(t1_slice, gt_slice))
             flair_gt.append(col_im(flair_slice, gt_slice))
+
             flair.append(col_im(flair_slice, None))
-            t2.append(col_im(flair_slice, None))
+            t2.append(col_im(t2_slice, None))
+            t1c.append(col_im(t1c_slice, None))
+            t1.append(col_im(t1_slice, None))
 
             out_col_im(t2_slice, gt_slice, brain_no, brain_slice, "brain_t2_gt")
             out_col_im(t1c_slice, gt_slice, brain_no, brain_slice, "brain_t1c_gt")
@@ -362,13 +368,15 @@ def save_brains(maxBrains=1):
             out_col_im(flair_slice, None, brain_no, brain_slice, "brain_flair")
             out_gt_im(flair_slice, gt_slice, brain_no, brain_slice, "brain_gt")
 
-        imageio.mimsave("website/images/brains/brain_t2_gt{0}.gif".format(brain_no), t2_gt)
-        imageio.mimsave("website/images/brains/brain_t1c_gt{0}.gif".format(brain_no), t1c_gt)
-        imageio.mimsave("website/images/brains/brain_t1_gt{0}.gif".format(brain_no), t1_gt)
-        imageio.mimsave("website/images/brains/brain_flair_gt{0}.gif".format(brain_no), flair_gt)
+        imageio.mimsave("website/images/brains/brain_t2_gt_{0}.gif".format(brain_no), t2_gt)
+        imageio.mimsave("website/images/brains/brain_t1c_gt_{0}.gif".format(brain_no), t1c_gt)
+        imageio.mimsave("website/images/brains/brain_t1_gt_{0}.gif".format(brain_no), t1_gt)
+        imageio.mimsave("website/images/brains/brain_flair_gt_{0}.gif".format(brain_no), flair_gt)
 
-        imageio.mimsave("website/images/brains/brain_t2{0}.gif".format(brain_no), t2)
-        imageio.mimsave("website/images/brains/brain_flair{0}.gif".format(brain_no), flair)
+        imageio.mimsave("website/images/brains/brain_t2_{0}.gif".format(brain_no), t2)
+        imageio.mimsave("website/images/brains/brain_flair_{0}.gif".format(brain_no), flair)
+        imageio.mimsave("website/images/brains/brain_t1c_{0}.gif".format(brain_no), t1c)
+        imageio.mimsave("website/images/brains/brain_t1_{0}.gif".format(brain_no), t1)
         brain_no+=1
 
 def show_modalities():
@@ -486,7 +494,7 @@ def show_transform():
             vis_ims(im0=im_slice, gt0=gt_slice, im1=im_slice_trans, gt1=trans_gt_slice)
 
 if __name__ == '__main__':
-    save_brains()
+    save_brains(2)
     # show_modalities()
     # show_downsize()
     # show_crops()
