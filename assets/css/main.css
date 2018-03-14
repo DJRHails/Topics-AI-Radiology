@@ -2529,7 +2529,7 @@
 				width: 100%;
 			}
 
-			td > img {
+			td.centered{
 				vertical-align: middle;
 	      text-align: center;
 			}
