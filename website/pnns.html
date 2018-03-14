@@ -32,7 +32,7 @@
 				<div class="image image-with-caption">
 					<img src="images/pnns/pnn-structure1.png" alt="" />
 					<div class="image-caption">
-						<p>The abstracted Layer structure of a PNN<a id="foot-7-ref" href="#foot-7"><sup>[7]</sup></a></p> <!--TODO say which actual paper it's from-->
+						<p>The abstracted Layer structure of a PNN <a id="foot-7-ref" href="#foot-7"><sup>[7]</sup></a></p>
 					</div>
 				</div>
 			</section>
@@ -79,7 +79,7 @@ $$ radbas(n) = e^{-n^2} $$
                 <h2 class="padding">Summation Layer</h2>
               </header>
               <div class="content">
-                <p>The network then passes data from the RB layer to the summation layer which calculates the closest distance between the training images and the input image and classifies the image based on the closeness of the data. This is usually done using Bayesian Theory <a id="foot-4-ref" href="#foot-4"><sup>[4]</sup></a>. Some of the sources show the summation layer performing the following calculations <a id="foot-7-ref" href="#foot-7"><sup>[7]</sup></a> <a id="foot-8-ref" href="#foot-8"><sup>[8]</sup></a> <a id="foot-9-ref" href="#foot-9"><sup>[9]</sup></a> </p>
+								<p>The network then passes data from the RB layer to the summation layer which calculates the closest distance between the training images and the input image and classifies the image based on the closeness of the data. This is usually done using Bayesian Theory <a id="foot-4-ref" href="#foot-4"><sup>[4]</sup></a>. Some of the sources show the summation layer performing the following calculations <a id="foot-7-ref" href="#foot-7"><sup>[7]</sup></a> <a id="foot-8-ref" href="#foot-8"><sup>[8]</sup></a> <a id="foot-9-ref" href="#foot-9"><sup>[9]</sup></a> </p>
 
 								<p>The PNN separates the input vectors into classes. An input vector is classified into a class A by the equation:</p>
 
@@ -106,9 +106,11 @@ n - Dimension of the input vectors <br />
 
 σ - Smoothing parameter (corresponds to standard deviation of gaussian distribution)
 
-                <span class="image fit">
+                <span class="image fit image-with-caption">
                  <img src="images/pnns/pnn-implementation.png"/>
-								 <p>The Mathematical representation of a PNN represented as a structural diagram.<a id="foot-13-ref" href="#foot-13"><sup>[13]</sup></a></p> <!--TODO say which actual paper it's from-->
+								 <div class="image-caption">
+								 <p>The Mathematical representation of a PNN represented as a structural diagram.<a id="foot-5-ref" href="#foot-5"><sup>[5]</sup></a></p> <!--TODO say which actual paper it's from-->
+							 </div>
                </span
               </div>
             </section>
@@ -116,16 +118,18 @@ n - Dimension of the input vectors <br />
         </div>
       </section>
 
-			<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" >
+			<section class="spotlight style1 orient-right content-align-left image-position-center" >
 				<div class="content">
 					<h2>What Role do PNNs Play in Medical Imaging?</h2>
 					<p>
-					In the medical context, the PNN carries out the MRI classification in the automated procedure of detecting and analysing brain tumours. They determine can between many type of tumour, for example, benign, metastatic and malignant as well as normal, non-tumor containing images. Their implementation determines the different classes of tumour they can distinguish between as does the training data supplied. The PNN is used in the final stage of the classification steps (see diagram).
+					In the medical context, the PNN carries out the MRI classification in the automated procedure of detecting and analysing brain tumours. They determine can between many type of tumour, for example, benign, metastatic and malignant as well as normal, non-tumor containing images. Their implementation determines the different classes of tumour they can distinguish between as does the training data supplied. The PNN is used in the last stage of the classification steps which is usually done before segmentation.
 					</p>
 				</div>
-				<div class="image">
+				<div class="image image-with-caption">
 					<img src="images/pnns/pnn-medical-imaging-flow-chart.png" alt="" />
-					<p>A diagram to show te stages that occur in the classification process of a braian tumour<a id="foot-13-ref" href="#foot-13"><sup>[13]</sup></a></p> <!--TODO say which actual paper it's from-->
+					<div class="image-caption">
+						<p>A diagram to show te stages that occur in the classification process of a brain tumour<a id="foot-7-ref" href="#foot-7"><sup>[7]</sup></a></p>
+					</div>
 				</div>
 			</section>
 
