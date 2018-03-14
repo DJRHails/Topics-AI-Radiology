@@ -222,8 +222,9 @@ def out_col_im(im, gt, brain_no, brain_slice, identifier="brain"):
     plt.imsave("website/images/slices/"+identifier+"{0}_{1}.png".format(brain_no, brain_slice), col_im(im, gt), vmin=np.amin(im), vmax=np.amax(im), format="png")
 
 def out_gt_im(im, gt, brain_no, brain_slice, identifier="brain"):
-    plt.imsave("website/images/gt/"+identifier+"{0}_{1}.png".format(brain_no, brain_slice), gt_im(im, gt), vmin=np.amin(im), vmax=np.amax(im), format="png")
-
+    im2, pair = gt_im(im, gt)
+    plt.imsave("website/images/gt/"+identifier+"{0}_{1}.png".format(brain_no, brain_slice), im2, vmin=np.amin(im), vmax=np.amax(im), format="png")
+    return pair
 
 def gt_im(im, gt):
     im = np.asarray(im, dtype='float32')
@@ -242,6 +243,11 @@ def gt_im(im, gt):
     indices_3 = np.where(gt == 3) # non-enhancing tumor
     indices_4 = np.where(gt == 4) # enhancing tumor
 
+    necro = len(indices_1[0])
+    edema = len(indices_2[0])
+    net = len(indices_3[0])
+    et = len(indices_4[0])
+
     m0 = [0., 0., 0.]
     m1 = [1., 0., 0.] # red: necrosis
     m2 = [0.2, 1., 0.2] # green: edema
@@ -254,7 +260,7 @@ def gt_im(im, gt):
     im[indices_3[0], indices_3[1], :] *= m3
     im[indices_4[0], indices_4[1], :] *= m4
 
-    return im
+    return im, (necro, edema, net, et)
 
 def col_im(im, gt):
     im = np.asarray(im, dtype='float32')
@@ -360,6 +366,10 @@ def save_brains(maxBrains=1):
         t1 = []
         flair = []
 
+        necro = 0
+        edema = 0
+        net = 0
+        et = 0
         for brain_slice in range(0, im['Flair'].shape[0], 1):
             flair_slice = im['Flair'][brain_slice]
             t1_slice = im['T1'][brain_slice]
@@ -384,7 +394,14 @@ def save_brains(maxBrains=1):
             out_col_im(t1c_slice, None, brain_no, brain_slice, "t1c/")
             out_col_im(t1_slice, None, brain_no, brain_slice, "t1/")
             out_col_im(flair_slice, None, brain_no, brain_slice, "flair/")
-            out_gt_im(flair_slice, gt_slice, brain_no, brain_slice, "")
+            necroAdd, edemaAdd, netAdd, etAdd = out_gt_im(flair_slice, gt_slice, brain_no, brain_slice, "")
+            # print("Brain: {} \n Necrosis: {}, Edema: {}, Non-Enhancing Tumor: {}, Ehancing Tumor: {}".format(brain_slice, necro, edema, net, et))
+            necro += necroAdd
+            edema += edemaAdd
+            net += netAdd
+            et += etAdd
+
+        print("Brain: {} \n Necrosis: {}, Edema: {}, Non-Enhancing Tumor: {}, Ehancing Tumor: {}".format(brain_no, necro, edema, net, et))
 
         imageio.mimsave("website/images/brains/t2/gt_{0}.gif".format(brain_no), t2_gt)
         imageio.mimsave("website/images/brains/t1c/gt_{0}.gif".format(brain_no), t1c_gt)
@@ -396,6 +413,10 @@ def save_brains(maxBrains=1):
         imageio.mimsave("website/images/brains/t1c/{0}.gif".format(brain_no), t1c)
         imageio.mimsave("website/images/brains/t1/{0}.gif".format(brain_no), t1)
         brain_no+=1
+        necro = 0
+        edema = 0
+        net = 0
+        et = 0
 
 def show_modalities():
     for im in gen_images(n=1, crop=True):
