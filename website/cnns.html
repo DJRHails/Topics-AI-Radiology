@@ -27,28 +27,10 @@
 					<p>
 					A CNN is a neural network which classifies images by using kernel convolutions in the hidden layer.
 					</p>
-					<h3>Quick introduction to neural networks</h3>
-					<blockquote cite="https://dl.acm.org/citation.cfm?id=38295">
-						A neural network is a system made up of a number of simple, highly interconnected processing elements which process information by their dynamic state response to external inputs.
-						<sup><a href="#foot-1">1</a></sup>
-					</blockquote>
-					<p>
-					Neural nets are usually made up of a series of layers, each of which contains a selection of <i>'nodes'</i> which create an <i>'activation function'</i>.	
-					<ul>
-						There are typically 3 <i>'types'</i> of layers:
-						<li>Input</li>
-						<li>Hidden Layers</li>
-						<li>Output</li>
-					</ul>
-					Data (patterns) enter the network via the input layer, are passed through one or more hidden layers and the result is given in the output layer.
-
-					Neural nets enable computers to learn to perform some task by analysing training samples. Often this is done using data which has been labelled so corrections in the model can be made. This is called supervised learning.
-					</p>
 					<h3>Convolutions</h3>
 					<blockquote>
 						A convolution is a mathematical operation on two functions to produce a third function which is seen as a modification of one of the first functions, giving the integral of the pointwise multiplication of the two functions as a function of the amount that one of the original functions is translated.
-						<sup><a href="#foot-2">2</a></sup>
-					</blockquote>
+						<a id="foot-2-ref" href="#foot-2"><sup>[2]</sup></a></blockquote>
 					<p>
 					Convolution is defined as:
 					$$ (f * g )(t) = \int_{0}^{t} f(\tau)\, g(t - \tau)\, d\tau\ \mathrm{for} \ \ f, g : [0, \infty) \to \mathbb{R} $$
@@ -65,16 +47,11 @@
 						<li>Convolutional Layers - this is where the convolutions happen.</li>
 						<li>Pooling layers - used to take large images and make them smaller while preserving the most important information.</li>
 						<li>Activation layers - a layer which performs an activation process to ensure the feature does not get lost at deeper layers. Often this is ReLU (Rectified Linear Units), which keeps positive values unchanged and negatives are set to 0.
-							<sup>
-								<a href="#foot-3">3</a>
-							</sup>
+							<a id="foot-3-ref" href="#foot-3"><sup>[3]</sup></a>
 
 						</li>
 					</ul>
 					<p>One final type of layer is a fully connected layer. A CNN will have at least one of these at the end and these are responsible for converting the output of the convolution, pooling and activation layers into votes for a particular class.</p>
-
-
-
 				</div>
 			</section>
 			<section class="spotlight style1 orient-left content-align-left" id="first">
@@ -91,11 +68,11 @@
 							<img width="100%" src="images/cnn-layers.png" alt="" />
 							<div class="image-caption" style="position:relative">
 								<p>
-							Looking inside the hidden layers of a CNN<sup><a href=#"foot-3">3</a></sup>
+							Looking inside the hidden layers of a CNN<a id="foot-3-ref" href="#foot-3"><sup>[3]</sup></a>
 								</p>
 							</div>
 						</div>
-						
+
 					</article>
 				</div>
 			</section>
@@ -105,7 +82,7 @@
 				<div class="content">
 					<img src="images/home-page/cnn.png" width="100%" alt="">
 				</div>
-				
+
 			</section>
 			<section class="spotlight style1 orient-right content-align-left" >
 				<div class="content">
@@ -121,7 +98,7 @@
 					<br/>Next, each image is fed in one by one and the error between the CNN output and the label is calculated. The lower this error the better at classifying that particular image our CNN is. The features and the weights are adjusted up or down according to the amount of error and the weights and features which cause a lower error are kept.
 					</p>
 					<p>As more and more images are fed in, the better the CNN becomes at classification and individual differences in images of the same class are quickly forgotten and features which are prevelant throughout are kept.</p>
-					
+
 					<p>Performing the actual backpropagation for features requires calculating partial derivatives of the error with the last convolutional layer to calculate the features and then passing back another partial derivative to the next layer.</p>
 				</div>
 			</section>
@@ -179,7 +156,7 @@
 				<div class="inner">
 					<h1>Footnotes</h1>
 					<ul class="alt align-left">
-						<li id="foot-1"><a href="#foot-1-ref" title="return">[1]</a>https://dl.acm.org/citation.cfm?id=38295</li>
+						<li id="foot-1"><a href="#foot-1-ref" title="return">[1]</a> http://ieeexplore.ieee.org/document/6975210/</li>
 						<li id="foot-2"><a href="#foot-2-ref" title="return">[2]</a>https://en.wikipedia.org/wiki/Convolution</li>
 						<li id="foot-3"><a href="#foot-3-ref" title="return">[3]</a>https://brohrer.github.io/how_convolutional_neural_networks_work.html</li>
 						<li id="foot-4"><a href="#foot-4-ref" title="return">[4]</a>https://arxiv.org/abs/1311.2524</li>
