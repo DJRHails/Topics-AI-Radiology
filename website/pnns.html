@@ -83,13 +83,12 @@ $$ radbas(n) = e^{-n^2} $$
 
 								<p>The PNN separates the input vectors into classes. An input vector is classified into a class \(A\) by the equation:</p>
 
-<!-- COMBO OF MATHS AND TEXT HERE -->
 
 $$ P_A C_A F(x)_A  >  P_B C_B F(x)_B $$
 
 Where <br />
 
-<!-- NOT SURE WHERE TO INCLUDE MATH TAGS HERE -->
+
 \(P_A\) - Priori probability of occurrence of patterns in class <br />
 
 \(C_A\) - Cost associated with classifying vectors <br />
@@ -109,7 +108,7 @@ Where <br />
                 <span class="image fit image-with-caption">
                  <img src="images/pnns/pnn-implementation.png"/>
 								 <div class="image-caption">
-								 <p>The Mathematical representation of a PNN represented as a structural diagram.<a id="foot-5-ref" href="#foot-5"><sup>[5]</sup></a></p> <!--TODO say which actual paper it's from-->
+								 <p>The Mathematical representation of a PNN represented as a structural diagram.<a id="foot-5-ref" href="#foot-5"><sup>[5]</sup></a></p>
 							 </div>
                </span
               </div>
@@ -123,10 +122,10 @@ Where <br />
 					<h2>What Role do PNNs Play in Medical Imaging?</h2>
 					<p>
 					In the medical context, the PNN carries out the MRI classification in the automated procedure of detecting and analysing brain tumours. They determine can between many type of tumour, for example, benign, metastatic and malignant as well as normal, non-tumor containing images. Their implementation determines the different classes of tumour they can distinguish between as does the training data supplied. The PNN is used in the last stage of the classification steps which is usually done before segmentation.
-					</p>
+				</p>
 				</div>
 				<div class="image fit image-with-caption">
-					<img src="images/pnns/pnn-medical-imaging-flow-chart.png" alt="" />
+					<img src="images/pnns/pnn-medical-imaging-flow-chart2.png" alt="" />
 					<div class="image-caption">
 						<p>A diagram to show the stages that occur in the classification process of a brain tumour<a id="foot-7-ref" href="#foot-7"><sup>[7]</sup></a></p>
 					</div>
@@ -137,7 +136,7 @@ Where <br />
 				<div class="content">
 					<h2>Testing PNNs with BRATS benchmark</h2>
 					<p>
-						A paper about PNNs and classification<a id="foot-8-ref" href="#foot-8"><sup>[8]</sup></a>  provides some results of a tested PNN implementation on a BRATS dataset. We also gained some classification data from the dataset REFNFORDATASET. This is shown in the table below in a similar format to the one in the paper.
+						A paper about PNNs and classification<a id="foot-8-ref" href="#foot-8"><sup>[8]</sup></a>  provides some results of a tested PNN implementation on a BRATS dataset. We also gained some classification data from a dataset<a id="foot-11-ref" href="#foot-11"><sup>[11]</sup></a>. The images in the table below are just slices of the data, of which there were 127 for each brain. More information can be found about the slices on the <a href="overview.html#slices">overview</a> page.
 						 </p>
 						 <h4>Our Classification Results</h4>
 											<div class="table-wrapper">
@@ -216,6 +215,7 @@ class="centered"><img src="images/gt/1_74.png"/></td>
 						<li id="foot-8"><a href="#foot-8-ref" title="return">[8]</a>R.Lavanyadevi, M.Machakowsalya, J.Nivethitha, A.Niranjil Kumar, Brain Tumor Classification and Segmentation in MRI Images using PNN, 2017</li>
 						<li id="foot-9"><a href="#foot-9-ref" title="return">[9]</a>K.S.Thara, K.Jasmine, Brain Tumour Detection in MRI Imagesusing PNN and GRNN, 2016</li>
 						<li id="foot-10"><a href="#foot-10-ref" title="return">[10]</a>Papers sourced from link: <a href="http://ieeexplore.ieee.org/Xplore/home.jsp">http://ieeexplore.ieee.org/Xplore/home.jsp</a></li>
+						<li id="foot-11"><a href="#foot-11-ref" title="return">[11]</a>BRATS dataset</li>
           </ul>
         </div>
       </section>
