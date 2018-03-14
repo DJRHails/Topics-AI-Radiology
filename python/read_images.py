@@ -12,7 +12,7 @@ import copy
 import matplotlib.pyplot as plt
 import pickle
 
-DIR = "datasets/BRATS2015_Training/"
+DIR = "datasets/BRATS2015_Training_Sample/"
 
 def vis_col_im(im, gt):
 	indices_0 = np.where(gt == 0) # nothing
