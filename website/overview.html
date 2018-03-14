@@ -75,9 +75,9 @@
           <h1 id="mri-summary">The use of Magnetic Resonance Imaging (MRI) scans</h1>
           <p>
             As the most common diagnostic tool for brain tumors due to it's non-invasive nature and ability to image diverse tissue types and physiologogical processes.<br>
-            There is a need for accurate and fully automated methods as manual segmentation (ADD LINK) around tumour margins on a slice-by-slice basis can take 12 minutes or more per tumor per sequence, with semi-automatic methods (ADD LINK) taking 3-5 mins <a id="foot-5-ref" href="#foot-5" class="smooth-scroll"><sup>[5]</sup></a> and automated segmentation that is not vulnerable to operator subjectivity may be beneficial <a id="foot-6-ref" href="#foot-6" class="smooth-scroll"><sup>[6]</sup></a>.<br>
+            There is a need for accurate and fully automated methods as <a href="image_segmentation.html#manual">manual segmentation</a> around tumour margins on a slice-by-slice basis can take 12 minutes or more per tumor per sequence, with <a href="image_segmentation.html#semi">semi-automatic methods</a> taking 3-5 mins <a id="foot-5-ref" href="#foot-5" class="smooth-scroll"><sup>[5]</sup></a> and automated segmentation that is not vulnerable to operator subjectivity may be beneficial <a id="foot-6-ref" href="#foot-6" class="smooth-scroll"><sup>[6]</sup></a>.<br>
             <hr>
-            All images come from the custom python scripts (ADD LINK?) using data from the BRATS <a id="foot-7-ref" href="#foot-7" class="smooth-scroll"><sup>[7]</sup></a> dataset.
+            All images come from the custom python scripts using data from the BRATS <a id="foot-7-ref" href="#foot-7" class="smooth-scroll"><sup>[7]</sup></a> dataset.
           </p>
           <div class="index align-left">
             <!-- Slices -->
@@ -89,7 +89,9 @@
                <span class="image fit">
                 <img src="images/sample/slices.png"/>
               </span>
-              MRI uses a magnetic gradient and radio frequency pulses to take repetitive axial slices of the brain and reconstruct a 3-dimentional representation. Each brain scans 155 slices giving as 155 2D images which represent the 3D brain with each slice constituting of 1mm<sup>3</sup> voxel.
+              <p>MRI uses a magnetic gradient and radio frequency pulses to take repetitive axial slices of the brain and reconstruct a 3-dimentional representation. Each brain scans 155 slices giving as 155 2D images which represent the 3D brain with each slice constituting of 1mm<sup>3</sup> voxel.</p>
+							<p>An MRI can be defined as a function I(i, j) in 2D space or I(i, j, k) in 3D space, where i, j, k denote spatial coordinates. The values  of the functions are intensity values and are typically represented by a gray value between 0 and 255. Every image consists of a finite set of image elements called pixels in 2D space or voxels in 3D space. Each image element is uniquely specified by its intensity value and its coordinates (i, j) for pixels and (i, j, k) for voxels, where i is the row number, j is the column number, and k is the slice number in a volumetric stack.</p>
+
               </div>
             </section>
             <!-- Slices -->
