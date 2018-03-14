@@ -82,51 +82,46 @@
 					<article>
 						<p>
 						As mentioned above, a CNN consists of an input layer, a series of hidden layers, one or more fully connected layers and an output layer.
+						Below we can see that a CNN will have more than one of each of the hidden layers, however they may not always be in a stack of convolution, ReLU, pooling. This is because there are often times when you wish to perform two convolutions without changing the size of the image.
 						</p>
-						<figure>
-							<img src="images/cnn-layers.png" width="100%" alt="" />
-							<figcaption>Looking inside the hidden layers of a CNN<sup><a href=#"foot-3">3</a></sup></figcaption>
-						</figure>
-					</article>
-					<article>
-						<p>
-						</p>
+
+						<p>The output of the CNN is a set of probabilities of the input being classified as each class. The highest value is taken and it is said that the CNN is, in this example, 92% sure it is a <b>X</b>.</p>
+						<div width="100%" class="image-with-caption">
+							<img width="100%" src="images/cnn-layers.png" alt="" />
+							<div class="image-caption" style="position:relative">
+								<p>
+							Looking inside the hidden layers of a CNN<sup><a href=#"foot-3">3</a></sup>
+								</p>
+							</div>
+						</div>
+						
 					</article>
 				</div>
 			</section>
 
-			<section class="spotlight style1 orient-left content-align-left image-position-center">
+
+			<section class="spotlight style1 orient-right content-align-left" >
 				<div class="content">
-					<h2>How does a CNN performs classification?</h2>
-					<ul>The goal of support vector machines is to find the hyper-plane (or function) that:
-						<li>separates the two classes (benign tumours and malignant tumours)<sup>1</sup></li>
-						<li>maximises the distances between nearest data points (from either class) and itself<sup>1</sup></li>
-						<li>correctly classified unseen examples<sup>2</sup></li>
-					</ul>
-					This hyper-plane is named the optimal separating hyperplane.<sup>2</sup>
+					<img src="images/home-page/cnn.png" width="100%" alt="">
 				</div>
+				
 			</section>
-
-			<section class="spotlight style1 orient-right content-align-left image-position-center" >
+			<section class="spotlight style1 orient-right content-align-left" >
 				<div class="content">
 					<h2>Training</h2>
 					<p>
-					If the classes are linearly separable, then there must exist a linear hyper-plane that divides the classes accurately.
-					The task therefore its to find this linear optimal separating hyper-plane.
-					<br>
-					The linear hyper-plane will have the form:
-					<br>
-					<br>
-					<ul> Where:
-						<li><math>x</math> is the input vector (the features)</li>
-						<li><math>w</math> is the weight vector (that applies weight to each feature)</li>
-						<li><math>b</math> is the bias (translates the hyper-plane)</li>
-					</ul>
-					Training the SVM can be done using the Perceptron algorithm which cycles through the training data points, and if the data point isn't classified correctly, then the weights in w are updated in order to accomodate the new data point. This repeats until a cycle occurs with no changes.<sup>3</sup>
+					We have explained how a CNN will classify an image, however how does it know what features to look for and what the weights should be for each output.
+					<br/>
+					We need to <b>train</b> the network, and this is done using labelled data and <b>backpropagation</b>.
 					</p>
-				</div>
-				<div class="image">
-					<img src="images/svm2.png" alt="" />
+					<h3>Backpropagation</h3>
+					<p>
+					To train the CNN, we first start with an untrained CNN, where every pixel in all features and every weight in the fully connected layers are set to random values.
+					<br/>Next, each image is fed in one by one and the error between the CNN output and the label is calculated. The lower this error the better at classifying that particular image our CNN is. The features and the weights are adjusted up or down according to the amount of error and the weights and features which cause a lower error are kept.
+					</p>
+					<p>As more and more images are fed in, the better the CNN becomes at classification and individual differences in images of the same class are quickly forgotten and features which are prevelant throughout are kept.</p>
+					
+					<p>Performing the actual backpropagation for features requires calculating partial derivatives of the error with the last convolutional layer to find calculate the features and then passing back another partial derivative to the next layer.</p>
 				</div>
 			</section>
 
