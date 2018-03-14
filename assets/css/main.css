@@ -2529,6 +2529,11 @@
 				width: 100%;
 			}
 
+			td > img {
+				vertical-align: middle;
+	      text-align: center;
+			}
+
 /* List */
 
 	ol {
