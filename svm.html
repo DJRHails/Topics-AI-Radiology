@@ -147,9 +147,10 @@
 									<h3>Radial Basis Function</h3>
 								</header>
 								<div class="content">
-									$$K(X,X') = exp(-\frac{||X-X'||^2}{2\gamma^2})$$
+									$$K(X,X') = exp(-\gamma||X-X'||^2)$$
 								</div>
 							</section>
+							<p>Note that there are variations of these.</p>
 		          </div>
 		        </div>
 		      </section>
@@ -340,11 +341,11 @@
 		                <h3>Choice of kernel values</h3>
 		              </header>
 		              <div class="content">
-										When choosing the RBF as the kernel, there is the choice of gamma to be made.
-										The gamma parameter determines how much a single training example influences the SVM. A lower value means that the influence is greater.
+										When choosing the RBF as the kernel, there is the choice of \(\gamma\) to be made.
+										The \(\gamma\) parameter determines how much a single training example influences the SVM. A lower value means that the influence is greater.
 									  <a id="foot-9-ref" href="#foot-9"><sup>9</sup></h3></a>
 										<br>
-										Similarly, when choosing a polynomial kernel, there is the choice of d. Choosing d = 2 is quite common (and is a quadratic kernel), but choosing a high value of d will cause K(X, X') to tend to a value of 0 or infinity, thus not proving as effective.<a id="foot-10-ref" href="#foot-10"><sup>[10]</sup></a>
+										Similarly, when choosing a polynomial kernel, there is the choice of \(d\). Choosing \(d = 2\) is quite common (and is a quadratic kernel), but choosing a high value of \(d\) will cause K(X, X') to tend to a value of 0 or infinity, thus not proving as effective.<a id="foot-10-ref" href="#foot-10"><sup>[10]</sup></a>
 		              </div>
 		            </section>
 		            <section>
@@ -382,10 +383,10 @@
 		<li id="foot-7"><a href="#foot-7-ref" title="return">[7]</a>Ahmed Kharrat, Mohamed Ben Halima, Mounir Ben Ayed, MRI brain tumor classification using Support Vector Machines and meta-heuristic method(2015)</li>
 		<li id="foot-8"><a href="#foot-8-ref" title="return">[8]</a>Ketan Machhale, Hari Babu Nandpuru, Vivek Kapur, MRI brain cancer classification using hybrid classifier (SVM-KNN) (2015)</li>
 		<li id="foot-9"><a href="#foot-9-ref" title="return">[9]</a>http://scikit-learn.org/stable/auto_examples/svm/plot_rbf_parameters.html</li>
-		<li id="foot-10"><a href="#foot-10-ref" title="return">[10]<a/>https://en.wikipedia.org/wiki/Polynomial_kernel</li>
-		<li id="foot-11"><a href="#foot-11-ref" title="return">[11]<a/>https://eight2late.wordpress.com/2017/02/07/a-gentle-introduction-to-support-vector-machines-using-r/</li>
-		<li id="foot-12"><a href="#foot-12-ref" title="return">[12]<a/>https://www.quora.com/What-are-the-advantages-of-support-vector-machines-SVM-compared-with-linear-regression-or-logistic-regression</li>
-		<li id="foot-13"><a href="#foot-13-ref" title="return">[13]<a/>https://www.analyticsvidhya.com/blog/2017/09/understaing-support-vector-machine-example-code/</li>
+		<li id="foot-10"><a href="#foot-10-ref" title="return">[10]</a>https://en.wikipedia.org/wiki/Polynomial_kernel</li>
+		<li id="foot-11"><a href="#foot-11-ref" title="return">[11]</a>https://eight2late.wordpress.com/2017/02/07/a-gentle-introduction-to-support-vector-machines-using-r/</li>
+		<li id="foot-12"><a href="#foot-12-ref" title="return">[12]</a>https://www.quora.com/What-are-the-advantages-of-support-vector-machines-SVM-compared-with-linear-regression-or-logistic-regression</li>
+		<li id="foot-13"><a href="#foot-13-ref" title="return">[13]</a>https://www.analyticsvidhya.com/blog/2017/09/understaing-support-vector-machine-example-code/</li>
 							</ul>
 						</div>
 					</section>
