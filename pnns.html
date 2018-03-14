@@ -4,6 +4,9 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<script type="text/javascript"
+	  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+		</script>
 	</head>
 	<body>
     <!-- Wrapper -->
@@ -26,8 +29,11 @@
 					<p>A Probabilistic Neural Network (PNN) is a type of feedforward neural network and also a Radial Basis function network, which has the majority of uses in pattern recognition and image classification <a id="foot-1-ref" href="#foot-1"><sup>[1]</sup></a>. PNNs usually consist of four layers, an input layer, hidden layer/ radial basis layer, summation layer and output layer with each formerly mentioned layer feeding it's output to the next. From the papers referenced, they all use slightly different implementations of the layers, for example, some have multiple nodes in the output layer but others only have one.
 					</p>
 				</div>
-				<div class="image">
+				<div class="image image-with-caption">
 					<img src="images/pnns/pnn-structure1.png" alt="" />
+					<div class="image-caption">
+						<p>The abstracted Layer structure of a PNN<a id="foot-7-ref" href="#foot-7"><sup>[7]</sup></a></p> <!--TODO say which actual paper it's from-->
+					</div>
 				</div>
 			</section>
 
@@ -52,34 +58,34 @@
             <!-- Main layers of PNN -->
             <section>
               <header>
-                <h2>Hidden Layer/Radial Basis Layer</h2>
+                <h2 class="padding">Hidden Layer/Radial Basis Layer</h2>
               </header>
               <div class="content">
 
                 PNNs work by using the Radial Basis layer to calculate distance from the input vectors to the training vectors. This is done using a Radial Basis Function (RBF)<a id="foot-1-ref" href="#foot-1"><sup>[1]</sup></a>. The RBF has several different implementations in the papers referenced, one of which is shown below <a id="foot-5-ref" href="#foot-5"><sup>[5]</sup></a>: <br />
 
-								The output vector of the Radial Basis layer, <math>a</math>, is given as: <br />
-<!-- MATHS HERE -->
-<math>a<sub>i</sub> = radbas(||<strong>W<sub>i</sub> − p</strong>|| .∗ <strong>b</strong><sub>i</sub> )</math> <br />
-<!-- NOT SURE WHERE TO INCLUDE MATH TAGS HERE -->
-Where <strong>W</strong> is the weight vector, <strong>p</strong> is the input vector (so <math>||<strong>W<sub>i</sub> − p</strong></math>|| is the distance vector between the input and weight.) and <strong>b</strong> is a bias vector. This paper represents the distance criterion with respect to a center as: <br />
-<!-- MATHS HERE -->
-<math>radbas(_n_) = _e_<sup>-n<sup>2</sup></sup></math>
+								The output vector of the Radial Basis layer, <strong>a</strong>, is given as:
+
+								$$a_i = radbas(||W_i − p|| .∗ b_i)$$
+
+Where <strong>W</strong> is the weight vector, <strong>p</strong> is the input vector (so <strong>||W_i − p||</strong> is the distance vector between the input and weight.) and <strong>b</strong> is a bias vector. This paper represents the distance criterion with respect to a center as: <br />
+
+$$ radbas(n) = e^{-n^2} $$
 
               </div>
             </section>
             <section>
               <header>
-                <h2>Summation Layer</h2>
+                <h2 class="padding">Summation Layer</h2>
               </header>
               <div class="content">
-                <p>The network then passes data from the RB layer to the summation layer which calculates the closest distance between the training images and the input image and classifies the image based on the closeness of the data. This is usually done using Bayesian Theory <a id="foot-4-ref" href="#foot-4"><sup>[4]</sup></a>. Some of the sources show the summation layer performing the following calculations <a id="foot-7-ref" href="#foot-7"><sup>[7]</sup></a> <a id="foot-9-ref" href="#foot-9"><sup>[9]</sup></a> <a id="foot-10-ref" href="#foot-10"><sup>[10]</sup></a></p>
+                <p>The network then passes data from the RB layer to the summation layer which calculates the closest distance between the training images and the input image and classifies the image based on the closeness of the data. This is usually done using Bayesian Theory <a id="foot-4-ref" href="#foot-4"><sup>[4]</sup></a>. Some of the sources show the summation layer performing the following calculations <a id="foot-7-ref" href="#foot-7"><sup>[7]</sup></a> <a id="foot-8-ref" href="#foot-8"><sup>[8]</sup></a> <a id="foot-9-ref" href="#foot-9"><sup>[9]</sup></a> </p>
 
 								<p>The PNN separates the input vectors into classes. An input vector is classified into a class A by the equation:</p>
 
 <!-- COMBO OF MATHS AND TEXT HERE -->
 
-<math>P<sub>A</sub>C<sub>A</sub>F(x)<sub>A</sub>  >  P<sub>B</sub>C<sub>B</sub>F(x)<sub>B</sub></math>  <br />
+$$ P_A C_A F(x)_A  >  P_B C_B F(x)_B $$
 
 Where <br />
 
@@ -89,8 +95,8 @@ P<sub>A</sub> - Priori probability of occurrence of patterns in class <br />
 C<sub>A</sub> - Cost associated with classifying vectors <br />
 
 F(x)<sub>A</sub> - Probability density function of class A
-given by the equation F(x)<sub>A</sub> = 1/(2π)<sup>n/2</sup> σ<sup>n</sup> m <sub>n</sub>
-with  Σ<sup>m</sup><sub>i = 1</sub> exp(-2(x - x<sub>A</sub>)<sup>r</sup> (x - x<sub>Ai</sub>)/σ<sup>2</sup> <br />
+given by the equation $$ F(x)_A = \frac{1}{(2π)^{\frac{n}{2}} \ σ^n \ m_n} $$
+with  $$\sum_{i = 1}^m exp[-2 \ \frac{(x - x_A)^r (x - x_Ai)}{σ^2}]$$
 
 Where <br />
 
@@ -102,6 +108,7 @@ n - Dimension of the input vectors <br />
 
                 <span class="image fit">
                  <img src="images/pnns/pnn-implementation.png"/>
+								 <p>The Mathematical representation of a PNN represented as a structural diagram.<a id="foot-13-ref" href="#foot-13"><sup>[13]</sup></a></p> <!--TODO say which actual paper it's from-->
                </span
               </div>
             </section>
@@ -118,6 +125,7 @@ n - Dimension of the input vectors <br />
 				</div>
 				<div class="image">
 					<img src="images/pnns/pnn-medical-imaging-flow-chart.png" alt="" />
+					<p>A diagram to show te stages that occur in the classification process of a braian tumour<a id="foot-13-ref" href="#foot-13"><sup>[13]</sup></a></p> <!--TODO say which actual paper it's from-->
 				</div>
 			</section>
 
@@ -135,31 +143,25 @@ n - Dimension of the input vectors <br />
 															<th>Input Image</th>
 															<th>Segmented Image</th>
 															<th>Type of Tumour</th>
-															<th>Tumour Affected Area (mm<sup>2</sup>)</th>
-															<th>No. Defect Cells</th>
+															<th>Tumour Affected Area (mm<sup>3</sup>)</th>
 														</tr>
 													</thead>
 													<tbody>
 														<tr>
-															<td>Dataset Image 1</td>
-															<td>Segmented Image 1</td>
-															<td>Normal</td>
+															<td>
+							                 <img src="images/slices/t2/0_90.png"/>
+														 </td>
+															<td>
+																<img src="images/gt/0_90.png"/>
+															</td>
+															<td>Malignant</td>
 															<td>Area 1</td>
-															<td>Number 1</td>
 														</tr>
 														<tr>
-															<td>Dataset Image 2</td>
-															<td>Segmented Image 2</td>
+															<td><img src="images/slices/t2/1_90.png"/></td>
+															<td><img src="images/gt/1_90.png"/></td>
 															<td>Benign</td>
 															<td>Area 2</td>
-															<td>Number 2</td>
-														</tr>
-														<tr>
-															<td>Dataset Image 3</td>
-															<td>Segmented Image 3</td>
-															<td>Malignant</td>
-															<td>Area 3</td>
-															<td>Number 3</td>
 														</tr>
 													</tbody>
 												</table>
