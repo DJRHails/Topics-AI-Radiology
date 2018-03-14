@@ -11,7 +11,7 @@
       <section class="banner onload-content-fade-right style2 fullscreen orient-center content-align-center image-position-center invert">
         <div class="content">
           <h1>Image Segmentation</h1>
-          <p>Improves the data - or extends it - to prepare for analysis. We can correct or adjust data for a number of experemental errors. </p>
+          <p>Before any therapy, it's crucial to segment the tumor in order to protect healthy tissues while damaging and destroying tumor cells during the therapy. Brain tumor segmentation incolves diagnosis, delineation and separation of tumor tissues, such as active cells, neurotic core and edema from the normal brain tissues.</p>
           <ul class="actions vertical">
             <li>
               <a href="#first" class="button big wide smooth-scroll">Find Out More</a>
@@ -23,16 +23,42 @@
 			<section class="wrapper style1 align-center" id=first>
         <div class="inner">
 					<h1 id="summary">Manual</h1>
-          <p>The completely manual method for segmentation would be to draw the desired borders directly onto the raw image. This would take too much time and be prone to errors, especially due to fatigue. Manual segmentation requires the radiologist to use the multi-modality information presented by the MRI images along with anatomical and physiological knowledge gained through training and experience. Procedure involves the radiologist going through multiple slices of images slice by slice, diagnosing the tumor and manually drawing the tumor regions carefully. Apart from being a time consuming task, manual segmentation is also radiologist dependent and segmentation results are subject to large intra and inter rater variability <a id="foot-3-ref" href="#foot-3" class="smooth-scroll"><sup>[3]</sup></a></p>
+          <p>The completely manual method for segmentation would be to draw the desired borders directly onto the raw image. This would take too much time and be prone to errors, especially due to fatigue. Manual segmentation requires the radiologist to use the visual and spatial information presented by the MRI images along with anatomical and physiological knowledge gained through training and experience. Procedure involves the radiologist going through multiple slices of images slice by slice, diagnosing the tumor and manually drawing the tumor regions carefully.</p>
           <div class="index align-left">
+            <section>
+              <header>
+                <h2>Issues with Manual Annotation</h2>
+              </header>
+              <div class="content">
+                <p>Apart from being a time consuming task, manual segmentation is also radiologist dependent and segmentation results are subject to large intra (variability between repeated administrations of segmentation by a single rater) and inter rater variability (variability between repeated administrations of segmentation by different raters)<a id="foot-3-ref" href="#foot-3" class="smooth-scroll"><sup>[3]</sup></a></p>
+                <h4>Intraoperator Repeat Results:</h4>
+                <ul>
+                  <li>95%</li>
+                  <li>94%</li>
+                  <li>85%</li>
+                </ul>
+                <h4>Interoperator comparisons:</h4>
+                <ul>
+                  <li>94%</li>
+                  <li>93%</li>
+                  <li>81%</li>
+                </ul>
+                <p>Given the vital nature of accuracy in this scenario it's a suprising that the variation is so high, and suggests that automated solutions will probably be far more consistent.</p>
+                <blockquote cite="https://www.thebraintumourcharity.org/media-centre/news/research-news/googles-deepmind-ai-brain-tumour/">
+                  Using computers to help plan radiotherapy could help deliver better treatment for patients by speeding up the process and improving accuracy.<br/>
+                  <b>Dr Justine Alford, senior science information officer at Cancer Research UK</b>
+                </blockquote>
+              </div>
+            </section>
             <section>
               <header>
                 <h2>Annotation</h2>
               </header>
               <div class="content">
-                <div class="image fit">
-                  <img src="images/slices/flair/0_90.png" alt="">
+                <div class="image right">
+                  <img src="images/slices/flair/gt/0_64.png" alt="">
                 </div>
+                <p>General segmentation of the human brain involves defining structures by borders correspodning to signal intensity transitions at Brain-Cerebral Signal Fluid or gray-white matter interfaces.</p>
                 <ul>
                   <li><b>Necrosis (Red):</b> Dead cells from the tumor</li>
                   <li><b>Edema (Green):</b> Brain swelling due to new blood vessels growing in and near the tumor </li>
@@ -45,6 +71,44 @@
         </div>
       </section>
 
+      <section class="wrapper style1 align-center">
+        <div class="inner">
+					<h1 id="summary">Semi-Automatic</h1>
+          <p>Semi-Automatic methods require interaction of the user for three main purposes:
+            <ul>
+              <li>Initialisation - Defining a region of interest (ROI) containing the approximate tumor region before the automatic algorithm acts and the parameters of pre-processing methods can also be adjusted to suit the input images</li>
+              <li>Intervention - Automated algorithms can be steered towards a desired result during the process by receiving feedbacks and providing adjustments in response. </li>
+              <li>Feedback response and evaluation - Evaluate the results and modify or repeat the process if not satisfied.</li>
+            </ul>
+          </p>
+          <div class="index align-left">
+            <section>
+              <header>
+                <h2>Thresholding</h2>
+              </header>
+              <div class="content">
+                <p></p>
+              </div>
+            </section>
+            <section>
+              <header>
+                <h2>Graph Cut</h2>
+              </header>
+              <div class="content">
+                <p></p>
+              </div>
+            </section>
+            <section>
+              <header>
+                <h2>Graph Cut</h2>
+              </header>
+              <div class="content">
+                <p></p>
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
       <!-- <section class="wrapper style1 align-center">
         <div class="inner">
           <h1 id="summary">Data Augmentation</h1>
@@ -59,6 +123,7 @@
         <div class="inner">
           <ul class="actions vertical">
             <li>
+              <a href="cnns.html" class="button big wide smooth-scroll">How segmentation works</a>
               <a href="index.html" class="button big wide smooth-scroll">Back to home</a>
             </li>
           </ul>
