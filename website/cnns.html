@@ -125,17 +125,34 @@
 				</div>
 			</section>
 
-			<section class="spotlight style1 orient-left content-align-left image-position-center">
+			<section class="spotlight style1 orient-left content-align-left ">
 				<div class="content">
 					<h2>Using CNN's for multiple object classification</h2>
 					<p>
 					CNN's are very good at image classification but a lot medical image analysis does not require classifying a single image but <i>objects</i> or <i>regions</i> of an image in order to show highlight lesions.
 					</p>
 					<p>There has been a lot of research into how best to do this and the first major paper on it was called R-CNN.</p>
+					<p>CNNs have traditionally been used for image classification however in 2014 a paper (https://arxiv.org/abs/1311.2524) on object detection using CNNs described a technique which enabled CNNs to be used to accurately isolate objects in images. The architecture was titled R-CNN (Regions with CNNs)(https://blog.athelas.com/a-brief-history-of-cnns-in-image-segmentation-from-r-cnn-to-mask-r-cnn-34ea83205de4).</p>
+
+					<h3>R-CNN</h3>
+					<p>R-CNN uses a process called selective search to create regions of different sizes it wishes to check for objects.</p>
+					<p>After creating the propositions, R-CNN makes the region square by warping it and then runs it through a modified version of AlexNet to determine if it is a valid region and then adds a SVM that does the classification.</p>
+					<p>Finally, R-CNN will try to improve the bounding boxes using linear regression.</p>
+					<p>
+					There are 2 main reasons why R-CNN can be slow:
+						<ul>
+							<li>Every region proposal has to be passed through the CNN to determine if it is valid</li>
+							<li>There are 3 models which need training (CNN for features, classifier and regression model)</li>
+						</ul>
+					</p>
+					<p>2015 saw the author of R-CNN release a new paper on an architecture called Fast R-CNN which improved on R-CNN and solved both of the two problems above.</p>
+					<p>How did he achieve this?</p>
+					<p>Solving the first issue involved making a single pass through the CNN of the image and then using obtaining features for a region by selecting a region on the CNNs feature map, reducing the number of passes to one.</p>
+					<p>Solving the second issue meant jointly training the CNN, classifier and regressor in a single model. Now only one network is used as you can see from the image above.</p>
+					<p>In 2016 an improvement in the regional proposals are made lead to Faster R-CNN. In 2017 Mask R-CNN improved on this and enabled object segmentation and classification.</p>
 					
-				</div>
-				<div class="image">
-					<img src="images/svm1.png" alt="" />
+					
+					
 				</div>
 			</section>
 
@@ -143,17 +160,10 @@
 			<section class="spotlight style1 orient-right content-align-left image-position-center">
 				<div class="content">
 					<h2>Impact on medical image analysis</h2>
-					<p>
-					One images have been pre-processed, the next step is to extract numerical features.
-					The choice of numerical features are important as they will determine the success of any machine learning model.
-					<ul> Features can be grouped into:
-						<li>Grey-scale features: these include mean, variance, standard deviation, skewness and kurtosis</li>
-						<li>Texture-features: these include entropy, dissimilarity, inverse, energy, contrast and IDM </li>
-						<li>Symmetric feature: the exterior symmetry </li>
-					</ul>
-					Once features are obtained, PCA (Principle Component Analysis) can reduce the number of features needed.
-					This is useful because excessive features increases memory use and computation time.<sup>4</sup>
-					</p>
+					<p>Quantitative assessment of lesions provide valuable information for analysis but it requires accurate lesion segmentation in multi-modal 3D images which is hard. Variability in location, size, shape, frequency make it diff to devise effective segmentation rules.</p>
+					<p>A lot of 3D analysis is done by using a 2D CNN on each individual layer of the 3D one. The results from this are promising.</p>
+					<p>Full 3D CNN's are computationally expensive due to the 3D convolutions - therefore inference (gaining meaning) is very slow. However in contrast to the 2D/3D hybrids, fully 3D CNNs can use a technique called dense-inference which greatly reduces the times to meaningful inference.</p>
+					<p>A CNNs performance is influenced by the data it is trained on. A common approach is training on equally sampled images from each class, however this can bias the classifier to rare types and can lead to over-segmentation. To counter this two stage training has been introduced where another CNN is trained on a distribution which is similar to the real one but oversampling pixels which were incorrectly classified in the first one. This can lead to overfitting.</p>
 				</div>
 			</section>
 
@@ -161,17 +171,6 @@
 			<section class="spotlight style1 orient-right content-align-left image-position-center">
 				<div class="content">
 					<h2>Fine tuning or full training</h2>
-					<p>
-					One images have been pre-processed, the next step is to extract numerical features.
-					The choice of numerical features are important as they will determine the success of any machine learning model.
-					<ul> Features can be grouped into:
-						<li>Grey-scale features: these include mean, variance, standard deviation, skewness and kurtosis</li>
-						<li>Texture-features: these include entropy, dissimilarity, inverse, energy, contrast and IDM </li>
-						<li>Symmetric feature: the exterior symmetry </li>
-					</ul>
-					Once features are obtained, PCA (Principle Component Analysis) can reduce the number of features needed.
-					This is useful because excessive features increases memory use and computation time.<sup>4</sup>
-					</p>
 				</div>
 			</section>
 
@@ -194,7 +193,6 @@
 						<li id="foot-1"><a href="#foot-1-ref" title="return">[1]</a>https://dl.acm.org/citation.cfm?id=38295</li>
 						<li id="foot-2"><a href="#foot-2-ref" title="return">[2]</a>https://en.wikipedia.org/wiki/Convolution</li>
 						<li id="foot-3"><a href="#foot-3-ref" title="return">[3]</a>https://brohrer.github.io/how_convolutional_neural_networks_work.html</li>
-						<li id="foot-5"><a href="#foot-5-ref" title="return">[5]</a>Odland A, Server A, Saxhaug C, Breivik B, Groote R, Vardal J, Larsson C, Bjørnerud A. Volumetric glioma quantification: comparison of manual and semi-automatic tumor segmentation for the quantification of tumor growth. Acta Radiol. 2015;56:1396–1403. doi: 10.1177/0284185114554822. [PubMed] [Cross Ref]]</li>
 						<li id="foot-6"><a href="#foot-6-ref" title="return">[6]</a>Aslian H, Sadeghi M, Mahdavi SR, Babapour Mofrad F, Astarakee M, Khaledi N, Fadavi P. Magnetic resonance imaging-based target volume delineation in radiation therapy treatment planning for brain tumors using localized region-based active contour. Int J Radiat Oncol Biol Phys. 2013;87:195–201. doi: 10.1016/j.ijrobp.2013.04.049. </li>
 						<li id="foot-7"><a href="#foot-7-ref" title="return">[7]</a>BRATS dataset</li>
 						<li id="foot-8"><a href="#foot-8-ref" title="return">[8]</a>Radiology Masterclass https://www.radiologymasterclass.co.uk/tutorials/mri/mri_sequences</li>
