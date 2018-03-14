@@ -1760,6 +1760,10 @@
 		font-size: 2.25rem;
 	}
 
+	h2.padding {
+		padding-right: 2em
+	}
+
 	h3 {
 		font-size: 1.5rem;
 	}
