@@ -17,7 +17,7 @@
           <p>Artificial Intelligence is a rapidly advancing field. Could it be possible that humans will soon be able to create software that can determine whether an MRI scan contains an image of a certain grade brain tumour much like a Radiologist could?</p>
           <ul class="actions vertical">
             <li>
-              <a href="#pnns-intro" class="button big wide smooth-scroll">Find Out More</a>
+              <a href="#nns-intro" class="button big wide smooth-scroll">Find Out More</a>
             </li>
           </ul>
         </div>
@@ -25,7 +25,7 @@
 
 			<section class="spotlight style1 orient-left content-align-left image-position-center" id="first">
 				<div class="content">
-					<h2>What is a Neural Network</h2>
+					<h2 id="nns-intro">What is a Neural Network</h2>
 					<blockquote cite="https://dl.acm.org/citation.cfm?id=38295">
 						A neural network is a system made up of a number of simple, highly interconnected processing elements which process information by their dynamic state response to external inputs.<a id="foot-1-ref" href="#foot-1"><sup>[1]</sup></a>
 					</blockquote>
@@ -41,11 +41,11 @@
 
 					Neural nets enable computers to learn to perform some task by analysing training samples. Often this is done using data which has been labelled so corrections in the model can be made. This is called supervised learning.
 					</p>
-					<div class="image image-with-caption">
-						<img src="images/pic01.jpg" alt="" />
-						<div class="image-caption">
-							<p> A structural diagram showing layers of a neural network. Image source: <a href="#"></a></p>
-						</div>
+				</div>
+				<div class="image image-with-caption">
+					<img src="images/nn-model.png" alt="" />
+					<div class="image-caption">
+						<p> A structural diagram showing layers of a neural network. Image source: <a href="https://www.doc.ic.ac.uk/~js4416/163/website/neural-networks/"></a>https://www.doc.ic.ac.uk/~js4416/163/website/neural-networks/</p>
 					</div>
 				</div>
 			</section>
@@ -67,7 +67,7 @@
 
 			<section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
 				<div class="content">
-					<h2>What are the Advantages of PNNs?</h2>
+					<h2 id="pnns-advantages">What are the Advantages of PNNs?</h2>
 					<ul>Pnns have a number of advantages that make them more favourable to use when classifying Tumours <a id="foot-6-ref" href="#foot-6"><sup>[6]</sup></a>:
 						<li>They are very quick to train.</li>
 						<li>They have a permanent parallel structure.</li>
@@ -79,7 +79,7 @@
 
 			<section class="wrapper style1 align-center">
         <div class="inner">
-					<h1 id="cancer-summary">How are PNNs Implemented?</h1>
+					<h1 id="pnns-implementation">How are PNNs Implemented?</h1>
           <p> As is formerly mentioned, PNNs contain an input layer and an output layer. in this sense they are similar to other neural networks as the number of input nodes corresponds to the number of pixels recieved, and the activation of an input node depends on the brightness of the pixel for that node. The number of output nodes is determined by the number of classes the network has to determine between.</p>
           <div class="index align-left">
             <!-- Main layers of PNN -->
@@ -146,7 +146,7 @@ Where <br />
 
 			<section class="spotlight style1 orient-right content-align-left image-position-center" >
 				<div class="content">
-					<h2>What Role do PNNs Play in Medical Imaging?</h2>
+					<h2 id="medical-application">What Role do PNNs Play in Medical Imaging?</h2>
 					<p>
 					In the medical context, the PNN carries out the MRI classification in the automated procedure of detecting and analysing brain tumours. They determine can between many type of tumour, for example, benign, metastatic and malignant as well as normal, non-tumor containing images. Their implementation determines the different classes of tumour they can distinguish between as does the training data supplied. The PNN is used in the last stage of the classification steps which is usually done before segmentation.
 				</p>
@@ -161,7 +161,7 @@ Where <br />
 
 			<section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
 				<div class="content">
-					<h2>Testing PNNs with BRATS benchmark</h2>
+					<h2 id="testing">Testing PNNs with BRATS benchmark</h2>
 					<p>
 						A paper about PNNs and classification<a id="foot-8-ref" href="#foot-8"><sup>[8]</sup></a>  provides some results of a tested PNN implementation on a BRATS dataset. We also gained some classification data from a dataset<a id="foot-11-ref" href="#foot-11"><sup>[11]</sup></a>. The images in the table below are just slices of the data, of which there were 127 for each brain. More information can be found about the slices on the <a href="overview.html#slices">overview</a> page.
 						 </p>
