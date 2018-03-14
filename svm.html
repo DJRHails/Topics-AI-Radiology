@@ -26,11 +26,12 @@
         </div>
       </section>
 
+			<!-- What are SVMs-->
 				<section class="spotlight style1 orient-left content-align-left image-position-center" id="first">
 					<div class="content">
 						<h2>What are SVMs?</h2>
 						<p>
-							“Support Vector Machine” (SVM) refers to a supervised machine learning algorithm which can be used for both classification or regression challenges.<a id="foot-1-ref" href="#foot-1"><sup>[1]</sup></a>
+							Support Vector Machine (SVM) refers to a supervised machine learning algorithm which can be used for both classification or regression challenges.<a id="foot-1-ref" href="#foot-1"><sup>[1]</sup></a>
 							<br>
 							Consider an n-dimensional space.
 							Support vectors refer to the individual co-ordinates in the space, and are the data points collected by individual observation.
@@ -39,14 +40,14 @@
 						</p>
           </div>
 					<div class = "image image-with-caption">
-            <img src="images/svm.png" alt="" />
+            <img src="images/svm/svmexample.png" alt="" />
 						<div class="image-caption">
-							<p>https://www.analyticsvidhya.com/blog/2017/09/understaing-support-vector-machine-example-code/</p>
+							<p>Example of a very simple SVM<a id="foot-13-ref" href="#foot-13"><sup>[13]</sup></a></p>
 						</div>
           </div>
 				</section>
 
-
+				<!-- Goals -->
         <section class="spotlight style1 orient-left content-align-left image-position-center">
           <div class="content">
             <h2>What are the goals of SVM?</h2>
@@ -59,6 +60,7 @@
           </div>
         </section>
 
+				<!-- Linear -->
         <section class="spotlight style1 orient-right content-align-left image-position-center" >
           <div class="content">
             <h2>How do they work on linearly separable classes?</h2>
@@ -73,22 +75,23 @@
 								f(x) = w^Tx + b
 							$$
 							<ul> Where:
-								 <li>x is the input vector (the features)</li>
-								 <li>w is the weight vector (that applies weight to each feature)</li>
-								 <li>b is the bias (translates the hyper-plane)</li>
+								 <li> \(x\) is the input vector (the features)</li>
+								 <li> \(w\) is the weight vector (that applies weight to each feature)</li>
+								 <li> \(b\) is the bias (translates the hyper-plane)</li>
 						  </ul>
 							Training the SVM can be done using the Perceptron algorithm which cycles through the training data points, and if the data point isn't classified correctly, then the weights in w are updated in order to accomodate the new data point.
 							This repeats until a cycle occurs with no changes.<a id="foot-3-ref" href="#foot-3"><sup>[3]</sup></a>
 						</p>
 					</div>
           <div class="image image-with-caption">
-            <img src="images/svm2.png" alt="" />
+            <img src="images/svm/svmlinear.png" alt="" />
 						<div class="image-caption">
-							<p>https://eight2late.wordpress.com/2017/02/07/a-gentle-introduction-to-support-vector-machines-using-r/</p>
+							<p>Example of an SVM trained to classify linearly-separable classes.<a id="foot-11-ref" href="#foot-11"><sup>[11]</sup></a></p>
 						</div>
           </div>
         </section>
 
+				<!-- Non-linear -->
         <section class="spotlight style1 orient-left content-align-left image-position-center">
           <div class="content">
             <h2>How do they work on non-linearly separable classes?</h2>
@@ -96,25 +99,63 @@
 							When the classes are non-linearly separable, a kernel is used.
 							A kernel is a mathematical function that transforms a low-dimensional input space into a high-dimensional space, allowing classes to become linearly separable.
 							Once the input data has been transformed, the SVM can be trained in the same way as linearly-separable classes.<a id="foot-1-ref" href="#foot-1"><sup>[1]</sup></a>
-							<br>
-								<ul>Kernels often used for MRI brain tumour classification include <a id="foot-2-ref" href="#foot-2"><sup>[2]</sub></a>:
-									<li>Linear: $$K(X,X') = X^TX'$$</li>
-									<li>Quadratic: $$K(X,X') = (1 + X^TX')^2$$</li>
-									<li>Polynomial: $$K(X,X') = (1 + X^TX')^d$$</li>
-									<li>Radial Basis Function: $$K(X,X') = exp(-\frac{||X-X'||^2}{2\gamma^2})$$</li>
-								</ul>
-								The choice of kernel is not obvious, and so determining the optimal hyper-plane involves testing with different kernels.
+							The choice of kernel is not obvious, and so determining the optimal hyper-plane involves testing with different kernels.
 							 </p>
 	          </div>
 	          <div class="image-with-caption">
-	            <img src="images/svm1.png" alt="" />
+	            <img src="images/svm/svmnonlinear.png" alt="" />
 							<div class="image-caption">
-								<p>https://www.quora.com/What-are-the-advantages-of-support-vector-machines-SVM-compared-with-linear-regression-or-logistic-regression</p>
+								<p>Example of an SVM with non-linearly-separable classes.<a id="foot-12-ref" href="#foot-12"><sup>[12]</sup></a></p>
 							</div>
 	          </div>
 	        </section>
 
-	      <!-- Four -->
+					<!-- Kernel -->
+					<section class="wrapper style1 align-left">
+		        <div class="inner">
+		          <h1>What are common kernels?</h1>
+		          <p>Kernels often used for MRI brain tumour classification include: </p>
+		          <div class="index align-left">
+
+		            <section>
+		              <header>
+		                <h3>Linear <a id="foot-2-ref" href="#foot-2"><sup>[2]</sub></a></h3>
+		              </header>
+		              <div class="content">
+										$$K(X,X') = X^TX'$$
+		              </div>
+		            </section>
+		            <!--  -->
+		            <section>
+		              <header>
+		                <h3>Quadratic <a id="foot-2-ref" href="#foot-2"><sup>[2]</sub></a></h3>
+		              </header>
+		              <div class="content">
+										$$K(X,X') = (1 + X^TX')^2$$
+		              </div>
+		            </section>
+								<section>
+								 <header>
+									 <h3>Polynomial <a id="foot-2-ref" href="#foot-2"><sup>[2]</sub></a></h3>
+								 </header>
+								 <div class="content">
+									 $$K(X,X') = (1 + X^TX')^d$$
+								 </div>
+							 </section>
+							 <section>
+								<header>
+									<h3>Radial Basis Function<a id="foot-14-ref" href="#foot-14"><sup>[14]</sub></a></h3>
+								</header>
+								<div class="content">
+									$$K(X,X') = exp(-\gamma||X-X'||^2)$$
+								</div>
+							</section>
+							<p>Note that there are variations of these.</p>
+		          </div>
+		        </div>
+		      </section>
+
+	      <!-- Features -->
 	        <section class="spotlight style1 orient-right content-align-left image-position-center">
 	          <div class="content">
 	            <h2>What features do we extract from MRI images?</h2>
@@ -151,7 +192,7 @@
 	 	 								Generated features include contrast, homogeneity, correlation, energy and difference entropy.<a id="foot-6-ref" href="#foot-6"><sup>[6]</sup></a>
 		              </div>
 		            </section>
-		            <!--  -->
+		            <!-- Wavelet Transform and SGLDM-->
 		            <section>
 		              <header>
 		                <h3>Wavelet Transform &amp; SGLDM </h3>
@@ -182,18 +223,21 @@
 		          </div>
 		        </div>
 		      </section>
-	      <!-- Four -->
+
+	      <!-- Training an SVM -->
 	        <section class="spotlight style1 orient-right content-align-left image-position-center ">
 	          <div class="content">
 	            <h2>How do we use extracted features to train an SVM?</h2>
 	            <p>
 								After features have been extracted for each MRI image in the training data, data points need to be constructed (where a data point corresponds to an image).
-								Each data point will contain all the values for each feature, and the classification of the image (malignant or benign) as a -1 and 1 .
+								Each data point will contain all the values for each feature, and the classification of the image (malignant or benign) as a -1 and 1.<a id="foot-3-ref" href="#foot-3"><sup>[3]</sup></a>
 								<br>
 								The SVM's hyper-plane is initialised with small random values. Then it is trained using the data points.
 							</p>
 	          </div>
 	        </section>
+
+					<!-- Testing and Measuring Performance -->
 					<section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
 						<div class="content">
 							<h2>How do we test and measure performance of an SVM?</h2>
@@ -217,8 +261,7 @@
 						</div>
 					</section>
 
-
-	      <!-- Five -->
+	      <!-- Results-->
 	        <section class="wrapper style1">
 	          <div class="inner">
 	            <h2>How do SVMs perform at classifying MRI brain images from MRI images?</h2>
@@ -228,47 +271,49 @@
 									<li>Benign vs Malignant MRI brain tumour images</li>
 									<li>Low grade glioma vs High grade glioma MRI brain tumour images</li>
 								</ul>
-								All of which involve similar feature extraction and training/testing procedures. The results of training SVMs for these purposes are shown below:
+								All of which involve similar feature extraction and training/testing procedures.
+								The results of training SVMs for these purposes are shown below.
+								Given that the SVMs appear to achieve a high accuracy in classifying malign and benign brain tumours from MRI images, SVMs may be incredibly useful for assisting doctos with time-critical diagnosis.
 							</p>
 	          </div>
 
 	          <!-- Gallery -->
 	            <div class="gallery style2 big">
 	              <article>
-	                <a href="images/svmclassification1.png" class="image">
-	                  <img src="images/svmclassification1.png" alt="" />
+	                <a href="images/svm/svmclassification1.png" class="image">
+	                  <img src="images/svm/svmclassification1.png" alt="" />
 	                </a>
 	                <div class="caption">
 	                  <h3>Results for SVM's trained to classify normal and abnormal MRI brain images.<a id="foot-4-ref" href="#foot-4"><sup>[4]</sup></h3></a>
 	                </div>
 	              </article>
 	              <article>
-	                <a href="images/svmclassification2graph.png" class="image">
-	                  <img src="images/svmclassification2graph.png" alt="" />
+	                <a href="images/svm/svmclassification2graph.png" class="image">
+	                  <img src="images/svm/svmclassification2graph.png" alt="" />
 	                </a>
 	                <div class="caption">
 	                  <h3>Results for SVM's trained to classify malignant and benign MRI brain tumour images.<a id="foot-6-ref" href="#foot-6"><sup>[6]</sup></a></h3>
 	                </div>
 	              </article>
 	              <article>
-	                <a href="images/svmclassification3graph.png" class="image">
-	                  <img src="images/svmclassification3graph.png" alt="" />
+	                <a href="images/svm/svmclassification3graph.png" class="image">
+	                  <img src="images/svm/svmclassification3graph.png" alt="" />
 	                </a>
 	                <div class="caption">
-	                  <h3>Results for SVM's trained to classify malignant and benign MRI brain tumour images.<a id="foot-6-ref" href="#foot-6"><sup>[6]</sup></a></h3>
+	                  <h3>Results for SVM's trained to classify low grade vs high grade glioma MRI brain tumour images .<a id="foot-6-ref" href="#foot-6"><sup>[6]</sup></a></h3>
 	                </div>
 	              </article>
 								<article>
-	                <a href="images/svmclassification4.png" class="image">
-	                  <img src="images/svmclassification4.png" alt="" />
+	                <a href="images/svm/svmclassification4.png" class="image">
+	                  <img src="images/svm/svmclassification4.png" alt="" />
 	                </a>
 	                <div class="caption">
 	                  <h3>Results for SVM's trained to classify normal and abnormal MRI brain images.<a id="foot-8-ref" href="#foot-8"><sup>[8]</sup></a></h3>
 	                </div>
 	              </article>
 								<article>
-	                <a href="images/svmknnclassification.png" class="image">
-	                  <img src="images/svmknnclassification.png" alt="" />
+	                <a href="images/svm/svmknnclassification.png" class="image">
+	                  <img src="images/svm/svmknnclassification.png" alt="" />
 	                </a>
 	                <div class="caption">
 	                  <h3>Results for a SVM-KNN hybrid trained to classify normal and abnormal MRI brain images.<a id="foot-8-ref" href="#foot-8"><sup>[8]</sup></a></h3>
@@ -298,12 +343,11 @@
 		                <h3>Choice of kernel values</h3>
 		              </header>
 		              <div class="content">
-										When choosing the RBF as the kernel, there is the choice of gamma to be made.
-										The gamma parameter determines how much a single training example influences the SVM. A lower value means that the influence is greater.
+										When choosing the RBF as the kernel, there is the choice of \(\gamma\) to be made.
+										The \(\gamma\) parameter determines how much a single training example influences the SVM. A lower value means that the influence is greater.
 									  <a id="foot-9-ref" href="#foot-9"><sup>9</sup></h3></a>
 										<br>
-										Similarly, when choosing a polynomial kernel, there is the choice of d. Choosing d = 2 is quite common (and is a quadratic kernel), but choosing a high value of d will cause K(X, X') to tend to a value of 0 or infinity, thus not proving as effective.<a id="foot-10-ref" href="#foot-10"><sup>[10]</sup></a>
-
+										Similarly, when choosing a polynomial kernel, there is the choice of \(d\). Choosing \(d = 2\) is quite common (and is a quadratic kernel), but choosing a high value of \(d\) will cause K(X, X') to tend to a value of 0 or infinity, thus not proving as effective.<a id="foot-10-ref" href="#foot-10"><sup>[10]</sup></a>
 		              </div>
 		            </section>
 		            <section>
@@ -321,7 +365,7 @@
 		        <div class="inner">
 		          <ul class="actions vertical">
 		            <li>
-									<a href="cnns.html" class="button big wide smooth-scroll">What's next?</a>
+									<a href="pnns.html" class="button big wide smooth-scroll">What's next?</a>
 		              <a href="index.html" class="button big wide smooth-scroll">Back to home</a>
 		            </li>
 		          </ul>
@@ -341,7 +385,11 @@
 		<li id="foot-7"><a href="#foot-7-ref" title="return">[7]</a>Ahmed Kharrat, Mohamed Ben Halima, Mounir Ben Ayed, MRI brain tumor classification using Support Vector Machines and meta-heuristic method(2015)</li>
 		<li id="foot-8"><a href="#foot-8-ref" title="return">[8]</a>Ketan Machhale, Hari Babu Nandpuru, Vivek Kapur, MRI brain cancer classification using hybrid classifier (SVM-KNN) (2015)</li>
 		<li id="foot-9"><a href="#foot-9-ref" title="return">[9]</a>http://scikit-learn.org/stable/auto_examples/svm/plot_rbf_parameters.html</li>
-		<li id="foot-10"><a href="#foot-10-ref" title="return">[10]<a/>https://en.wikipedia.org/wiki/Polynomial_kernel</li>
+		<li id="foot-10"><a href="#foot-10-ref" title="return">[10]</a>https://en.wikipedia.org/wiki/Polynomial_kernel</li>
+		<li id="foot-11"><a href="#foot-11-ref" title="return">[11]</a>https://eight2late.wordpress.com/2017/02/07/a-gentle-introduction-to-support-vector-machines-using-r/</li>
+		<li id="foot-12"><a href="#foot-12-ref" title="return">[12]</a>https://www.quora.com/What-are-the-advantages-of-support-vector-machines-SVM-compared-with-linear-regression-or-logistic-regression</li>
+		<li id="foot-13"><a href="#foot-13-ref" title="return">[13]</a>https://www.analyticsvidhya.com/blog/2017/09/understaing-support-vector-machine-example-code/</li>
+		<li id="foot-14"><a href="#foot-14-ref" title="return">[14]</a>https://en.wikipedia.org/wiki/Radial_basis_function_kernel</li>
 							</ul>
 						</div>
 					</section>
