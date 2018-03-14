@@ -13,7 +13,7 @@
     <div id="wrapper" class="divided">
       <section class="banner onload-content-fade-right style2 fullscreen orient-center content-align-center image-position-center invert">
         <div class="content">
-          <h1>Probabilistic Neural Networks in Automated Classification of MRI images</h1>
+          <h1>Probabilistic Neural Networks in Automated Classification of MRI Images</h1>
           <p>Artificial Intelligence is a rapidly advancing field. Could it be possible that humans will soon be able to create software that can determine whether an MRI scan contains an image of a certain grade brain tumour much like a Radiologist could?</p>
           <ul class="actions vertical">
             <li>
@@ -39,7 +39,7 @@
 					</ul>
 					Data (patterns) enter the network via the input layer, are passed through one or more hidden layers and the result is given in the output layer.
 
-					Neural nets enable computers to learn to perform some task by analysing training samples. Often this is done using data which has been labelled so corrections in the model can be made. This is called supervised learning.
+					Neural nets enable computers to learn to perform a task by analysing training samples. Often, this is done using data which has been labelled so corrections in the model can be made. This is called supervised learning.
 					</p>
 				</div>
 				<div class="image image-with-caption">
@@ -53,13 +53,13 @@
 			<section class="spotlight style1 orient-right content-align-left image-position-center" id="first">
 				<div class="content">
 					<h2 id="pnns-intro">What is a PNN?</h2>
-					<p>A Probabilistic Neural Network (PNN) is a type of feedforward neural network and also a Radial Basis function network, which has the majority of uses in pattern recognition and image classification <a id="foot-2-ref" href="#foot-2"><sup>[2]</sup></a>. PNNs usually consist of four layers, an input layer, hidden layer/ radial basis layer, summation layer and output layer with each formerly mentioned layer feeding it's output to the next. From the papers referenced, they all use slightly different implementations of the layers, for example, some have multiple nodes in the output layer but others only have one.
+					<p>A Probabilistic Neural Network (PNN) is a type of feedforward neural network and also a Radial Basis function network, which has the majority of uses in pattern recognition and image classification <a id="foot-2-ref" href="#foot-2"><sup>[2]</sup></a>. PNNs usually consist of four layers; an input layer, hidden layer/ radial basis layer, summation layer, and output layer with each feeding it's output to the next. From the papers referenced, they all use slightly different implementations of the layers, for example, some have multiple nodes in the output layer but others only have one.
 					</p>
 				</div>
 				<div class="image image-with-caption">
 					<img src="images/pnns/pnn-structure1.png" alt="" />
 					<div class="image-caption">
-						<p>The abstracted Layer structure of a PNN <a id="foot-7-ref" href="#foot-7"><sup>[7]</sup></a></p>
+						<p>The abstracted layer structure of a PNN <a id="foot-7-ref" href="#foot-7"><sup>[7]</sup></a></p>
 					</div>
 				</div>
 			</section>
@@ -68,10 +68,10 @@
 			<section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
 				<div class="content">
 					<h2 id="pnns-advantages">What are the Advantages of PNNs?</h2>
-					<ul>Pnns have a number of advantages that make them more favourable to use when classifying Tumours <a id="foot-6-ref" href="#foot-6"><sup>[6]</sup></a>:
+					<ul>PNNs have a number of advantages that make them more favourable to use when classifying tumours <a id="foot-6-ref" href="#foot-6"><sup>[6]</sup></a>:
 						<li>They are very quick to train.</li>
 						<li>They have a permanent parallel structure.</li>
-						<li>They are guaranteed to classify an Image and this classification will be optimal as the data set grows.</li>
+						<li>They are guaranteed to classify an image and this classification will be optimal as the data set grows.</li>
 						<li>Training samples can easily be added or removed without considerable retraining.</li>
 					</ul>
 				</div>
@@ -80,7 +80,7 @@
 			<section class="wrapper style1 align-center">
         <div class="inner">
 					<h1 id="pnns-implementation">How are PNNs Implemented?</h1>
-          <p> As is formerly mentioned, PNNs contain an input layer and an output layer. in this sense they are similar to other neural networks as the number of input nodes corresponds to the number of pixels recieved, and the activation of an input node depends on the brightness of the pixel for that node. The number of output nodes is determined by the number of classes the network has to determine between.</p>
+          <p> As is formerly mentioned, PNNs contain an input layer and an output layer. In this sense they are similar to other neural networks as the number of input nodes corresponds to the number of pixels recieved; the activation of an input node depends on the brightness of the pixel for that node. The number of output nodes is determined by the number of classes the network has to determine between.</p>
           <div class="index align-left">
             <!-- Main layers of PNN -->
             <section>
@@ -106,7 +106,7 @@ $$ radbas(n) = e^{-n^2} $$
                 <h2 class="padding">Summation Layer</h2>
               </header>
               <div class="content">
-								<p>The network then passes data from the RB layer to the summation layer which calculates the closest distance between the training images and the input image and classifies the image based on the closeness of the data. This is usually done using Bayesian Theory <a id="foot-4-ref" href="#foot-4"><sup>[4]</sup></a>. Some of the sources show the summation layer performing the following calculations <a id="foot-7-ref" href="#foot-7"><sup>[7]</sup></a> <a id="foot-8-ref" href="#foot-8"><sup>[8]</sup></a> <a id="foot-9-ref" href="#foot-9"><sup>[9]</sup></a> </p>
+								<p>The network then passes data from the RB layer to the summation layer which calculates the closest distance between the training images, and the input image and classifies the image based on the closeness of the data. This is usually done using Bayesian Theory <a id="foot-4-ref" href="#foot-4"><sup>[4]</sup></a>. Some of the sources show the summation layer performing the following calculations <a id="foot-7-ref" href="#foot-7"><sup>[7]</sup></a> <a id="foot-8-ref" href="#foot-8"><sup>[8]</sup></a> <a id="foot-9-ref" href="#foot-9"><sup>[9]</sup></a> </p>
 
 								<p>The PNN separates the input vectors into classes. An input vector is classified into a class \(A\) by the equation:</p>
 
@@ -135,7 +135,7 @@ Where <br />
                 <span class="image fit image-with-caption">
                  <img src="images/pnns/pnn-implementation.png"/>
 								 <div class="image-caption">
-								 <p>The Mathematical representation of a PNN represented as a structural diagram.<a id="foot-5-ref" href="#foot-5"><sup>[5]</sup></a></p>
+								 <p>The Mathematical representation of a PNN as a structural diagram.<a id="foot-5-ref" href="#foot-5"><sup>[5]</sup></a></p>
 							 </div>
                </span
               </div>
@@ -148,7 +148,7 @@ Where <br />
 				<div class="content">
 					<h2 id="medical-application">What Role do PNNs Play in Medical Imaging?</h2>
 					<p>
-					In the medical context, the PNN carries out the MRI classification in the automated procedure of detecting and analysing brain tumours. They determine can between many type of tumour, for example, benign, metastatic and malignant as well as normal, non-tumor containing images. Their implementation determines the different classes of tumour they can distinguish between as does the training data supplied. The PNN is used in the last stage of the classification steps which is usually done before segmentation.
+					In the medical context, the PNN carries out the MRI classification in the automated procedure of detecting and analysing brain tumours. They can determine between many types of tumour, for example, benign, metastatic, and malignant as well as normal, non-tumor containing images. Their implementation determines the different classes of tumour they can distinguish between as does the training data supplied. The PNN is used in the last stage of the classification steps which is usually done before segmentation.
 				</p>
 				</div>
 				<div class="image fit image-with-caption">
@@ -163,7 +163,7 @@ Where <br />
 				<div class="content">
 					<h2 id="testing">Testing PNNs with BRATS benchmark</h2>
 					<p>
-						A paper about PNNs and classification<a id="foot-8-ref" href="#foot-8"><sup>[8]</sup></a>  provides some results of a tested PNN implementation on a BRATS dataset. We also gained some classification data from a dataset<a id="foot-11-ref" href="#foot-11"><sup>[11]</sup></a>. The images in the table below are just slices of the data, of which there were 127 for each brain. More information can be found about the slices on the <a href="overview.html#slices">overview</a> page.
+						A paper about PNNs and classification<a id="foot-8-ref" href="#foot-8"><sup>[8]</sup></a>  provides some results of a tested PNN implementation on a BRATS dataset. We also gained some classification data from the BRATS dataset<a id="foot-11-ref" href="#foot-11"><sup>[11]</sup></a>. The images in the table below are just slices of the data, of which there were 127 for each brain. More information can be found about the slices on the <a href="overview.html#slices">overview</a> page.
 						 </p>
 						 <h4>Our Classification Results</h4>
 											<div class="table-wrapper">
@@ -214,7 +214,7 @@ class="centered"><img src="images/gt/1_74.png"/></td>
 													</tbody>
 												</table>
 											</div>
-											<p> This tells us that we may be on the way to writing computer programs that could do what a radiologist does and eventually, write software that saves doctors a great deal of time and as well as save many lives.</p>
+											<p> This tells us that we may be on the way to writing computer programs that could do what a radiologist does, and eventually write software that saves doctors a great deal of time and many lives.</p>
 					</div>
 				</section>
 
