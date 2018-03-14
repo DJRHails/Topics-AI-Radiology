@@ -129,15 +129,10 @@
 				<div class="content">
 					<h2>Using CNN's for multiple object classification</h2>
 					<p>
-					When the classes are non-linearly separable, a kernel is used.
-					A kernel is a mathematical function that transforms a low-dimensional input space into a high-dimensional space, allowing classes to become linearly separable.
-					Once the input data has been transformed, the SVM can be trained in the same way as linearly-separable classes.<sup>1</sup>
-					<br>
-					Kernels often used for MRI brain tumour classification include <sup>2</sub>:
-					<ul>
-					</ul>
-					The choice of kernel is not obvious, and so determining the optimal hyper-plane involves testing with different kernels.
+					CNN's are very good at image classification but a lot medical image analysis does not require classifying a single image but <i>objects</i> or <i>regions</i> of an image in order to show highlight lesions.
 					</p>
+					<p>There has been a lot of research into how best to do this and the first major paper on it was called R-CNN.</p>
+					
 				</div>
 				<div class="image">
 					<img src="images/svm1.png" alt="" />
