@@ -68,7 +68,7 @@
 
 								$$a_i = radbas(||W_i − p|| .∗ b_i)$$
 
-Where <strong>W</strong> is the weight vector, <strong>p</strong> is the input vector (so <strong>||W_i − p||</strong> is the distance vector between the input and weight.) and <strong>b</strong> is a bias vector. This paper represents the distance criterion with respect to a center as: <br />
+Where \(W\) is the weight vector, \(p\) is the input vector (so \(||W_i − p||\) is the distance vector between the input and weight.) and \(b\) is a bias vector. This paper represents the distance criterion with respect to a center as: <br />
 
 $$ radbas(n) = e^{-n^2} $$
 
@@ -81,7 +81,7 @@ $$ radbas(n) = e^{-n^2} $$
               <div class="content">
 								<p>The network then passes data from the RB layer to the summation layer which calculates the closest distance between the training images and the input image and classifies the image based on the closeness of the data. This is usually done using Bayesian Theory <a id="foot-4-ref" href="#foot-4"><sup>[4]</sup></a>. Some of the sources show the summation layer performing the following calculations <a id="foot-7-ref" href="#foot-7"><sup>[7]</sup></a> <a id="foot-8-ref" href="#foot-8"><sup>[8]</sup></a> <a id="foot-9-ref" href="#foot-9"><sup>[9]</sup></a> </p>
 
-								<p>The PNN separates the input vectors into classes. An input vector is classified into a class A by the equation:</p>
+								<p>The PNN separates the input vectors into classes. An input vector is classified into a class \(A\) by the equation:</p>
 
 <!-- COMBO OF MATHS AND TEXT HERE -->
 
@@ -90,19 +90,19 @@ $$ P_A C_A F(x)_A  >  P_B C_B F(x)_B $$
 Where <br />
 
 <!-- NOT SURE WHERE TO INCLUDE MATH TAGS HERE -->
-P<sub>A</sub> - Priori probability of occurrence of patterns in class <br />
+\(P_A\) - Priori probability of occurrence of patterns in class <br />
 
-C<sub>A</sub> - Cost associated with classifying vectors <br />
+\(C_A\) - Cost associated with classifying vectors <br />
 
-F(x)<sub>A</sub> - Probability density function of class A
+\(F(x)_A\) - Probability density function of class A
 given by the equation $$ F(x)_A = \frac{1}{(2π)^{\frac{n}{2}} \ σ^n \ m_n} $$
-with  $$\sum_{i = 1}^m exp[-2 \ \frac{(x - x_A)^r (x - x_Ai)}{σ^2}]$$
+with  \(\sum_{i = 1}^m exp[-2 \ \frac{(x - x_A)^r (x - x_Ai)}{σ^2}]\)
 
 Where <br />
 
-x<sub>Ai</sub> - i<sub>th</sub> training pattern from class A <br />
+\(x_Ai\) - i<sub>th</sub> training pattern from class A <br />
 
-n - Dimension of the input vectors <br />
+\(n\) - Dimension of the input vectors <br />
 
 σ - Smoothing parameter (corresponds to standard deviation of gaussian distribution)
 
@@ -128,7 +128,7 @@ n - Dimension of the input vectors <br />
 				<div class="image image-with-caption">
 					<img src="images/pnns/pnn-medical-imaging-flow-chart.png" alt="" />
 					<div class="image-caption">
-						<p>A diagram to show te stages that occur in the classification process of a brain tumour<a id="foot-7-ref" href="#foot-7"><sup>[7]</sup></a></p>
+						<p>A diagram to show the stages that occur in the classification process of a brain tumour<a id="foot-7-ref" href="#foot-7"><sup>[7]</sup></a></p>
 					</div>
 				</div>
 			</section>
