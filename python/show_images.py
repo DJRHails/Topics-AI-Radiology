@@ -11,6 +11,7 @@ from scipy.ndimage import zoom
 from scipy.ndimage.interpolation import rotate as rotate_scipy
 import imageio
 
+
 def groundtruth_(gt):
     """Takes a discrete label volume with zero-indexed labels and applies one_hot encoding."""
     n_classes = gt.max() + 1
@@ -199,6 +200,19 @@ def prep2(gt):
 
     return res
 
+# def n4_bias_correction(image):
+#     n4 = N4N4BiasFieldCorrection()
+#     n4.inputs.dimension = 3
+
+
+def normalize(_slice):
+    b, t = np.percentile(_slice, (0.5, 99.5))
+    _slice = np.clip(_slice, b, t)
+    if np.std(_slice) == 0:
+        return _slice
+    else:
+        return (_slice - np.mean(_slice)) / np.std(_slice)
+
 def vis_col_im(im, gt):
     plt.imshow(col_im(im, gt))
     plt.show()
@@ -242,37 +256,41 @@ def gt_im(im, gt):
 
     return im
 
-
 def col_im(im, gt):
     im = np.asarray(im, dtype='float32')
+    # im = normalize(im)
 
     if(im.max()!=0):
         im = im*1.0/im.max()
+
     rgb_image = color.gray2rgb(im)
     im = rgb_image.copy()
 
-    if gt is None:
-        return im
+    # img2 = np.ones((im.shape[0], im.shape[1], 4))
+    # img2[:, :, :3] = im
+    # indices_0 = np.where(im < 0.05)
+    # img2[indices_0[0], indices_0[1], 3] = 0
 
-    indices_0 = np.where(gt == 0) # nothing
-    indices_1 = np.where(gt == 1) # necrosis
-    indices_2 = np.where(gt == 2) # edema
-    indices_3 = np.where(gt == 3) # non-enhancing tumor
-    indices_4 = np.where(gt == 4) # enhancing tumor
+    if gt is not None:
+        indices_0 = np.where(gt == 0) # nothing
+        indices_1 = np.where(gt == 1) # necrosis
+        indices_2 = np.where(gt == 2) # edema
+        indices_3 = np.where(gt == 3) # non-enhancing tumor
+        indices_4 = np.where(gt == 4) # enhancing tumor
 
-    m0 = [1., 1., 1.]
-    m1 = [1., 0., 0.] # red: necrosis
-    m2 = [0.2, 1., 0.2] # green: edema
-    m3 = [1., 1., 0.2] # yellow: non-enhancing tumor
-    m4 = [1., 0.6, 0.2] # orange: enhancing tumor
+        m0 = [1., 1., 1.]
+        m1 = [1., 0., 0.] # red: necrosis
+        m2 = [0.2, 1., 0.2] # green: edema
+        m3 = [1., 1., 0.2] # yellow: non-enhancing tumor
+        m4 = [1., 0.6, 0.2] # orange: enhancing tumor
 
-    im[indices_0[0], indices_0[1], :] *= m0
-    im[indices_1[0], indices_1[1], :] *= m1
-    im[indices_2[0], indices_2[1], :] *= m2
-    im[indices_3[0], indices_3[1], :] *= m3
-    im[indices_4[0], indices_4[1], :] *= m4
+        im[indices_0[0], indices_0[1], :] *= m0
+        im[indices_1[0], indices_1[1], :] *= m1
+        im[indices_2[0], indices_2[1], :] *= m2
+        im[indices_3[0], indices_3[1], :] *= m3
+        im[indices_4[0], indices_4[1], :] *= m4
 
-    return im
+    return ndi.gaussian_filter(im, 0.5)
 
 def vis_ims(im0, gt0, im1, gt1, title0='Original', title1='Transformed'):
     im0 = col_im(im0, gt0)
@@ -329,15 +347,18 @@ def vis_diff_modalities(*ims):
 
 def save_brains(maxBrains=1):
     brain_no = 0
-    for im in gen_images(n=maxBrains, randomize=True):
+    for im in gen_images(n=maxBrains, crop=True):
         gt = im['gt']
         # plt.imsave("website/images/slices/brain{0}_{1}.png".format(brain_no, brain_slice), col_im(im, gt), cmap='gray', vmin=np.amin(im), vmax=np.amax(im), format="png")
         t2_gt = []
         t1c_gt = []
         t1_gt = []
         flair_gt = []
-        flair = []
+
         t2 = []
+        t1c = []
+        t1 = []
+        flair = []
 
         for brain_slice in range(0, im['Flair'].shape[0], 1):
             flair_slice = im['Flair'][brain_slice]
@@ -349,26 +370,31 @@ def save_brains(maxBrains=1):
             t1c_gt.append(col_im(t1c_slice, gt_slice))
             t1_gt.append(col_im(t1_slice, gt_slice))
             flair_gt.append(col_im(flair_slice, gt_slice))
+
             flair.append(col_im(flair_slice, None))
-            t2.append(col_im(flair_slice, None))
+            t2.append(col_im(t2_slice, None))
+            t1c.append(col_im(t1c_slice, None))
+            t1.append(col_im(t1_slice, None))
 
-            out_col_im(t2_slice, gt_slice, brain_no, brain_slice, "brain_t2_gt")
-            out_col_im(t1c_slice, gt_slice, brain_no, brain_slice, "brain_t1c_gt")
-            out_col_im(t1_slice, gt_slice, brain_no, brain_slice, "brain_t1_gt")
-            out_col_im(flair_slice, gt_slice, brain_no, brain_slice, "brain_flair_gt")
-            out_col_im(t2_slice, None, brain_no, brain_slice, "brain_t2")
-            out_col_im(t1c_slice, None, brain_no, brain_slice, "brain_t1c")
-            out_col_im(t1_slice, None, brain_no, brain_slice, "brain_t1")
-            out_col_im(flair_slice, None, brain_no, brain_slice, "brain_flair")
-            out_gt_im(flair_slice, gt_slice, brain_no, brain_slice, "brain_gt")
+            out_col_im(t2_slice, gt_slice, brain_no, brain_slice, "t2/gt/")
+            out_col_im(t1c_slice, gt_slice, brain_no, brain_slice, "t1c/gt/")
+            out_col_im(t1_slice, gt_slice, brain_no, brain_slice, "t1/gt/")
+            out_col_im(flair_slice, gt_slice, brain_no, brain_slice, "flair/gt/")
+            out_col_im(t2_slice, None, brain_no, brain_slice, "t2/")
+            out_col_im(t1c_slice, None, brain_no, brain_slice, "t1c/")
+            out_col_im(t1_slice, None, brain_no, brain_slice, "t1/")
+            out_col_im(flair_slice, None, brain_no, brain_slice, "flair/")
+            out_gt_im(flair_slice, gt_slice, brain_no, brain_slice, "")
 
-        imageio.mimsave("website/images/brains/brain_t2_gt{0}.gif".format(brain_no), t2_gt)
-        imageio.mimsave("website/images/brains/brain_t1c_gt{0}.gif".format(brain_no), t1c_gt)
-        imageio.mimsave("website/images/brains/brain_t1_gt{0}.gif".format(brain_no), t1_gt)
-        imageio.mimsave("website/images/brains/brain_flair_gt{0}.gif".format(brain_no), flair_gt)
+        imageio.mimsave("website/images/brains/t2/gt_{0}.gif".format(brain_no), t2_gt)
+        imageio.mimsave("website/images/brains/t1c/gt_{0}.gif".format(brain_no), t1c_gt)
+        imageio.mimsave("website/images/brains/t1/gt_{0}.gif".format(brain_no), t1_gt)
+        imageio.mimsave("website/images/brains/flair/gt_{0}.gif".format(brain_no), flair_gt)
 
-        imageio.mimsave("website/images/brains/brain_t2{0}.gif".format(brain_no), t2)
-        imageio.mimsave("website/images/brains/brain_flair{0}.gif".format(brain_no), flair)
+        imageio.mimsave("website/images/brains/t2/{0}.gif".format(brain_no), t2)
+        imageio.mimsave("website/images/brains/flair/{0}.gif".format(brain_no), flair)
+        imageio.mimsave("website/images/brains/t1c/{0}.gif".format(brain_no), t1c)
+        imageio.mimsave("website/images/brains/t1/{0}.gif".format(brain_no), t1)
         brain_no+=1
 
 def show_modalities():
@@ -469,13 +495,11 @@ def show_transform():
         #t_im_trans = t_im
         #t_im_trans = re_rescale(t_im)
         #t_im_trans = flip(t_im)
-        #t_im_trans = noise(t_im, intensity=1, n=10)
+        t_im_trans = noise(t_im, intensity=1, n=10)
         t_im_trans, trans_gt = ndi.percentile_filter(t_im, np.random.randint(0, 10), (2, 2, 2)), gt
-        #t_im_trans = ndi.morphological_gradient(t_im, size=(2, 2, 2))
-        #t_im_trans = ndi.grey_dilation(t_im, size=(3, 3, 3))
-        #t_im_trans = ndi.grey_erosion(t_im_trans, size=(3, 3, 3))
-
-        print(t_im_trans.dtype)
+        t_im_trans = ndi.morphological_gradient(t_im, size=(2, 2, 2))
+        t_im_trans = ndi.grey_dilation(t_im, size=(3, 3, 3))
+        t_im_trans = ndi.grey_erosion(t_im_trans, size=(3, 3, 3))
 
         for _slice in np.arange(0, t_im.shape[0], t_im.shape[0]/20).astype(int):
             im_slice = t_im[_slice]
@@ -486,7 +510,7 @@ def show_transform():
             vis_ims(im0=im_slice, gt0=gt_slice, im1=im_slice_trans, gt1=trans_gt_slice)
 
 if __name__ == '__main__':
-    save_brains()
+    save_brains(2)
     # show_modalities()
     # show_downsize()
     # show_crops()
