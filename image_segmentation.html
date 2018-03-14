@@ -1,0 +1,89 @@
+<html>
+	<head>
+		<title>Image Segmentation</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body>
+    <!-- Wrapper -->
+    <div id="wrapper" class="divided">
+      <section class="banner onload-content-fade-right style2 fullscreen orient-center content-align-center image-position-center invert">
+        <div class="content">
+          <h1>Image Segmentation</h1>
+          <p>Improves the data - or extends it - to prepare for analysis. We can correct or adjust data for a number of experemental errors. </p>
+          <ul class="actions vertical">
+            <li>
+              <a href="#first" class="button big wide smooth-scroll">Find Out More</a>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+			<section class="wrapper style1 align-center" id=first>
+        <div class="inner">
+					<h1 id="summary">Manual</h1>
+          <p>The completely manual method for segmentation would be to draw the desired borders directly onto the raw image. This would take too much time and be prone to errors, especially due to fatigue. Manual segmentation requires the radiologist to use the multi-modality information presented by the MRI images along with anatomical and physiological knowledge gained through training and experience. Procedure involves the radiologist going through multiple slices of images slice by slice, diagnosing the tumor and manually drawing the tumor regions carefully. Apart from being a time consuming task, manual segmentation is also radiologist dependent and segmentation results are subject to large intra and inter rater variability <a id="foot-3-ref" href="#foot-3" class="smooth-scroll"><sup>[3]</sup></a></p>
+          <div class="index align-left">
+            <section>
+              <header>
+                <h2>Annotation</h2>
+              </header>
+              <div class="content">
+                <div class="image fit">
+                  <img src="images/slices/flair/0_90.png" alt="">
+                </div>
+                <ul>
+                  <li><b>Necrosis (Red):</b> Dead cells from the tumor</li>
+                  <li><b>Edema (Green):</b> Brain swelling due to new blood vessels growing in and near the tumor </li>
+                  <li><b>Non-enhancing Tumor (Yellow):</b> Tumor cells that aren't inflammatory.</li>
+                  <li><b>Enhancing Tumor (Orange):</b> Uptake of contrast agent - hyper intense on MRI T1Gd - this means that there's an inflammatory process. </li>
+                </ul>
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
+
+      <!-- <section class="wrapper style1 align-center">
+        <div class="inner">
+          <h1 id="summary">Data Augmentation</h1>
+          <p>Description</p>
+          <div class="index align-left">
+
+          </div>
+        </div>
+      </section> -->
+
+      <section id="continue" class="wrapper style1 align-center">
+        <div class="inner">
+          <ul class="actions vertical">
+            <li>
+              <a href="index.html" class="button big wide smooth-scroll">Back to home</a>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section id="footnotes" class="wrapper style1 align-center">
+        <div class="inner">
+          <h1>Footnotes</h1>
+          <ul class="alt align-left">
+            <li id="foot-1"><a href="#foot-1-ref" title="return">[1]</a>Havaei, M. et. al, Brain Tumor Segmentation with Deep Neural Networks. arXiv preprint arXiv:1505.03540, 2015.</li>
+            <li id="foot-2"><a href="#foot-2-ref" title="return">[2]</a>Stupp et al., Effects of radiotherapy with concomitant and adjuvant temozolomide versus radiotherapy alone on survival in glioblastoma in a randomised phase III study: 5-year analysis of the EORTC-NCIC trial. The Lancet Onc., 2009.</li>
+            <li id="foot-3"><a href="#foot-3-ref" title="return">[3]</a>White D, Houston A, Sampson W, Wilkins G. Intra and interoperator variations in region-of-interest drawing and their effect on the
+measurement of glomerular filtration rates 1999; 24:177–81. </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <!-- End Wrapper -->
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
