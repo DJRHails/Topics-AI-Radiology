@@ -68,19 +68,22 @@
 							If the classes are linearly separable, then there must exist a linear hyper-plane that divides the classes accurately.
 							The task therefore its to find this linear optimal separating hyper-plane.
 							<br>
-							The linear hyper-plane will have the form:
+							The linear hyper-plane can have the primal form:
 							<br>
 							<br>
 							$$
 								f(x) = w^Tx + b
 							$$
-							<ul> Where:
-								 <li> \(x\) is the input vector (the features)</li>
-								 <li> \(w\) is the weight vector (that applies weight to each feature)</li>
-								 <li> \(b\) is the bias (translates the hyper-plane)</li>
-						  </ul>
-							Training the SVM can be done using the Perceptron algorithm which cycles through the training data points, and if the data point isn't classified correctly, then the weights in w are updated in order to accomodate the new data point.
-							This repeats until a cycle occurs with no changes.<a id="foot-3-ref" href="#foot-3"><sup>[3]</sup></a>
+							There is also the dual form:
+							$$
+								f(x) = \sum_{i}^{N}\alpha_{i}y_{i}(x_{i}^Tx) + b
+							$$
+							<ul>Where:
+								<li>\(b\) is the bias</li>
+								<li>\(w\) is a weight vector</li>
+								<li>\(\alpha\) is a 
+							</ul>
+							</a>
 						</p>
 					</div>
           <div class="image image-with-caption">
@@ -96,11 +99,9 @@
           <div class="content">
             <h2>How do they work on non-linearly separable classes?</h2>
             <p>
-							When the classes are non-linearly separable, a kernel is used.
-							A kernel is a mathematical function that transforms a low-dimensional input space into a high-dimensional space, allowing classes to become linearly separable.
-							Once the input data has been transformed, the SVM can be trained in the same way as linearly-separable classes.<a id="foot-1-ref" href="#foot-1"><sup>[1]</sup></a>
-							The choice of kernel is not obvious, and so determining the optimal hyper-plane involves testing with different kernels.
-							 </p>
+							When the classes are non-linearly separable, it makes more sense to use the dual form of classifier can be used:
+							where the problem is optimising \(\alpha_{i})\
+						</p>
 	          </div>
 	          <div class="image-with-caption">
 	            <img src="images/svm/svmnonlinear.png" alt="" />
@@ -114,7 +115,11 @@
 					<section class="wrapper style1 align-left">
 		        <div class="inner">
 		          <h1>What are common kernels?</h1>
-		          <p>For a kernel \(K(X,X')\), \(X\) denotes the training inputs, \(X'\) denotes the unlabled inputs.<a id="foot-15-ref" href="#foot-15"><sup>[15]</sup></a>.
+							When the classes are non-linearly separable, a kernel is used.
+							A kernel is a mathematical function that transforms a low-dimensional input space into a high-dimensional space, allowing classes to become linearly separable.
+							Once the input data has been transformed, the SVM can be trained in the same way as linearly-separable classes.<a id="foot-1-ref" href="#foot-1"><sup>[1]</sup></a>
+							The choice of kernel is not obvious, and so determining the optimal hyper-plane involves testing with different kernels.
+		          <p>For a kernel \(K(X,X')\), \(X\) denotes the training input, \(X'\) denotes the unlabled inputs.<a id="foot-15-ref" href="#foot-15"><sup>[15]</sup></a>.
 								Some examples of kernels are shown below:
 							</p>
 		          <div class="index align-left">
