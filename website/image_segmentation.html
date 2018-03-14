@@ -11,7 +11,7 @@
       <section class="banner onload-content-fade-right style2 fullscreen orient-center content-align-center image-position-center invert">
         <div class="content">
           <h1>Image Segmentation</h1>
-          <p>Before any therapy, it's crucial to segment the tumor in order to protect healthy tissues while damaging and destroying tumor cells during the therapy. Brain tumor segmentation incolves diagnosis, delineation and separation of tumor tissues, such as active cells, neurotic core and edema from the normal brain tissues.</p>
+          <p>The goal of image segmentation is to divide an image into a set of semantically meaniningful regions. Fundamental components of MRI is the diagnosis, delineation and separation of tumor tissues, such as active cells, neurotic core and edema from the normal brain tissues. Classification and Segmentation are interlinked because segmentation implies a classification. Before any therapy, it's crucial to segment the tumor in order to protect healthy tissues while damaging and destroying tumor cells during the therapy.  </p>
           <ul class="actions vertical">
             <li>
               <a href="#first" class="button big wide smooth-scroll">Find Out More</a>
@@ -87,26 +87,46 @@
                 <h2>Thresholding</h2>
               </header>
               <div class="content">
-                <p></p>
+                <div class="image right">
+                  <img src="images/semi/0_71_threshold32.png" alt="">
+                </div>
+                <p>The simplest method of image segmentation that directly dicides the image gray scale information processing based on the gray value of different targets. Threshold segmentation can be divided into a local threshold method and global threshold method. The most commond threshold algorithm is the "largest interclass variance method" which selects a globally optimal threshold by maximising the variance between classes.</p>
+                <p>The global threshold method divides the image into two regions of the targt and the background by a single threshold.<a id="foot-5-ref" href="#foot-5" class="smooth-scroll"><sup>[5]</sup></a></p>
+                <p>The local threshold method needs to select multiple segmentation thresholds and divide the image into multiple regions and backgrounds.</p>
+                <h4>Advantages</h4>
+                <ul>
+                  <li>Calculation is simple</li>
+                  <li>Operation speed is fast</li>
+                  <li>In particular, when the target and the background have high contrast, the segmentation effect is good</li>
+                </ul>
+                <h4>Disadvantages</h4>
+                <ul>
+                  <li>Difficult to obtain accurate results where there is no signifant grayscale areas</li>
+                  <li>Only takes into account the gray information of the image without considering the spatial information</li>
+                  <li>Sensitive to noise and grayscale unevenness</li>
+                </ul>
               </div>
             </section>
             <section>
               <header>
-                <h2>Graph Cut</h2>
+                <h2>Graph Cut <a id="foot-4-ref" href="#foot-4" class="smooth-scroll"><sup>[4]</sup></a></h2>
               </header>
               <div class="content">
-                <p></p>
-              </div>
-            </section>
-            <section>
-              <header>
-                <h2>Graph Cut</h2>
-              </header>
-              <div class="content">
-                <p></p>
+                <p>The image is divided into "object" and "background" segments using a graph cut approach. A graph is formed by connecting all pairs of neighbouring image pixels (voxels) by weighted edges. Certain voxels have to be identifed providing necessary clues about image content. Objective is the cheapest way to cut the edges in the graph so that the object seeds are completely separated from the background seeds. This is a known issue</p>
+                <div class="image right">
+                  <img src="images/semi/0_71_graphcut.png" alt="">
+                </div>
+                <p>Place a mark on the image to indicate regions desired as foreground and regions as background. First marks are done on forground and then again on the background. This gives a reasonable first pass on the segmentation but if the intensity values are too similar then a good segmentation can't be achieved</p>
               </div>
             </section>
           </div>
+        </div>
+      </section>
+
+      <section class="wrapper style1 align-center">
+        <div class="inner">
+					<h1 id="summary">Automatic</h1>
+          <p>Automatic segmentation of gliomas is challenging as tumor bearing MRI data is 3D data where tumor shape, size and location that can vary from patient to patient. Tumor boundaires are often unclear and irregular with discontnuities posing very hard challenges for edge-based methods.Automatic tumor segmentation has the potential to decrease time between diagnostic tests and treatment by providing an efficient and standardized report of tumor location in a fraction of the time it would take a radiologist to do so.</p>
         </div>
       </section>
       <!-- <section class="wrapper style1 align-center">
@@ -137,6 +157,12 @@
             <li id="foot-2"><a href="#foot-2-ref" title="return">[2]</a>Stupp et al., Effects of radiotherapy with concomitant and adjuvant temozolomide versus radiotherapy alone on survival in glioblastoma in a randomised phase III study: 5-year analysis of the EORTC-NCIC trial. The Lancet Onc., 2009.</li>
             <li id="foot-3"><a href="#foot-3-ref" title="return">[3]</a>White D, Houston A, Sampson W, Wilkins G. Intra and interoperator variations in region-of-interest drawing and their effect on the
 measurement of glomerular filtration rates 1999; 24:177–81. </li>
+            <li id="foot-4"><a href="#foot-4-ref" title="return">[4]</a>Boykov Y., Jolly MP. (2000) Interactive Organ Segmentation Using Graph Cuts. In: Delp S.L., DiGoia A.M., Jaramaz B. (eds) Medical Image Computing and Computer-Assisted Intervention – MICCAI 2000. MICCAI 2000. Lecture Notes in Computer Science, vol 1935. Springer, Berlin, Heidelberg</li>
+            <li id="foot-5"><a href="#foot-5-ref" title="return">[5]</a>Davis L S, Rosenfeld A, Weszka J S. Region extraction
+by averaging and thresholding[J]. IEEE Transactions
+on Systems, Man, and Cybernetics, 1975 (3):
+383-388.</li>
+<li id="foot-6"><a href="#foot-6-ref" title="return">[6]</a>Ivana Despotović, Bart Goossens, and Wilfried Philips, “MRI Segmentation of the Human Brain: Challenges, Methods, and Applications,” Computational and Mathematical Methods in Medicine, vol. 2015, Article ID 450341, 23 pages, 2015. doi:10.1155/2015/450341</li>
           </ul>
         </div>
       </section>
