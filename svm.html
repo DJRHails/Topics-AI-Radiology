@@ -33,10 +33,8 @@
 						<p>
 							Support Vector Machine (SVM) refers to a supervised machine learning algorithm which can be used for both classification or regression challenges.<a id="foot-1-ref" href="#foot-1"><sup>[1]</sup></a>
 							<br>
-							Consider an n-dimensional space.
-							Support vectors refer to the individual co-ordinates in the space, and are the data points collected by individual observation.
-							'n' refers to the number of features which each data point would have.
-							The support vector machine is the hyper-plane that divides the space and separates the data points into classes.<a id="foot-1-ref" href="#foot-1"><sup>[1]</sup></a>
+							SVM performs classification by finding the hyperplane that maximizes the margin between two classes.
+							Support vectors are the vectors that define the hyper-plane.<a id="foot-15-ref" href="#foot-15"><sup>[15]</sup></a>
 						</p>
           </div>
 					<div class = "image image-with-caption">
@@ -69,8 +67,6 @@
 							The task therefore its to find this linear optimal separating hyper-plane.
 							<br>
 							The linear hyper-plane can have the primal form:
-							<br>
-							<br>
 							$$
 								f(x) = w^Tx + b
 							$$
@@ -80,9 +76,12 @@
 							$$
 							<ul>Where:
 								<li>\(b\) is the bias</li>
-								<li>\(w\) is a weight vector</li>
-								<li>\(\alpha\) is a 
+								<li>\(w\) is a (primal) weight vector</li>
+								<li>\(\alpha\) is a (dual) weight vector</li>
+								<li>\(y_{i} \in \{-1, 1\}\)</li>
+								<li>\(x_{i}\) is a support vector</li>
 							</ul>
+							<a id="foot-17-ref" href="#foot-17"><sup>[17]</sup></a>
 							</a>
 						</p>
 					</div>
@@ -99,8 +98,14 @@
           <div class="content">
             <h2>How do they work on non-linearly separable classes?</h2>
             <p>
-							When the classes are non-linearly separable, it makes more sense to use the dual form of classifier can be used:
-							where the problem is optimising \(\alpha_{i})\
+							When the classes are non-linearly separable, it makes more sense to use the dual form of classifier.
+							However, a kernel is also needed.
+							A kernel is a mathematical function that transforms a low-dimensional input space into a high-dimensional space, allowing the modified classes to become linearly separable<a id="foot-1-ref" href="#foot-1"><sup>[1]</sup></a>.
+							<br>
+							For a kernel \(K(x_{i}, x)\), the dual classifier becomes<a id="foot-17-ref" href="#foot-17"><sup>[17]</sup></a>:
+							$$
+								f(x) = \sum_{i}^{N}\alpha_{i}y_{i}K(x_{i}, x) + b
+							$$
 						</p>
 	          </div>
 	          <div class="image-with-caption">
@@ -115,11 +120,7 @@
 					<section class="wrapper style1 align-left">
 		        <div class="inner">
 		          <h1>What are common kernels?</h1>
-							When the classes are non-linearly separable, a kernel is used.
-							A kernel is a mathematical function that transforms a low-dimensional input space into a high-dimensional space, allowing classes to become linearly separable.
-							Once the input data has been transformed, the SVM can be trained in the same way as linearly-separable classes.<a id="foot-1-ref" href="#foot-1"><sup>[1]</sup></a>
-							The choice of kernel is not obvious, and so determining the optimal hyper-plane involves testing with different kernels.
-		          <p>For a kernel \(K(X,X')\), \(X\) denotes the training input, \(X'\) denotes the unlabled inputs.<a id="foot-15-ref" href="#foot-15"><sup>[15]</sup></a>.
+		          <p>
 								Some examples of kernels are shown below:
 							</p>
 		          <div class="index align-left">
@@ -129,7 +130,7 @@
 		                <h3>Linear <a id="foot-2-ref" href="#foot-2"><sup>[2]</sub></a></h3>
 		              </header>
 		              <div class="content">
-										$$K(X,X') = X^TX'$$
+										$$K(x_{i}, x) = x_{i}^Tx$$
 		              </div>
 		            </section>
 		            <!--  -->
@@ -138,7 +139,7 @@
 		                <h3>Quadratic <a id="foot-2-ref" href="#foot-2"><sup>[2]</sub></a></h3>
 		              </header>
 		              <div class="content">
-										$$K(X,X') = (1 + X^TX')^2$$
+										$$K(x_{i},x) = (1 + x_{i}^Tx)^2$$
 		              </div>
 		            </section>
 								<section>
@@ -146,7 +147,7 @@
 									 <h3>Polynomial <a id="foot-2-ref" href="#foot-2"><sup>[2]</sub></a></h3>
 								 </header>
 								 <div class="content">
-									 $$K(X,X') = (1 + X^TX')^d$$
+									 $$K(x_{i},x) = (1 + x_{i}^Tx)^d$$
 								 </div>
 							 </section>
 							 <section>
@@ -154,7 +155,7 @@
 									<h3>Radial Basis Function<a id="foot-14-ref" href="#foot-14"><sup>[14]</sub></a></h3>
 								</header>
 								<div class="content">
-									$$K(X,X') = exp(-\gamma||X-X'||^2)$$
+									$$K(x_{i},x) = exp(-\gamma||x_{i}-x||^2)$$
 								</div>
 							</section>
 							<p>Note that there are variations of these.</p>
@@ -237,9 +238,14 @@
 	            <h2>How do we use extracted features to train an SVM?</h2>
 	            <p>
 								After features have been extracted for each MRI image in the training data, data points need to be constructed (where a data point corresponds to an image).
-								Each data point will contain all the values for each feature, and the classification of the image (malignant or benign) as a -1 and 1.<a id="foot-3-ref" href="#foot-3"><sup>[3]</sup></a>
+								Each data point will contain all the values for each feature, and the classification of the image (malignant or benign) as a -1 and +1.<a id="foot-3-ref" href="#foot-3"><sup>[3]</sup></a>
 								<br>
-								The SVM's hyper-plane is initialised with small random values. Then it is trained using the data points.
+								The SVM is then trained using each data point. For the dual classifier, training involves learning the values in \(\alpha\) to determine the hyper-plane (and which data points are its support vectors).
+								<br>
+								One modern algorithm used for training a dual classifier is Co-ordinate descent.
+								For each \(i \in \{1 .. n\}\), iteratively, the co-efficient \(\alpha_{i}\) is adjusted in the direction that reduces the error.
+								Then, \(\alpha\) is projected onto the nearest vector of co-efficients that satisfies the given constraints (typically Euclidean distances).
+								This is repeated until near optimal coefficients are obtained. <a id="foot-16-ref" href="#foot-16"><sup>[16]</sup></a>
 							</p>
 	          </div>
 	        </section>
@@ -291,7 +297,7 @@
 	                  <img src="images/svm/svmclassification1.png" alt="" />
 	                </a>
 	                <div class="caption">
-	                  <h3>Results for SVM's trained to classify normal and abnormal MRI brain images.<a id="foot-4-ref" href="#foot-4"><sup>[4]</sup></h3></a>
+	                  <h3>Results for SVM's trained to classify normal and abnormal MRI brain images.<a id="foot-4-ref" href="#foot-4"><sup>[4]</sup></a></h3>
 	                </div>
 	              </article>
 	              <article>
@@ -397,7 +403,9 @@
 		<li id="foot-12"><a href="#foot-12-ref" title="return">[12]</a>https://www.quora.com/What-are-the-advantages-of-support-vector-machines-SVM-compared-with-linear-regression-or-logistic-regression</li>
 		<li id="foot-13"><a href="#foot-13-ref" title="return">[13]</a>https://www.analyticsvidhya.com/blog/2017/09/understaing-support-vector-machine-example-code/</li>
 		<li id="foot-14"><a href="#foot-14-ref" title="return">[14]</a>https://en.wikipedia.org/wiki/Radial_basis_function_kernel</li>
-		<li id="foot-15"><a href="#foot-15-ref" title="return">[15]</a>https://en.wikipedia.org/wiki/Kernel_method</li>
+		<li id="foot-15"><a href="#foot-15-ref" title="return">[15]</a>http://www.saedsayad.com/support_vector_machine.htm</li>
+		<li id="foot-16"><a href="#foot-16-ref" title="return">[16]</a>https://en.wikipedia.org/wiki/Support_vector_machine</li>
+		<li id="foot-17"><a href="#foot-17-ref" title="return">[17]</a>http://www.robots.ox.ac.uk/~az/lectures/ml/lect3.pdf</li>
 							</ul>
 						</div>
 					</section>
