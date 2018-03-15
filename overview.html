@@ -17,7 +17,7 @@
       <section class="banner onload-content-fade-right style2 fullscreen orient-center content-align-center image-position-center invert">
         <div class="content">
           <h1>The period from referral to test result can take up to 10&#37; of the average survival time.</h1>
-          <p><b>4753</b> people where waiting longer than 6 weeks for MRI scan results <a id="foot-2-ref" href="#foot-2"><sup>[2]</sup></a> and Glioblastoma, the most common high grade brain tumor, has an <b>average</b> survival time 12-18 months <a id="foot-4-ref" href="#foot-4"><sup>[4]</sup></a></p>
+          <p><b>4753</b> people were waiting longer than 6 weeks for MRI scan results <a id="foot-2-ref" href="#foot-2"><sup>[2]</sup></a> and Glioblastoma, the most common high grade brain tumor, has an <b>average</b> survival time 12-18 months <a id="foot-4-ref" href="#foot-4"><sup>[4]</sup></a></p>
           <ul class="actions vertical">
             <li>
               <a href="#cancer-summary" class="button big wide smooth-scroll">What can be done?</a>
@@ -28,7 +28,7 @@
       <section class="wrapper style1 align-center">
         <div class="inner">
           <h1 id="cancer-summary">A Radiologist's view of Brain Tumors</h1>
-          <p>Brain Tumors are uncontrolled, unnatural growth, and division of brain tissue. They are thankfully not very common but they are one of the most lethal cancers. A Radiologist's job is to diagnose and analyse these tumours in order to provide the best treatment plan. Currently, the time from scan results to report can take in excess of <b>four solid hours</b> <a id="foot-10-ref" href="#foot-10" class="smooth-scroll"><sup>[10]</sup></a> and, due to the requirement of highly specialised trained individuals, these are done back-to-back reducing accuracy.</p>
+          <p>Brain Tumors - Uncontrolled, unnatural growth and division of brain tissue - are thankfully not very common but they are one of the most lethal cancers. A Radiologist's job is to diagnose and analyse these tumours in order to provide the best treatment plan. Currently the time from scan results to report can take in excess of <b>four solid hours</b> REFNEEDED and, due to the requirement of highly specialised trained individuals, these are done back-to-back reducing accuracy.</p>
           <div class="index align-left">
             <!-- Primary and Metastatic Brain Tumors -->
             <section>
@@ -38,7 +38,7 @@
               <div class="content">
                 In primary brain tumors, the origin of the cells are brain tissue which then become cancerous cells.<br>
                 In metastatic tumors, cells become cancerous at any part of the body and spread into the brain.<br>
-                Most tumors that begin in the brain do not spread metastatically.
+                Most tumors that begin in the brain do not spread meastatically
               </div>
             </section>
             <!-- Gliomas -->
@@ -47,23 +47,23 @@
                 <h2>Gliomas</h2>
               </header>
               <div class="content">
-                The majority of primary brain tumors originate from glial cells (hence they are called Gliomas) and are classified using the World Health Organisation (WHO) system <a id="foot-1-ref" href="#foot-1" class="smooth-scroll"><sup>[1]</sup></a> into low-grade glioma (LGG) (grades I and II) and high-grade glioma (grade II anaplastic glioma and grade IV glioblastoma).
+                The majority of primary brain tumors originate from glial cells (hence called Glioma) and are classified using the World Health Organisation (WHO) system <a id="foot-1-ref" href="#foot-1" class="smooth-scroll"><sup>[1]</sup></a> into low-grade glioma (LGG) (grades I and II) and high-grade glioma (grade II anaplastic glioma and grade IV glioblastoma).
                 <ul>
                   <li><b>Grade I:</b> The tissue is benign. The cells look nearly like normal brain cells and cell growth is slow.</li>
                   <li><b>Grade II:</b> The tissue is malignant. The cells look less like normal cells than in grade I.</li>
                   <li><b>Grade III:</b> Abnormal cells are actively growing.</li>
                   <li><b>Grade IV:</b> Malignant tissue is most abnormal and very aggressive.</li>
                 </ul>
-                <span class="image right">
-                 <img src="images/slices/t2/gt/0_90.png"/>
+                <span class="image fit">
+                 <img src="images/sample/glioma.jpg"/>
                </span>
                 <h3>High Grade</h3>
                 <p>
-                  <b>Cases each year (US):</b> 15,000 <br>
+                  <b>Cases each year (US)<sup>1</sup>:</b> 12,000 <br>
                   <b>Median Survival:</b> 14.6 months <br>
                   <b>Five-year surivival rate:</b> < 10&#37;
                 </p>
-                <p> High-grade malignant brain tumors generally lead to short life expectancy and limited treatment. The aggressive nature of this illness necessitates efficient diagnosis and treatment plans to improve the quality of and extend patient life. Automatic segmentation methods which are fast and reliable in clinical settings are vital for these tasks. Algorithmic segmentation is a particularly challenging task.
+                <p> High-grade malignant brain tumors generally lead to short life expectancy and limited treatment. The aggressive nature of this illness necessitates efficient diagnosis and treatment plans to improve quality of and extend patient life. Automatic segmentation methods that are fast and reliable in clinical settings are vital for these tasks. Algorithmic segmentation is a particularly challenging task.
               </div>
             </section>
           </div>
@@ -75,23 +75,21 @@
           <h1 id="mri-summary">The use of Magnetic Resonance Imaging (MRI) scans</h1>
           <p>
             As the most common diagnostic tool for brain tumors due to it's non-invasive nature and ability to image diverse tissue types and physiologogical processes.<br>
-            There is a need for accurate and fully automated methods. <a href="image_segmentation.html#manual">Manual segmentation</a> around tumour margins on a slice-by-slice basis can take 12 minutes or more per tumor per sequence, with <a href="image_segmentation.html#semi">semi-automatic methods</a> taking 3-5 mins <a id="foot-5-ref" href="#foot-5" class="smooth-scroll"><sup>[5]</sup></a>. Automated segmentation that is not vulnerable to operator subjectivity may be beneficial <a id="foot-6-ref" href="#foot-6" class="smooth-scroll"><sup>[6]</sup></a>.<br>
+            There is a need for accurate and fully automated methods as manual segmentation (ADD LINK) around tumour margins on a slice-by-slice basis can take 12 minutes or more per tumor per sequence, with semi-automatic methods (ADD LINK) taking 3-5 mins <a id="foot-5-ref" href="#foot-5" class="smooth-scroll"><sup>[5]</sup></a> and automated segmentation that is not vulnerable to operator subjectivity may be beneficial <a id="foot-6-ref" href="#foot-6" class="smooth-scroll"><sup>[6]</sup></a>.<br>
             <hr>
-            All images come from the custom python scripts using data from the BRATS <a id="foot-7-ref" href="#foot-7" class="smooth-scroll"><sup>[7]</sup></a> dataset.
+            All images come from the custom python scripts (ADD LINK?) using data from the BRATS <a id="foot-7-ref" href="#foot-7" class="smooth-scroll"><sup>[7]</sup></a> dataset.
           </p>
           <div class="index align-left">
             <!-- Slices -->
             <section>
               <header>
-                <h2 id="slices">Slices</h2>
+                <h2>Slices</h2>
               </header>
               <div class="content">
                <span class="image fit">
-                <img src="images/sample/slices.png"/>
+                <img src="images/sample/slices.jpg"/>
               </span>
-              <p>MRI uses a magnetic gradient and radio frequency pulses to take repetitive axial slices of the brain and reconstruct a 3-dimensional representation. Each brain scans 155 slices giving as 155 2D images which represent the 3D brain with each slice constituting of 1mm<sup>3</sup> voxel.</p>
-							<p>An MRI can be defined as a function I(i, j) in 2D space or I(i, j, k) in 3D space, where i, j, k denote spatial coordinates. The values  of the functions are intensity values and are typically represented by a grey value between 0 and 255. Every image consists of a finite set of image elements called pixels in 2D space or voxels in 3D space. Each image element is uniquely specified by its intensity value and its coordinates (i, j) for pixels and (i, j, k) for voxels, where i is the row number, j is the column number, and k is the slice number in a volumetric stack.</p>
-
+              MRI uses a magnetic gradient and radio frequency pulses to take repetitive axial slices of the brain and reconstruct a 3-dimentional representation. Each brain scans 155 slices, with each pixel representing a 1mm<sup>3</sup> voxel.
               </div>
             </section>
             <!-- Slices -->
@@ -104,7 +102,7 @@
           <div class="gallery style1 big onscroll-fade-in">
   								<article>
   									<a class="image">
-  										<img src="images/brains/t1/0.gif" alt="">
+  										<img src="images/sample/sequences/T1.jpg" alt="">
   									</a>
   									<div class="caption">
   										<h3>T1</h3>
@@ -117,7 +115,7 @@
   								</article>
   								<article>
   									<a class="image">
-  										<img src="images/brains/t1c/0.gif" alt="">
+  										<img src="images/sample/sequences/T1Gd.jpg" alt="">
   									</a>
   									<div class="caption">
   										<h3>Post-Gadolinium T1</h3>
@@ -128,7 +126,7 @@
   								</article>
   								<article>
   									<a class="image">
-  										<img src="images/brains/t2/0.gif" alt="">
+  										<img src="images/sample/sequences/T2.jpg" alt="">
   									</a>
   									<div class="caption">
   										<h3>T2</h3>
@@ -143,7 +141,7 @@
   								</article>
   								<article>
   									<a class="image">
-  										<img src="images/brains/flair/0.gif" alt="">
+  										<img src="images/sample/sequences/FLAIR.jpg" alt="">
   									</a>
   									<div class="caption">
   										<h3>FLAIR</h3>
@@ -174,21 +172,17 @@
         <div class="inner">
           <h1>Footnotes</h1>
           <ul class="alt align-left">
-            <li id="foot-1"><a href="#foot-1-ref" title="return">[1]</a> Louis, D.N., Perry, A., Reifenberger, G. et al. Acta Neuropathol (2016) 131: 803. https://doi.org/10.1007/s00401-016-1545-1</li>
-            <li id="foot-2"><a href="#foot-2-ref" title="return">[2]</a> <a href="https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2016/06/DWTA-Report-April-2016.pdf">https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2016/06/DWTA-Report-April-2016.pdf</a> </li>
+            <li id="foot-1"><a href="#foot-1-ref" title="return">[1]</a> WHO Glioma grades`</li>
+            <li id="foot-2"><a href="#foot-2-ref" title="return">[2]</a> https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2016/06/DWTA-Report-April-2016.pdf</li>
             <li id="foot-3"><a href="#foot-3-ref" title="return">[3]</a> The Royal Marsden Manual of Clinical Nursing Procedures, 9th, Professional Edition
-
 L Dougherty and S Lister (Editors)
-
 Royal Marsden Manual Series, Wiley-Blackwell, 2015</li>
-<li id="foot-4"><a href="#foot-4-ref" title="return">[4]</a> <a href="https://assets.thebraintumourcharity.org/live/media/filer_public/b3/56/b356a660-9860-409d-9199-ee5419f743c4/glioblastoma-v1-adult-factsheet.pdf">https://assets.thebraintumourcharity.org/live/media/filer_public/b3/56/b356a660-9860-409d-9199-ee5419f743c4/glioblastoma-v1-adult-factsheet.pdf</a> </li>
-<li id="foot-5"><a href="#foot-5-ref" title="return">[5]</a> Odland A, Server A, Saxhaug C, Breivik B, Groote R, Vardal J, Larsson C, Bjørnerud A. Volumetric glioma quantification: comparison of manual and semi-automatic tumor segmentation for the quantification of tumor growth. Acta Radiol. 2015;56:1396–1403. doi: 10.1177/0284185114554822. [PubMed] [Cross Ref]]</li>
-<li id="foot-6"><a href="#foot-6-ref" title="return">[6]</a> Aslian H, Sadeghi M, Mahdavi SR, Babapour Mofrad F, Astarakee M, Khaledi N, Fadavi P. Magnetic resonance imaging-based target volume delineation in radiation therapy treatment planning for brain tumors using localized region-based active contour. Int J Radiat Oncol Biol Phys. 2013;87:195–201. doi: 10.1016/j.ijrobp.2013.04.049. </li>
-<li id="foot-7"><a href="#foot-7-ref" title="return">[7]</a> B. H. Menze et al., "The Multimodal Brain Tumor Image Segmentation Benchmark (BRATS)," in IEEE Transactions on Medical Imaging, vol. 34, no. 10, pp. 1993-2024, Oct. 2015.
-doi: 10.1109/TMI.2014.2377694</li>
-<li id="foot-8"><a href="#foot-8-ref" title="return">[8]</a><a href="https://www.radiologymasterclass.co.uk/tutorials/mri/mri_sequences">https://www.radiologymasterclass.co.uk/tutorials/mri/mri_sequences</a></li>
-<li id="foot-9"><a href="#foot-9-ref" title="return">[9]</a><a href="http://ieeexplore.ieee.org/document/6975210/">http://ieeexplore.ieee.org/document/6975210/</a> </li>
-<li id="foot-10"><a href="#foot-10-ref" title="return">[10]</a> <a href="https://www.thebraintumourcharity.org/media-centre/news/research-news/googles-deepmind-ai-brain-tumour/">https://www.thebraintumourcharity.org/media-centre/news/research-news/googles-deepmind-ai-brain-tumour/</a></li>
+<li id="foot-4"><a href="#foot-4-ref" title="return">[4]</a>https://assets.thebraintumourcharity.org/live/media/filer_public/b3/56/b356a660-9860-409d-9199-ee5419f743c4/glioblastoma-v1-adult-factsheet.pdf</li>
+<li id="foot-5"><a href="#foot-5-ref" title="return">[5]</a>Odland A, Server A, Saxhaug C, Breivik B, Groote R, Vardal J, Larsson C, Bjørnerud A. Volumetric glioma quantification: comparison of manual and semi-automatic tumor segmentation for the quantification of tumor growth. Acta Radiol. 2015;56:1396–1403. doi: 10.1177/0284185114554822. [PubMed] [Cross Ref]]</li>
+<li id="foot-6"><a href="#foot-6-ref" title="return">[6]</a>Aslian H, Sadeghi M, Mahdavi SR, Babapour Mofrad F, Astarakee M, Khaledi N, Fadavi P. Magnetic resonance imaging-based target volume delineation in radiation therapy treatment planning for brain tumors using localized region-based active contour. Int J Radiat Oncol Biol Phys. 2013;87:195–201. doi: 10.1016/j.ijrobp.2013.04.049. </li>
+<li id="foot-7"><a href="#foot-7-ref" title="return">[7]</a>BRATS dataset</li>
+<li id="foot-8"><a href="#foot-8-ref" title="return">[8]</a>Radiology Masterclass https://www.radiologymasterclass.co.uk/tutorials/mri/mri_sequences</li>
+<li id="foot-9"><a href="#foot-9-ref" title="return">[9]</a> http://ieeexplore.ieee.org/document/6975210/</li>
           </ul>
         </div>
       </section>
