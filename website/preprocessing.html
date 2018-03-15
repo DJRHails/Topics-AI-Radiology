@@ -4,6 +4,9 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<script type="text/javascript"
+		src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+		</script>
 	</head>
 	<body>
     <!-- Wrapper -->
@@ -11,7 +14,7 @@
       <section class="banner onload-content-fade-right style2 fullscreen orient-center content-align-center image-position-center invert">
         <div class="content">
           <h1>Preprocessing of MRI data before model fitting</h1>
-          <p>Improves the data - or extends it - to prepare for analysis. We can correct or adjust data for a number of experemental errors. </p>
+          <p>Improves or extends the data to prepare for analysis. We can correct or adjust data for a number of experimental errors. </p>
           <ul class="actions vertical">
             <li>
               <a href="#first" class="button big wide smooth-scroll">Find Out More</a>
@@ -30,7 +33,7 @@
                 <h2>Noise Reduction</h2>
               </header>
               <div class="content">
-                <p>Structural images are smoothed by applying a filter - in this case a 3D Gaussian kernel <a id="foot-3-ref" href="#foot-3" class="smooth-scroll"><sup>[3]</sup></a>- to the image. Smoothing increases the signal-to-noise ratio of data by filtering the highest frequencies from the domain: i.e. removing the smallest scale changes among voxels. Hence making the large scale changes more apparent, especially as there is some inherent variability in location and reduce spatial differences between subjects. The trad-off being losing resolution by soothing.</p>
+                <p>Structural images are smoothed by applying a filter, in this case a 3D Gaussian kernel <a id="foot-3-ref" href="#foot-3" class="smooth-scroll"><sup>[3]</sup></a>, to the image. Smoothing increases the signal-to-noise ratio of data by filtering the highest frequencies from the domain: i.e. removing the smallest scale changes among voxels. Hence making the large scale changes more apparent, especially as there is some inherent variability in location and reduce spatial differences between subjects. The trade-off being losing resolution by soothing.</p>
               </div>
             </section>
 
@@ -39,16 +42,16 @@
                 <h2>Skull Stripping</h2>
               </header>
               <div class="content">
-                <p>Acts as a preliminary step as it increases speed and accuracy of diagnosis. It removes the non-cerebral tissues like skull, scalp, and dura from brain images. A simple skull stripping algorithm (S3)<a id="foot-1-ref" href="#foot-1" class="smooth-scroll"><sup>[1]</sup></a> based on brain anatomy and image intensity characteristics.</p>
+                <p>Acts as a preliminary step as it increases speed and accuracy of diagnosis. It removes the non-cerebral tissues like skull, scalp, and dura from brain images. A simple skull stripping algorithm (S3)<a id="foot-1-ref" href="#foot-1" class="smooth-scroll"><sup>[1]</sup></a> based on brain anatomy and image intensity characteristics is shown below:</p>
                 <p>
                   <ol>
-                    <li><b>Median Filtering:</b> A <math>3x3</math> window is passed over the input image. Averaging the pixels in that window to be the pixel contrast.</li>
-                    <li><b>Threshold <math>T</math> estimation:</b> The boundary rectangle of the brain skull is produced from the principle that the skull has an intensity greater than the initial mean intensity value <math>T_i</math>. Then the final mean value, <math>T_f</math> of the brain using pixels within that boundary. The region of brain membrain based on the assumption that the membrane is less that <math>T_f</math>. Then that average gives us T. </li>
-                    <li><b>Binarization using T:</b> All gray values of the skull are greater than <math>T</math> are set to a binary 1 and those less than are set to a binary 0. </li>
-                    <li><b>Opening Morphology:</b> The pixels are eroded (1 -> 0) in a 13x13 filter to separate the skull from the brain.</li>
-                    <li><b>Finding largest connected component:</b> The largest connected component is necessarily the brain.</li>
-                    <li><b>Closing morphology:</b> A 21x21 filter fills in any gaps along the edge of the cranium</li>
-                    <li><b>Mask previous:</b> Using the binary filter anythin classed as 0 is removed from the image</li>
+                    <li><b>Median Filtering:</b> A \(3x3\) window is passed over the input image, averaging the pixels in that window to be the pixel contrast.</li>
+                    <li><b>Threshold \(T\) estimation:</b> The boundary rectangle of the brain skull is produced from the principle that the skull has an intensity greater than the initial mean intensity value \(T_i\). The final mean value, \(T_f\) is calculated from averaging the pixels within that boundary. The region of brain membrain based on the assumption that the membrane is less that \(T_f\). Then that average gives us T. </li>
+                    <li><b>Binarization using T:</b> All gray values of the skull are greater than \(T\) are set to a binary 1 and those less than are set to a binary 0. </li>
+                    <li><b>Opening Morphology:</b> The pixels are eroded (1 -> 0) in a \(13x13\) filter to separate the skull from the brain.</li>
+                    <li><b>Finding largest connected component:</b> As the largest connected component is necessarily the brain, the largest area pixel count is isolated.</li>
+                    <li><b>Closing morphology:</b> A \(21x21\) filter fills in any gaps along the edge of the cranium.</li>
+                    <li><b>Mask previous:</b> Using the binary filter anything classed as 0 is removed from the image.</li>
                   </ol>
                 </p>
               </div>
@@ -60,10 +63,9 @@
               </header>
               <div class="content">
                 <ul>
-                  <li>Each slice is clipped first by 1% from the top and bottom of the pixel densities.</li>
-                  <li>Then for each pixel in the slice the mean of the image is subtracted from the intensity value and divded by the standard deviation</li>
+                  <li>Each slice is clipped first by restricting the top 1% from the top and bottom of the pixel densities.</li>
+                  <li>Then for each pixel in the slice the mean of the image is subtracted from the intensity value and divided by the standard deviation</li>
                 </ul>
-                <p>Each slice is normalised by cliping the top and pottom 1% from the pixel intensities</p>
               </div>
             </section>
 
@@ -75,7 +77,7 @@
                 <div class="image fit">
                   <img src="images/n4itk.jpg" alt="">
                 </div>
-                <p>One of the challenges in working with MRI data is dealing with the artifacts produced either by inhomogeneity in the magnetic field or small movements made during scan time. This results in an intensity gradient over the image that can easily lead to misclassification. The stronger the magnetic field strength, the higher the bias field (>1.5T tehe magnetic field strength can considerably aggect MRI analysis)</p>
+                <p>One of the challenges in working with MRI data is dealing with the artifacts produced either by inhomogeneity in the magnetic field or small movements made during scan time. This results in an intensity gradient over the image that can easily lead to misclassification. The stronger the magnetic field strength, the higher the bias field. Beyond 1.5T magnetic field strength can considerably affect MRI analysis.</p>
                 <p>n4ITK bias correction on all T1 and T1C images in the dataset removes the intensity gradient on each scan, as it estimates the bias field uisng several algorithms and then reapplies that field in reverse to alter the image back to a steady state.</p>
               </div>
             </section>
