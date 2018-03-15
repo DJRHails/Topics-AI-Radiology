@@ -75,6 +75,12 @@
 						margin-right: 5;
 						color:#fff;
 }
+.image-caption a{
+            text-align:left;
+						margin-left: 5;
+						margin-right: 5;
+						color:#fff;
+}
 
 .image-with-caption:hover .image-caption{
             opacity:1;
