@@ -45,8 +45,8 @@
                 <p>Acts as a preliminary step as it increases speed and accuracy of diagnosis. It removes the non-cerebral tissues like skull, scalp, and dura from brain images. A simple skull stripping algorithm (S3)<a id="foot-1-ref" href="#foot-1" class="smooth-scroll"><sup>[1]</sup></a> based on brain anatomy and image intensity characteristics is shown below:</p>
                 <p>
                   <ol>
-                    <li><b>Median Filtering:</b> A \(3x3\) window is passed over the input image, averaging the pixels in that window to be the pixel contrast.</li>
-                    <li><b>Threshold \(T\) estimation:</b> The boundary rectangle of the brain skull is produced from the principle that the skull has an intensity greater than the initial mean intensity value \(T_i\). The final mean value, \(T_f\) is calculated from averaging the pixels within that boundary. The region of brain membrain based on the assumption that the membrane is less that \(T_f\). Then that average gives us T. </li>
+                    <li><b>Median Filtering:</b> A \(3 \times 3\) window is passed over the input image, averaging the pixels in that window to be the pixel contrast.</li>
+                    <li><b>Threshold \(T\) estimation:</b> The boundary rectangle of the brain skull is produced from the principle that the skull has an intensity greater than the initial mean intensity value \(T_i\). The final mean value, \(T_f\) is calculated from averaging the pixels within that boundary. The region of brain membrain is selected based on the assumption that the membrane is less that \(T_f\). Then the average of \(T_i\) and \(T_f\) gives us T. </li>
                     <li><b>Binarization using T:</b> All gray values of the skull are greater than \(T\) are set to a binary 1 and those less than are set to a binary 0. </li>
                     <li><b>Opening Morphology:</b> The pixels are eroded (1 -> 0) in a \(13x13\) filter to separate the skull from the brain.</li>
                     <li><b>Finding largest connected component:</b> As the largest connected component is necessarily the brain, the largest area pixel count is isolated.</li>
