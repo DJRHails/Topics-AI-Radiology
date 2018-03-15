@@ -6320,6 +6320,7 @@
 			-webkit-justify-content: inherit;
 			-ms-justify-content: inherit;
 			justify-content: inherit;
+			width: 100%;
 		}
 
 		.gallery.style1 article {
