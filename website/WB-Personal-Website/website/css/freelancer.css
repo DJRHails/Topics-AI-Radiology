@@ -180,11 +180,6 @@ header.masthead h2 {
   font-family: 'Lato';
 }
 
-.mountain {
-  background-size: cover;
-  background-image: url("../img/mountains2.jpg");
-}
-
 @media (min-width: 992px) {
   header.masthead {
     padding-top: calc(6rem + 106px);
