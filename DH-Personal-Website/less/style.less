@@ -1,0 +1,96 @@
+// out: ../css/style.css, sourcemap: true, compress: true
+// There is a path to less components
+@less-basePath: "../less/";
+@img-basePath: "../img/";
+@font-basePath: "../fonts/";
+
+@import '@{less-basePath}flat-ui/mixins.less';
+@import '@{less-basePath}common/variables.less';
+@import '@{less-basePath}common/mixins.less';
+@import '@{less-basePath}common/common.less';
+@import '@{less-basePath}common/navbar.less';
+@import '@{less-basePath}common/helper.less';
+@import '@{less-basePath}common/separator-styles.less';
+@import '@{less-basePath}common/font.less';
+@import '@{less-basePath}common/animation.less';
+/* header */
+//@import '@{less-basePath}header/header-23.less';
+/* contents */
+@import '@{less-basePath}sections/_sections.less';
+
+.content-23 {
+    .c23-video {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        // Test
+    }
+    .control-btn {
+        .opacity(10);
+    }
+    &.custom-bg {
+        background-image: url('../img/Italy_001.jpg');
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-color: #1B1F23;
+    }
+}
+.content-32 h3,
+.content-33 .lead,
+.content-34 h2,
+.content-35 h2 {
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+.content-34 {
+    .slide-1,
+    .slide-2,
+    .slide-3 {
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .slide-1 {
+        background-image: url("../img/slide-1.jpg");
+    }
+    .slide-2 {
+        background-image: url("../img/slide-2.jpg");
+    }
+    .slide-3 {
+        background-image: url("../img/slide-3.jpg");
+        .container,
+        .lead {
+            color: #bdc3c7;
+        }
+        .box-1 h3,
+        .box-2 h3,
+        h2 {
+            color: #fff;
+        }
+    }
+    .container {
+        background: none;
+        @media (max-width: 768px) {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+    }
+    @media (max-width: 768px) {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .pt-item-3 + .pt-controls li {
+        border: 2px solid #fff;
+        &.active {
+            background: #fff;
+        }
+    }
+}
+.content-35 {
+    .btn-success {
+        background: #27ae60;
+    }
+    .background .col-sm-4 > div {
+        background: #e9e8e6;
+    }
+}
