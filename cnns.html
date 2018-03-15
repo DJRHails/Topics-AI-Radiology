@@ -107,10 +107,10 @@
 				<div class="content">
 					<h2>Using CNN's for multiple object classification</h2>
 					<p>
-					CNN's are very good at image classification but a lot medical image analysis does not require classifying a single image but <i>objects</i> or <i>regions</i> of an image in order to show highlight lesions.
+					CNN's are very good at image classification but a lot of medical image analysis does not require classifying a single image but <i>objects</i> or <i>regions</i> of an image in order to show highlight lesions.
 					</p>
 					<p>There has been a lot of research into how best to do this and the first major paper on it was called R-CNN.</p>
-					<p>CNNs have traditionally been used for image classification however in 2014 a paper<sup><a href="#foot-4">4</a></sup> on object detection using CNNs described a technique which enabled CNNs to be used to accurately isolate objects in images. The architecture was titled R-CNN (Regions with CNNs)<sup><a href="#foot-5">5</a></sup>.</p>
+					<p>CNNs have traditionally been used for image classification, however, in 2014 a paper<sup><a href="#foot-4">4</a></sup> on object detection using CNNs described a technique which enabled CNNs to be used to accurately isolate objects in images. The architecture was titled R-CNN (Regions with CNNs)<sup><a href="#foot-5">5</a></sup>.</p>
 
 					<h3>R-CNN</h3>
 					<p>R-CNN uses a process called selective search to create regions of different sizes it wishes to check for objects.</p>
@@ -123,7 +123,7 @@
 							<li>There are 3 models which need training (CNN for features, classifier and regression model)</li>
 						</ul>
 					</p>
-					<p>2015 saw the author of R-CNN release a new paper on an architecture called Fast R-CNN which improved on R-CNN and solved both of the two problems above.</p>
+					<p>2015 saw the author of R-CNN release a new paper on an architecture called Fast R-CNN which improved on R-CNN and solved both of the problems above.</p>
 					<p>How did he achieve this?</p>
 					<p>Solving the first issue involved making a single pass through the CNN of the image and then using obtaining features for a region by selecting a region on the CNNs feature map, reducing the number of passes to one.</p>
 					<p>Solving the second issue meant jointly training the CNN, classifier and regressor in a single model. Now only one network is used as you can see from the image above.</p>
@@ -134,11 +134,11 @@
 			<!-- Four -->
 			<section class="spotlight style1 orient-right content-align-left image-position-center">
 				<div class="content">
-					<h2>Impact on medical image analysis</h2>
-					<p>Quantitative assessment of lesions provide valuable information for analysis but it requires accurate lesion segmentation in multi-modal 3D images which is hard. Variability in location, size, shape, frequency make it diff to devise effective segmentation rules.<sup><a href="#foot-6">6</a></p>
+					<h2>Impact on Medical Image analysis</h2>
+					<p>Quantitative assessment of lesions provide valuable information for analysis but it requires accurate lesion segmentation in multi-modal 3D images which is hard. Variability in location, size, shape, and frequency make it difficult to devise effective segmentation rules.<sup><a href="#foot-6">6</a></p>
 					<p>A lot of 3D analysis is done by using a 2D CNN on each individual layer of the 3D one. The results from this are promising.</p>
 					<p>Full 3D CNN's are computationally expensive due to the 3D convolutions - therefore inference (gaining meaning) is very slow. However in contrast to the 2D/3D hybrids, fully 3D CNNs can use a technique called dense-inference which greatly reduces the times to meaningful inference.</p>
-					<p>A CNNs performance is influenced by the data it is trained on. A common approach is training on equally sampled images from each class, however this can bias the classifier to rare types and can lead to over-segmentation. To counter this two stage training has been introduced where another CNN is trained on a distribution which is similar to the real one but oversampling pixels which were incorrectly classified in the first one. This can lead to overfitting.</p>
+					<p>A CNNs performance is influenced by the data it is trained on. A common approach is training on equally sampled images from each class, however, this can bias the classifier to rare types and can lead to over-segmentation. To counter this, two stage training has been introduced where another CNN is trained on a distribution which is similar to the real one but oversampling pixels which were incorrectly classified in the first one. This can lead to overfitting.</p>
 				</div>
 			</section>
 
