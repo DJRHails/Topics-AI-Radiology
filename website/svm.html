@@ -16,7 +16,7 @@
         <div class="content">
           <h1>Support Vector Machines for MRI Brain Image Classification</h1>
           <p>
-						SVMs are a type of supervised machine learning method, effective for classification problems.
+						SVMs are a type of supervised machine learning method which are effective for classification problems.
 						Hence, they have potential for use in automating the identification and classification of brain tumours in MRI images.
 					</p>
           <ul class="actions vertical">
@@ -34,9 +34,9 @@
 						<p>
 							Support Vector Machine (SVM) refers to a supervised machine learning algorithm which can be used for both classification or regression challenges.<a id="foot-1-ref" href="#foot-1"><sup>[1]</sup></a>
 							<br>
-							SVM performs classification by finding the hyperplane that maximizes the margin between two classes.
+							SVM performs classification by finding the hyperplane that maximises the margin between two classes.
 							In the problem of classifying MRI brain tumour images the two classes can be, for instance, malignant and benign tumour images.
-							Support vectors are the vectors that define the hyper-plane.<a id="foot-15-ref" href="#foot-15"><sup>[15]</sup></a>
+							Support vectors define the hyper-plane.<a id="foot-15-ref" href="#foot-15"><sup>[15]</sup></a>
 						</p>
           </div>
 					<div class = "image image-with-caption">
@@ -65,7 +65,7 @@
           <div class="content">
             <h2>How do they work on linearly separable classes?</h2>
             <p>
-							If the classes are linearly separable, then there must exist a linear hyper-plane that divides the classes accurately.
+							If the classes are linearly separable then there must exist a linear hyper-plane that divides the classes accurately.
 							The task therefore its to find this linear optimal separating hyper-plane.
 							<br>
 							The linear hyper-plane can have the primal form:
@@ -80,7 +80,7 @@
 								<li>\(b\) is the bias</li>
 								<li>\(w\) is a (primal) weight vector</li>
 								<li>\(\alpha\) is a (dual) weight vector</li>
-								<li>\(y_{i} \in \{-1, 1\}\)</li>
+								<li>\(y_{i} \in \{-1, +1\}\)</li>
 								<li>\(x_{i}\) is a support vector</li>
 							</ul>
 							<a id="foot-17-ref" href="#foot-17"><sup>[17]</sup></a>
@@ -100,7 +100,7 @@
           <div class="content">
             <h2>How do they work on non-linearly separable classes?</h2>
             <p>
-							When the classes are non-linearly separable, it makes more sense to use the dual form of classifier.
+							When the classes are non-linearly separable it makes more sense to use the dual form of classifier.
 							However, a kernel is also needed.
 							A kernel is a mathematical function that transforms a low-dimensional input space into a high-dimensional space, allowing the modified classes to become linearly separable<a id="foot-1-ref" href="#foot-1"><sup>[1]</sup></a>.
 							<br>
@@ -170,15 +170,15 @@
 	          <div class="content">
 	            <h2>What features do we extract from MRI images?</h2>
 	            <p>
-								One images have been pre-processed, the next step is to extract numerical features.
+								Once images have been pre-processed the next step is to extract numerical features.
 								The choice of numerical features are important as they will determine the success of any machine learning model.
 						    <ul> Features can be grouped into:
 									<li>Grey-scale features: these include mean, variance, standard deviation, skewness and kurtosis</li>
 									<li>Texture-features: these include entropy, dissimilarity, inverse, energy, contrast and IDM </li>
 									<li>Symmetric feature: the exterior symmetry </li>
 								</ul>
-								Once features are obtained, PCA (Principle Component Analysis) can reduce the number of features needed.
-							  This is useful because excessive features increases memory use and computation time.<a id="foot-4-ref" href="#foot-4"><sup>[4]</sup></a>
+								Once features are obtained PCA (Principle Component Analysis) can reduce the number of features needed.
+							  This is useful because excessive features increase memory use and computation time.<a id="foot-4-ref" href="#foot-4"><sup>[4]</sup></a>
 							</p>
 	          </div>
 	        </section>
@@ -195,11 +195,11 @@
 		              </header>
 		              <div class="content">
 										GLCM is a widely used texture feature extraction technique.<a id="foot-6-ref" href="#foot-6"><sup>[6]</sup></a>
-	 	 								GLCM stands for Gray-Level Occurence Matrix, and it is a statistical method of examining texture that considers the spatial relationship of pixels.
+	 	 								GLCM stands for Grey-Level Occurence Matrix and it is a statistical method of examining texture that considers the spatial relationship of pixels.
 	 	 								The GLCM function generates a matrix by finding pairs of pixels with specific values and in specified spatial relationships.
 	 	 								Statistical values are then calculated using the matrix.<a id="foot-5-ref" href="#foot-5"><sup>[5]</sup></a>
 	 	 								<br>
-	 	 								Generated features include contrast, homogeneity, correlation, energy and difference entropy.<a id="foot-6-ref" href="#foot-6"><sup>[6]</sup></a>
+	 	 								Generated features include contrast, homogeneity, correlation, energy, and difference entropy.<a id="foot-6-ref" href="#foot-6"><sup>[6]</sup></a>
 		              </div>
 		            </section>
 		            <!-- Wavelet Transform and SGLDM-->
@@ -208,11 +208,11 @@
 		                <h3>Wavelet Transform &amp; SGLDM </h3>
 		              </header>
 		              <div class="content">
-										By using 2D wavelet transformation, an MRI brain image is decomposed into four sub-bands.
+										By using 2D wavelet transformation an MRI brain image is decomposed into four sub-bands.
 										The sub-band which has the histogram with maximum variance is selected for further processing.
 										This means that you capture the clearest appearance of changes between different textures.
 										<br>
-										The selected sub-band is processed by the spatial gray level dependence matrix (SGLDM) proposed by R.M.Haralick.
+										The selected sub-band is processed by the spatial Grey-Level Dependence Matrix (SGLDM) proposed by R.M.Haralick.
 										<ul>By applying the SGLDM, 13 features are computed<a id="foot-7-ref" href="#foot-7"><sup>[7]</sup></a>:
 											<li>entropy</li>
 											<li>contrast</li>
@@ -240,11 +240,11 @@
 	            <h2>How do we use extracted features to train an SVM?</h2>
 	            <p>
 								After features have been extracted for each MRI image in the training data, data points need to be constructed (where a data point corresponds to an image).
-								Each data point will contain all the values for each feature, and the classification of the image (malignant or benign) as a -1 and +1.<a id="foot-3-ref" href="#foot-3"><sup>[3]</sup></a>
+								Each data point will contain all the values for each feature and the classification of the image (malignant or benign) as a -1 and +1.<a id="foot-3-ref" href="#foot-3"><sup>[3]</sup></a>
 								<br>
-								The SVM is then trained using each data point. For the dual classifier, training involves learning the values in \(\alpha\) to determine the hyper-plane (and which data points are its support vectors).
+								The SVM is then trained using each data point. For the dual classifier training involves learning the values in \(\alpha\) to determine the hyper-plane (and which data points are its support vectors).
 								<br>
-								One modern algorithm used for training a dual classifier is Co-ordinate descent.
+								One modern algorithm used for training a dual classifier is Co-ordinate Descent.
 								For each \(i \in \{1 .. n\}\), iteratively, the co-efficient \(\alpha_{i}\) is adjusted in the direction that reduces the error.
 								Then, \(\alpha\) is projected onto the nearest vector of co-efficients that satisfies the given constraints (typically Euclidean distances).
 								This is repeated until near optimal coefficients are obtained. <a id="foot-16-ref" href="#foot-16"><sup>[16]</sup></a>
@@ -257,9 +257,9 @@
 						<div class="content">
 							<h2>How do we test and measure performance of an SVM?</h2>
 							<p>
-								Given a trained SVM, testing involves 'plotting' unseen data points (MRI images) in the space and seeing if the SVM's classification of the data point matches the correct classification.
+								Given a trained SVM testing involves 'plotting' unseen data points (MRI images) in the space, and seeing if the SVM's classification of the data point matches the correct classification.
 								<br>
-								<ul>The options that occur when classifying any data point, for the problem of classifying brain tumours as benign and malignant,are as follows<a id="foot-1-ref" href="#foot-1"><sup>[4]</sup></a>:
+								<ul>The options when classifying any data point, for the problem of classifying brain tumours as benign and malignant, are as follows<a id="foot-1-ref" href="#foot-1"><sup>[4]</sup></a>:
 									<li>True positive (TP): Malignant brain tumour correctly identified as malignant</li>
 									<li>False positive (FP): Benign brain tumour image incorrectly identified as malignant</li>
 									<li>True negative (TN): Benign brain tumour image correctly identified as benign</li>
@@ -271,7 +271,7 @@
 									<li>Accuracy: (TP + TN)/(TP + TN + FP + FN) * 100%</li>
 								</ul>
 								Sensitivity can be thought of as the proportion of malignant brain tumours correctly identified, and specificity as the proportion of benign brain tumours correctly identified.
-								One can argue that sensitivity is more important than specificity, since it is time critical to identify malignant tumours.
+								One can argue that sensitivity is more important than specificity since it is time critical to identify malignant tumours.
 							</p>
 						</div>
 					</section>
@@ -288,7 +288,7 @@
 								</ul>
 								All of which involve similar feature extraction and training/testing procedures.
 								The results of training SVMs for these purposes are shown below.
-								Given that the SVMs appear to achieve a high accuracy in classifying malign and benign brain tumours from MRI images, SVMs may be incredibly useful for assisting doctos with time-critical diagnosis.
+								Given that the SVMs appear to achieve a high accuracy in classifying malignant and benign brain tumours from MRI images, SVMs may be incredibly useful for assisting doctos with time-critical diagnosis.
 							</p>
 	          </div>
 
@@ -340,15 +340,15 @@
 					<section class="wrapper style1 align-left">
 		        <div class="inner">
 		          <h1>Other considerations</h1>
-		          <p>This page deals with a generalised approach to using SVMs for MRI brain image analysis, however there are other specific considerations:</p>
+		          <p>This page deals with a generalised approach to using SVMs for MRI brain image analysis, however, there are other specific considerations:</p>
 		          <div class="index align-left">
 		            <section>
 		              <header>
 		                <h3>Overfitting</h3>
 		              </header>
 		              <div class="content">
-										When training an SVM, it is important that the model does not overfit to the training data.
-										When an SVM overfits, the error on the training set becomes very small, but becomes large when presented with unseen instances.
+										When training an SVM it is important that the model does not overfit to the training data.
+										When an SVM overfits the error on the training set becomes very small, but becomes large when presented with unseen instances.
 										<br>
 										One method of avoiding overfitting is K-fold cross validation. The idea is to create a K-fold partition of the whole dataset, repeat K times to use K−1 folds for training and a left fold for validation, and finally average the error rates of K experiments.<a id="foot-7-ref" href="#foot-7"><sup>7</sup></a></h3>
 		              </div>
@@ -358,11 +358,11 @@
 		                <h3>Choice of kernel values</h3>
 		              </header>
 		              <div class="content">
-										When choosing the RBF as the kernel, there is the choice of \(\gamma\) to be made.
+										When choosing the RBF as the kernel there is the choice of \(\gamma\) to be made.
 										The \(\gamma\) parameter determines how much a single training example influences the SVM. A lower value means that the influence is greater.
 									  <a id="foot-9-ref" href="#foot-9"><sup>9</sup></a>
 										<br>
-										Similarly, when choosing a polynomial kernel, there is the choice of \(d\). Choosing \(d = 2\) is quite common (and is a quadratic kernel), but choosing a high value of \(d\) will cause \(K(x_{i}, x)\) to tend to a value of 0 or infinity, thus not proving as effective.<a id="foot-10-ref" href="#foot-10"><sup>[10]</sup></a>
+										Similarly, when choosing a polynomial kernel there is the choice of \(d\). Choosing \(d = 2\) is quite common (and is a quadratic kernel), but choosing a high value of \(d\) will cause \(K(x_{i}, x)\) to tend to a value of 0 or infinity, thus, not proving as effective.<a id="foot-10-ref" href="#foot-10"><sup>[10]</sup></a>
 		              </div>
 		            </section>
 		            <section>
