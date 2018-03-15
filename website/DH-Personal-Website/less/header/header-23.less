@@ -1,0 +1,198 @@
+// main: ../style.less
+
+/**
+ * Header 23 stylesheet
+ * */
+ .header-23 {
+    z-index: 4;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding-top: 0;
+    padding-bottom: 0;
+    > .container {
+        position: relative;
+    }
+    .navbar {
+        position: absolute;
+        z-index: 2;
+        top: 60px;
+        font-family: @font-family-base;
+        &.navbar-fixed-top {
+            position: fixed;
+        }
+        .brand {
+            padding-left: 0;
+            .font(25px, black);
+            font-family: @font-family-base;
+            font-weight: 800;
+        }
+        .nav {
+            > li {
+                margin-left: 20px;
+                &:first-child {
+                    margin-left: 0;
+                }
+                > a {
+                    padding: 31px 0 27px;
+                    .font(16px, black);
+                    font-weight: 500;
+                    letter-spacing: 1px;
+                    .a-color(black, #506e8c);
+                }
+                &.active > a {
+                    .a-color(#506e8c);
+                }
+            }
+        }
+        .navbar-toggle {
+            margin-top: 28px;
+        }
+    }
+}
+
+.header-23-sub {
+    z-index: 3;
+    width: 100%;
+    position: relative;
+    padding-top: 200px;
+    padding-bottom: 270px;
+    color: black;
+    text-align: center;
+    background: @body-bg;
+
+    .background {
+        width:100%;
+        height:100%;
+        right:-300px;
+        left:initial;
+        background-image: url('@{img-basePath}HAILS.png');
+        .background-size(contain);
+        background-position: bottom;
+        .animation(fadein 5s ease-in-out);
+        .opacity(70);
+        @media (max-width: 767px) {
+          right:0;
+          top:auto;
+          left: -50%;
+          width:200%;
+          height: 130%;
+        }
+    }
+
+    .mouse {
+      overflow:hidden;
+      z-index: 5;
+      position:absolute;
+      left:50%;
+      bottom: 100px;
+      width:24px;
+      margin: -12px;
+      height:50px;
+      border:2px solid @body-bg-inverse;
+      border-radius:30px;
+      .opacity(30);
+    }
+    .mouse:after {
+      display: block;
+      content:"";
+      position:absolute;
+      left:12px;
+      top:10px;
+      width:3px;
+      height:4px;
+      margin-left: -3px;
+      background-color: @body-bg-inverse;
+      border-radius: 2px;
+      animation: mouse-wheel 5s cubic-bezier(0.77, 0, 0.175, 1) infinite;
+    }
+
+    @media (max-width: 991px) {
+        padding-top: 100px;
+        padding-bottom: 170px;
+    }
+    .hero-unit {
+        margin: 0;
+        padding: 0;
+        background: transparent;
+        font-size: 30px;
+        letter-spacing: -1px;
+        text-align: left;
+        h1 {
+            font-size: 100px;
+            letter-spacing: -2px;
+            font-family: "Lato";
+            font-weight: lighter;
+            @media (max-width: 991px) {
+                display: block;
+            }
+            @media (max-width: 767px) {
+              font-size: 70px;
+            }
+            @media (max-width: 375px) {
+              font-size: 40px;
+            }
+            strong{
+              font-size: 150px;
+              font-family: "Jaapokki Enchance";
+              //font-weight: 800;
+              color: @pomegranate;
+              @media (max-width: 767px) {
+                font-size: 100px;
+              }
+              @media (max-width: 375px) {
+                font-size: 60px;
+              }
+            }
+        }
+        span {
+            font-weight: 300;
+            font-family: "Lato";
+            @media (max-width: 991px) {
+                display: block;
+            }
+        }
+        @media (max-width: 991px) {
+            text-align: center;
+        }
+        @media (max-width: 375px) {
+          margin-top: 50px;
+        }
+    }
+}
+.mask {
+  z-index: 1000;
+  background-color: @body-bg;
+  .opacity(90);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  display: none;
+}
+.popup-video {
+  z-index: 1000;
+  margin: 0 10%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+  overflow: hidden;
+  &.shown {
+    position: fixed;
+    width: 80%;
+    height: 100%;
+    overflow: visible;
+    display: none;
+  }
+  > * {
+    width: 100%;
+    height: 100%;
+  }
+}
