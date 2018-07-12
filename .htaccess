@@ -1,3 +1,0 @@
-Options +FollowSymLinks
-RewriteEngine on
-RewriteRule (.*) http://topics.hails.info/website/$1 [R=301,L]
